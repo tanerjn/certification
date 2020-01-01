@@ -349,4 +349,93 @@ Create ASG using the AMI image with a scaling action based on the ASG CPU utilis
 308. redeploy using cloudformation template. use cloud formation rolling deployment policies, create new policy for cloud formation stack and initiate update stack operation to deploy new code.
 309.Redeploy using OpsWorks stack use OpsWorks auto rollback feature to initiate rollback during failures.
 310. High traffic application running behind load baclancer wih clientes very sensitive to latency. Elastic Compute Cloud applicatoin causing increased latency to replace. By using load balancer access logs.
-311. Define AWS:CloudFormation:CustomResource in the template with the application version as one of its properties. Modify the CMDB to subscribe to the resource's creation and update notifications.
+311. Define AWS:CloudFormation:CustomResource in the template with the application version as one of its properties. Modify the CMDB to subscribe to the resource's creation and update notifications
+312. CLoudFormation to describe environment. Configure input parameter for the master server hostname/address, use this parameter within EC2 UserData script that registers the agent with the master.
+313. Large data migration from: data pipeline to export RDS and import into Dynamo.
+314.EC2 UserDat script to copy configurations.
+315.Elastic Beanstalk rolling deployments. CloudFormation template with Autoscaling group.
+316. Control S3 bucket control list. Cross account TAM.
+317. Setup AutoScaling for application tier as the origin for distribution. Use multiple RDS read replicas.
+318. Create second Beanstalk environment and swap the CNAMEs.
+319. CloudFront distribution to forward a cookie specific to this feature. For requests where the cookie is not set the web servers use its value to determine whether the feature should be on or off for the response.
+320. WaitConditionHandle lo leverage AWS SDK to run the DescribeStacks API call until CREATE COMPLETE status is reurned.
+UserDataHandle for the output of a Userdata command to do sanity check of the post install state and run integration tests on the state of multiple ters through the load balancer to the application.
+321.Create cross account IAM role with policy that granst read only access to the S3 bucket requiered by the application to the AWS account ID running production SaaS application.
+322. new autoscaling launch configuration new instance type associate to the existing group terminate running instances. chane instance type in cloud formation template that was used to crete the ec2 instance then update the stack.
+323.compound ec2 tags for metadata items, multiple items are joined together in individiual tags, associatethem with the EC2 instances, access metadata by using the ec2 describe tags.dynamo db table to hold the metadata. access the metadata by querying metadata.
+324.ASG lifecycle hook to hold instance in a terminating:wait state until you have completed any troubleshooting. When you have completed troubleshooting, wait for the terminating state to expire , or notify to Scaling to complete the lifecycle hook and terminate the instance.
+
+325. place fleet of slave nodes in scaling group. configure cloud watch alarm to trigger group policy to launch when runningbuildjobs is greater than 45 or more than 5 minutes.
+Place slave nodes in scaling group. configure cloud watch alarm triggers an auto scaling policy to terminate ec2 instances when build jobs is less then 40 or more than 5 minutes.
+
+326.Parse security groups in each region, evaluate vpc network access control lists.
+327.SimpleWorkflowService use different set of workers for each task to prevent 2 times charged credit cards.
+328.analyze application logs to identify possibe reasons for mesage processing failure and resolve the cause fr failures. 
+329. change auto scaling group config to use larger instances and include multiple az's instead of one.
+330. deploy new applicatoin component as an beanstalk application, read the data from the social media sites, store it in dynmodb use apache hive with mapreduce for analytics.
+33. chane instance type in cloud formation template that was used to crete the ec2 instance then update the stack.
+323.compound ec2 tags for metadata items, multiple items are joined together in individiual tags, associatethem with the EC2 instances, access metadata by using the ec2 describe tags.dynamo db table to hold the metadata. access the metadata by querying metadata.
+324.ASG lifecycle hook to hold instance in a terminating:wait state until you have completed any troubleshooting. When you have completed troubleshooting, wait for the terminating state to expire , or notify to Scaling to complete the lifecycle hook and terminate the instance.
+
+325. place fleet of slave nodes in scaling group. configure cloud watch alarm to trigger group policy to launch when runningbuildjobs is greater than 45 or more than 5 minutes.
+Place slave nodes in scaling group. configure cloud watch alarm triggers an auto scaling policy to terminate ec2 instances when build jobs is less then 40 or more than 5 minutes.
+
+326.Parse security groups in each region, evaluate vpc network access control lists.
+327.SimpleWorkflowService use different set of workers for each task to prevent 2 times charged credit cards.
+328.analyze application logs to identify possibe reasons for mesage processing failure and resolve the cause fr failures. 
+329. change auto scaling group config to use larger instances and include multiple az's instead of one.
+330. deploy new applicatoin component as an beanstalk application, read the data from the social media sites, store it in dynmodb use apache hive with mapreduce for analytics.
+331. . chane instance type in cloud formation template that was used to crete the ec2 instance then update the stack.
+323.compound ec2 tags for metadata items, multiple items are joined together in individiual tags, associatethem with the EC2 instances, access metadata by using the ec2 describe tags.dynamo db table to hold the metadata. access the metadata by querying metadata.
+324.ASG lifecycle hook to hold instance in a terminating:wait state until you have completed any troubleshooting. When you have completed troubleshooting, wait for the terminating state to expire , or notify to Scaling to complete the lifecycle hook and terminate the instance.
+
+325. place fleet of slave nodes in scaling group. configure cloud watch alarm to trigger group policy to launch when runningbuildjobs is greater than 45 or more than 5 minutes.
+Place slave nodes in scaling group. configure cloud watch alarm triggers an auto scaling policy to terminate ec2 instances when build jobs is less then 40 or more than 5 minutes.
+
+326.Parse security groups in each region, evaluate vpc network access control lists.
+327.SimpleWorkflowService use different set of workers for each task to prevent 2 times charged credit cards.
+328.analyze application logs to identify possibe reasons for mesage processing failure and resolve the cause fr failures. 
+329. change auto scaling group config to use larger instances and include multiple az's instead of one.
+330. deploy new applicatoin component as an beanstalk application, read the data from the social media sites, store it in dynmodb use apache hive with mapreduce for analytics.
+331. . chane instance type in cloud formation template that was used to crete the ec2 instance then update the stack.
+323.compound ec2 tags for metadata items, multiple items are joined together in individiual tags, associatethem with the EC2 instances, access metadata by using the ec2 describe tags.dynamo db table to hold the metadata. access the metadata by querying metadata.
+324.ASG lifecycle hook to hold instance in a terminating:wait state until you have completed any troubleshooting. When you have completed troubleshooting, wait for the terminating state to expire , or notify to Scaling to complete the lifecycle hook and terminate the instance.
+
+325. place fleet of slave nodes in scaling group. configure cloud watch alarm to trigger group policy to launch when runningbuildjobs is greater than 45 or more than 5 minutes.
+Place slave nodes in scaling group. configure cloud watch alarm triggers an auto scaling policy to terminate ec2 instances when build jobs is less then 40 or more than 5 minutes.
+
+326.Parse security groups in each region, evaluate vpc network access control lists.
+327.SimpleWorkflowService use different set of workers for each task to prevent 2 times charged credit cards.
+328.analyze application logs to identify possibe reasons for mesage processing failure and resolve the cause fr failures. 
+329. change auto scaling group config to use larger instances and include multiple az's instead of one.
+330. deploy new applicatoin component as an beanstalk application, read the data from the social media sites, store it in dynmodb use apache hive with mapreduce for analytics.
+331. . chane instance type in cloud formation template that was used to crete the ec2 instance then update the stack.
+323.compound ec2 tags for metadata items, multiple items are joined together in individiual tags, associatethem with the EC2 instances, access metadata by using the ec2 describe tags.dynamo db table to hold the metadata. access the metadata by querying metadata.
+324.ASG lifecycle hook to hold instance in a terminating:wait state until you have completed any troubleshooting. When you have completed troubleshooting, wait for the terminating state to expire , or notify to Scaling to complete the lifecycle hook and terminate the instance.
+
+325. place fleet of slave nodes in scaling group. configure cloud watch alarm to trigger group policy to launch when runningbuildjobs is greater than 45 or more than 5 minutes.
+Place slave nodes in scaling group. configure cloud watch alarm triggers an auto scaling policy to terminate ec2 instances when build jobs is less then 40 or more than 5 minutes.
+
+326.Parse security groups in each region, evaluate vpc network access control lists.
+327.SimpleWorkflowService use different set of workers for each task to prevent 2 times charged credit cards.
+328.analyze application logs to identify possibe reasons for mesage processing failure and resolve the cause fr failures. 
+329. change auto scaling group config to use larger instances and include multiple az's instead of one.
+330. deploy new applicatoin component as an beanstalk application, read the data from the social media sites, store it in dynmodb use apache hive with mapreduce for analytics.
+331. . chane instance type in cloud formation template that was used to crete the ec2 instance then update the stack.
+323.compound ec2 tags for metadata items, multiple items are joined together in individiual tags, associatethem with the EC2 instances, access metadata by using the ec2 describe tags.dynamo db table to hold the metadata. access the metadata by querying metadata.
+324.ASG lifecycle hook to hold instance in a terminating:wait state until you have completed any troubleshooting. When you have completed troubleshooting, wait for the terminating state to expire , or notify to Scaling to complete the lifecycle hook and terminate the instance.
+
+325. place fleet of slave nodes in scaling group. configure cloud watch alarm to trigger group policy to launch when runningbuildjobs is greater than 45 or more than 5 minutes.
+Place slave nodes in scaling group. configure cloud watch alarm triggers an auto scaling policy to terminate ec2 instances when build jobs is less then 40 or more than 5 minutes.
+
+326.Parse security groups in each region, evaluate vpc network access control lists.
+327.SimpleWorkflowService use different set of workers for each task to prevent 2 times charged credit cards.
+328.analyze application logs to identify possibe reasons for mesage processing failure and resolve the cause fr failures. 
+329. change auto scaling group config to use larger instances and include multiple az's instead of one.
+330. deploy new applicatoin component as an beanstalk application, read the data from the social media sites, store it in dynmodb use apache hive with mapreduce for analytics.
+335. Centralised test server hosts an automated browser testing framework. CloudFormation custom resource to notify the centralized test server via SNS topic, that a new environment has been initialized. The centralised test server can then execute the tests before sending the results back to the CloudFormation.
+336. update html, css, js for the frontend to S3 bucket. create cloud front distro with this bucket as its origin. beanstalk to deploy nodejs application. Launch Redshift cluster and point to its JBDC endpoint.
+337. add cloudformation wait condition that depends on the web server resource. When the UserData script finishes on the web servers, use curl to signal to the WaitCondition pre-signed URL that they are ready. Add an Cloudformation wait condition that depends on the web server resource. when the user data script finishes on the web server, use the command "cfn-signal" that they are ready.
+338. update cloud formation configuration to take advantage of auto scaling groups. configure an auto scaling group policy to trigger off you custom cloud watch metrics. create custom cloudwatch metric that you push your jvm memory usage to. create cloud watch alarm that triggers an SNS notification to page your team when the application memory usage becomes too large.
+
+339.
