@@ -1877,4 +1877,52 @@ show spanning-tree
 
 Down-Init-TwoWay-Exstart-Exchange-Loading-Full
 
+ntp authentication-key 1 md5 ciscontp authenticatentp server 192.168.0.1 key 1
+ntp authentication-key 1 md5 ciscontp authenticatntp trusted-key 1 ntp master 5
+alert - critical - error - warning - notification - informational - notification 
+logging rate-limit 10 except 3
+Same standby group was used on both sides (r1/r2 and r3/r4)
+FHRP: First hop redundancy using virtual IP which can be shared between 2 or more routers.
+ip access-list extended acl deny tcp 192.168.0.0 0.0.0.255 host 192.168.10.10 eq 22 permit udp 192.168.0.0 0.0.0.255 host 1.2.3.4 eq 123 deny udp any host 1.2.3.4 eq 123 permit ip any any
+
+aaa new-modeltacacs-server host 10.1.2.10 key ciscoaaa authentication login default group tacas+ localaa authorization exec default group tacacs+ local
+
+TACACS: Uses tcp, encrypts entire payload, open standard, full command login.
+RADIUS: Uses udp, encrypts only passwords, open standard, no command login.
+
+rootkit: gain administrator level access. 
+ip domain cisco.cm generate  2048ip ssh version 2
+Protect network against man in the middle: Dynamic ArP inspection.
+VLAN 10: Ports 1 - 40 untrusted, 41 - 48 Trusted
+Ip arp inspetion vlan 10 - interfae range gi1/0/41 - ip arp inspection trust
+(invalid ARP packets are dropped)
+anycasts are derived from unicast 
+multicast 224 - 239..., FF02
+	0xFFFF EUI-64 address
+
+	ipv66 unicast-routing 
+	ipv6 address 2001:abc:1234:2::32/64 eui-64
+	ip dns server ip host proxy.secureit.net 192.168.100.100
+	no ip-domain-lookup (prevent not related waitings)
+	LLQ(Low latency queing provides strict priority queing for CBWFQ reducing jitter in voice conversations. 
+	config-pmap-c: priority 50
+	QoS policy: Voice - EFCall signalling - CS3 Interactive Video - AF41 Critical Data - AF31 Bulk Data - AF11 Network Management - CS2
+	Identify Cisco phone connected to the switch trusting its QoS markings. CDP.
+	switchport port-security
+	switchport port-security maximum 1 vlan access(restrict the number of mac address to 1 on the entire port)
+	switchport port-security maximum 1 vlan voice(number of mac address can be 2)
+	802.11 Speeds of up to 2 Mbps.
+	AES - WPA2
+	WLAN Authentication: WEP, WPA, WPA2, WPA3
+	CAPWAP: UDP 5246, UDP 5247
+	FlexConnect aka HybridRemote Edge Access Point): swtch client data traffic locally and perform client authentication locally.
+	Controller and networking devices: Southbound
+	Controller and northbound :Northbound
+	Control plane layer: OSPF, BGP
+	Cisco DNA solution: SD Access 
+	DMVPN: replace MPLS by Internet links using multi region VPN. Hub & Spoke: HQ to branch, Spoke to spoke: branch to branch.
+	VPN type with remote access: VPN Remote access. 
+	Relay agent: ip helper-address 192.168.1.10
+	ip dhcp excluded-address 10.10.1.1 10.10.1.19, ip dhcp excluded-address 10.10.1.201 10.10.1.254, ip dhcp pool POOL, default-router 10.10.1.1 dns-server 10.10.10.10 10.10.10.11, option 150 ip 192.168.10.10, network 10.10.1.0 255.255.255.0
+	pull deployment model client server architecture: Puppet.
 
