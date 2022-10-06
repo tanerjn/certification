@@ -1,0 +1,43 @@
+1. Hub and spoke design: Create a transit gateway and share it with the existing AWS accounts Attach existing VPCs to the transit gateway Configure the required routing to allow access to the internet.
+2. Update the application to store new order information in Amazon DynamoDB. When a new order
+is created, trigger an AWS Step Functions workflow, mark the orders as "in progress," and print a package label to the warehouse. Once the label has been scanned and fulfilled, the application will trigger an AWS Lambda function that will mark the order as shipped and complete the workflow.
+
+3. Create an AWS CloudFormation template to turn on AWS Config Activate the INCOMING_SSH_DISABLED AWS Config managed rule Deploy an AWS Lambda function that will run based on AWS Config findings and will remediate noncompliant resources Deploy the CloudFormation template by using a StackSet that is assigned to the "production" OU. Apply an SCP to the OU to deny modification of the resources that the CloudFormation template provisions.
+4.  Create a CMK in AWS KMS with no key material and an origin of EXTERNAL. Import the key
+material generated from the on-premises HSMs into the CMK using the public key and import token
+provided by AWS. Configure a bucket policy on the logging bucket that disallows uploads of none encrypted data and requires that the encryption source be AWS KMS.
+5. Configure the application instances to communicate with AWS Systems Manager Grant access to the system administrators to use Session Manager to establish a session with the application instances Terminate the bastion host.
+6. Publish an application availability metric to Amazon CloudWatch in the DR Region from the
+application environment in the primary Region Create a CloudWatch alarm in the DR Region that is invoked when the application availability metric stops being delivered 
+7. Configure the CloudWatch alarm to send a notification to an Amazon Simple Notification Service (Amazon SNS) topic in the DR Region Use an AWS Lambda function that is invoked by Amazon SNS in the DR Region to promote the read replica and to add EC2 instances to the Auto Scaling group create a cron task that runs every 5 minutes by using one of them.
+8. Ensure that the container has the environment variable with name "DB_PASSWORD" specified with a "ValueFrom" and the ARN of the secret.
+Ensure that the container has the environment variable with name "D8_HOST" specified with the hostname of a DB instance endpoint.
+Ensure that the Aurora MySQL database security group allows inbound network traffic from the Fargate service on the MySQL TCP port 3306.
+9. RDS Postgres instance gets more reads than writes.Solution
+A. Configure an Amazon Route 53 health check for each read replica using its endpoint
+Create an Amazon Route 53 hosted zone and a record set for each read replica with a TTL and a weighted routing policy.
+ F. Create multiple read replicas in different Availability Zones.
+10.  Dynamo db media streaming. A. Write a script to delete objects from Amazon S3 Specify in each request a NoncurrentVersionExpiration property with a NoncurrentDays attribute set to.
+11. Write a script to perform a conditional delete on all the affected DynamoDB records.
+12.  Create a Multi-AZ deployment of SQL Server on Amazon RDS Create a secret in AWS Secrets
+Manager for the credentials to the RDS database. Create an Amazon ECS task execution role that
+allows the Fargate task definition to get the secret value for the credentials to the RDS database in
+Secrets Manager. Specify the ARN of the secret in Secrets Manager in the secrets section of the
+13. Fargate task definition so the sensitive data can be injected into the containers as environment variables on startup for reading into the application to construct the connection string Set up the NET Core service in Fargate using Service Auto Scaling behind an Application Load Balancer in multiple Availability Zones.
+14. Configure a video ingestion stream by using Amazon Kinesis Video Streams Use the catalog of faces to build a collection in Amazon Rekognition Stream the videos from the MAM solution into Kinesis Video Streams Configure Amazon Rekognition to process the streamed videos Then, use a stream consumer to retrieve the required metadata and push the metadata into the MAM solution Configure the stream to store the videos in Amazon S3. 
+15. Ensure all AWS accounts are part of an AWS Organizations structure operating in all features mode.
+16. Create an SCP that contains a deny rule to the ec2 : PurchaseReservedlnstancesOffering and ec2:
+Modify Reserved Instances actions. Attach the SCP to each organizational unit (OU) of the AWS Organizations structure.
+17. Implement cost awareness: CloudWatch metric for billing.
+18. Reserve capacity for the RDS database and the minimum number of EC2 instances that are constantly running.
+19. Replace the DB instance with Amazon Aurora with Aurora Replicas. Deploy the application to multiple smaller EC2 instances at multi AZs in auto-scaling group behind an ALB.
+20. Route 53 health check, route 53 hosted zone, read replicas at multi AZ.
+21. Use Amazon EC2 Image Builder to create and copy AMIs of the web and application server to both the primary and DR Regions. Create a cross-Region read replica of the DB instance in the DR Region. In the event of a disaster, promote the read replica to become the master and reprovision the servers with AWS CloudFormation using the AMIs.
+22. 1-15 GB video files which have decreasing amount of view rates. D. Store the video files in an Amazon S3 bucket using S3 Intelligent-Tiering. Use Amazon CloudFront
+to deliver the content with the S3 bucket as the origin.
+
+
+
+
+
+

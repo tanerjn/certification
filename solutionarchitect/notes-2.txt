@@ -1,0 +1,194 @@
+UDEMY
+
+Deployment and Instance Management:
+AWS OpsWorks
+Managed Chef & Puppet service(cook book repository)
+CodeDeploy:
+We want to deploy the application to the next version.
+Other ways: Ansible Terraform,..
+CodeDeploy has integrations with EC2, AutoSca, Lambda.
+possible to choose how long to keep instances.
+
+Automated roll back.
+Define how to deploy the application appspec.yml (stepped, all at one etc)
+can use hooks to verify the deployment after each deployment. will do in place update. Half time blue other half green in place updates v1/v2 half half.
+pre traffic hook lambda function. Code deploy can shift traffic between 2 versions of same lambda function. ALB traffic shifting.
+CLoudFormation:
+is not a service. IAC. reuse and redeploy application at another region.
+creation policy: success creations
+update policy. deletion policy=retain. deletion policy=snapshots delete policy=delete. CloudFormation manages ASG, not underlying ec2.
+create IAM principal of our own stack creation. CAPABILITY_IAM.
+create, update, delete is handled by lambda function.
+custom resources using lambda (empty s3 bucket before using)
+
+Cross stack:
+helpful when stacks have different lifecycles. VPC stack->Stack1, stack 2, stack 3. when you want to move values from one stack to another.
+neste stack-> app stack, rds stack, asg stack, elb stack.
+generate secret from secret manager. keys storing at KMS. Certificate certificate manager.
+
+Service catalog
+create and manage catalogs of IT services that are approved on AWS products are CloudFormation(IAC) templates.
+helps ensure consistency.
+Serverless application model
+for lambda to deploy different versions of lambda
+code pipeline->code commit->code build->cloud formation->code deploy->lambda
+
+
+Cloud Development Kit(CDK) [IMPORTANT]
+define your infra using python,JS..compiled into JSON/YAML
+great for lambda->docker in ecs, eks.
+
+AWS System Manager(patching) [IMPORTANT]
+patching works both on windows and linux.
+resource groups, action, parameter store, action(run command, session manager, patch manager), maintenance window.
+Run Command: ssh is not needed. Define a patch baseline and use tag, patch groups. Define rate control. AWSRunBatchBaseLine. Monitor patch compliance using SSM inventory.
+
+Task ->system manager->schedule->Targets->patch feedback->Task
+
+AWS Parameter Store
+.. Any AWS customer who wants to have a centralised way to manage configuration data.
+Tag Editor:
+for cost, different services at departments
+Trusted advisor
+fault tolerance, service limits(manually create)
+
+EC2 instance launch types
+
+
+S3 Storage Classes
+standard high durability, avalability.
+infrequent access: DR, backups
+one zone infrequent: high durab, high aval
+intelligent tiering:
+glacier instant retrieval: great for rare access. min storage 90 days
+can move between classes or using s3 lifecycle config.
+S3 lifecycle rule to change automatically between tiers
+S3 requester pays.
+
+AWS Budgets:
+Cost explorer: optimal savings plan
+
+cloud hosting6R
+rehosting: ex. vm import/export
+replatforming: migrate db
+repurchase: crm to salesforce
+refactor: NFS TO S3..ARCHITECTURE CHANGE
+retire:turn off thins you don need
+retain: do nothing policy
+
+File Gateway:
+Read only replilcas. bakup lifeycle policies
+volume gateway: block storage using iscsi
+cached volumes
+tape gateway
+
+aws OpsHub
+schema convert tool
+dms: oracle, elastic search engine
+``````Cloud Adoption Readiness Tool``````````
+
+Disaster Recovery
+on premise -> on premise
+on premise -> aws cloud
+aws cloud region a -> aws cloud region b
+
+RPO: how often you run backups. Between RPO and disaster is the data loss.
+RTO: when you make the recovery. Between disaster and RTO is the downtime.
+
+backup and restore(high rpo)y
+scheduled regular snapshots is the way to create robust disasterrecover.
+route 53 to create HA. rds efs elastic cache create multi AZ. replication cross region, storage gateway
+automation: cloud formation, elastic beanstalk,
+chaos: netdlix symbian army
+fault injection simulator(FIS)
+application discovery services: gather server utilization data,
+agentless discovery: ova package, os agnostic
+agentbased: system config, perf, ...ubuntu, centos.. can be viewed as csv
+resources(ec2, eks, rds), monitoring(cloudwatch, eventbridge)
+migration service(mgn)
+elastic disaster recovery: protect critical db
+agent based discovery: create map of used network services before starting migration.
+Storage file gateway on premise-storaege file gateway on aws.
+recover the entire tape and recover the file.
+200 tb data dms with sct enabled.
+on premise elastic search cluster into aws by transfer into s3, import the index from s3 into amazon es.
+vpc can not be changed later. vpc is private
+IGw acts as NAT gateway. public subnet must have a public ipv4 talk to the internet 0.0.0.0/0 to an IGW.
+priv subnets access internet with NAT Gateway.
+NAT instance is not resilient to faliure must manage failovery yourself
+NAT gateway managed nat solutio bandwidth scaled  automatically
+Elastic IP is coming from whitelist 3rdParty service
+Network firewall stateless firewall allow deny rules (NACL)
+Security groups stateful only allow rules at instance level. also define cross region security.
+VPC flow logs log internet traffic going thru your vpc.
+Bastion host: SSH into private ec2 instance through public ec2 instance, SSM Session Manager without ssh.
+vpc peering inter region, cross account is also possible.
+vpc longest prefix match (/32) other way of saying most specific route
+cidr should not over lap. no edge to edge routing
+transit vpc(sw vpn).
+hub and spoke, bgp(border gateway protocol).
+direct connect.
+access amazon s3 over public wif
+aws source vpcebased on the endpoint
+privatelink for rest api
+
+codeCommit is the GitHub
+codeBuild(build and test) is the Jenkins CI
+ElasticBeanstalk, CodeDeploy(Deploy, Provision)
+all thing combined is called Ci/cd pipeline.
+dev branch/prod branch.
+
+
+hot site approach: off-premise location where a company's work can resume during a disaster.
+
+CloudSearch: managed service to manage scale and search solution. FreeText, boolean, autocomplete, lambda.
+Alexa for business. Lex: speech to text. NLP.
+Rekognition: Machine learning service for labelling, content moderation, text detection, face detection.
+File upload->S3->Lambda+Step Functions->Analyze Rekognition->DynamoDB->CLoudSearch->FrontEndAPI, API Gateway.
+
+AWS WorkSpaces: Managed secure cloud desktop(linux/windows)
+AppStream: use application from WorkSpaces.
+Mechanical Turk: integrates with SWF(simple workflow) but not with StepFunctions. Image classification:dog cat etc. Data collection, business processing.
+AWS Device Farm: Application testing service for real mobile devices and real browsers. Fully automated. Generates log for the issues.
+Amazon Macie: sensitive data, such as personally identifiable information(PII). S3 Buckets, Macie, CloudWatch events.
+Amazon Transcribe: Speech into text. Automated Speech Recognition(ASR).
+Amazon WorkDocs: Alternative to google docs, drive...
+encrypted content, team workflow, legacy network file share.
+
+Exam Prep:
+Use AWS organisations with SCP to prevent high cost instance launch
+Create IAM policy to an IAM group in each account, one account maybe 20 instances.
+Create SNS notification with CloudWatch.
+Create CostExplorer
+
+serverless architecture
+client->API Gateway->Lambda->Dynamo Config s3(authentication token) for web hosting.
+CORS(Cross origin resource sharing).
+
+400: bad request
+403:Access denied
+429: Quota exceeded, throttle
+502: Bad gateway, in case of spikes
+503: unavailable
+504: integration failure
+concurrent executions: increase limit, notification alerts. create lambda function to increase limit when needed. Service Quotas API. Shard users to Amazon Cognito user pools.
+dynamoDB strong consistent data.
+
+guard duty enabled in every region
+create rules thru vpc flow logs trigger lambda programatically
+create cloud watch event rule
+configure trusted advisor
+configure cloudtrail.
+
+SSM agent without SSH keys login.
+Create a shared IAM role with the ability to create
+Kinesis can have multiple shards->Lambda->s3->Athena
+SQS queue eases the load from ec2 to lambda.
+
+
+
+
+
+
+
+

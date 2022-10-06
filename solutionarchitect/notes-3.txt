@@ -1,0 +1,339 @@
+ECS, Lambda EC2 consumes from SQS whenever an item at car shop is sold.
+Use partition keys with high probability.
+Create NAT Gateway*redundant by nature) in each AZ(private), configure the route table in the same AZ.
+Web app does not delete at SQS, so you get same emails over.
+Frequent schema changes should be handled by DynamoDB.
+Add 1 instance at AZ and 2 instances at AZ-B.
+Secured data for auditing: CLoudTrail.24 hours data retentions
+Amazon MQ, SNS, SQS are messaging services. Already having messaging And want to move: Use MQ. industry standard API support. If brand new application use SNS or SQS, they are lightweight.
+Least privilige: dynamo: putItem, deleteItem. Effect: allow. Grant access from IAM to lambda policy.
+Set up Amazon Macie to monitor S3 data.
+AWS Service Directory AD connector.
+Enabled MultiAZ Failover
+EC2 instance launched from the oldest template.
+Enable Enhanced monitoring RDS.
+AD and LDAP sign on procedure: Setup federation proxy, configure IAM role.
+Atlassian, OKTA, OneLogin: 3rd Party single sign on.
+RDSOSMetrics at CloudWatch. %CPU and %MEM metrics.
+Unused reserved instances can be sold later, convertible instance allows to use another from different instance family.
+Redis Cluster: -transit-encryption-enabled.
+IAM user with the IAM policy allowed to read and write objects in boracay bucket. Read all objects from S3 bucket.
+Aurora serverless cluster with minimum maximum capacity. You can handle transactional workloads with relational database.
+Enable transfer acceleration in the destination bucket and upload the collected data using Multipart upload.
+IAM roles AWS Directory AD Connector.
+Setup and monitor Amazon Macie to monitor data.
+Signed cookies to control who has access to content. Set-cookie header.
+Signed URL: restrict access to files. With signed cookies URL is going to be the same.
+API Gateway and Lambda to handle burst of traffic in seconds.
+S3 client side encryption, S3 server side encryption.
+Customize distributes users using Lambda@Edge
+Origin failover by creating failover.
+Create S3 lifecycle policy to move IA/Glacier after 2 years.
+Enable MFA and versioning to secure the data.
+RDS DB at multi AZ: Durable, Read Replica: Scalable.
+Use VPC endpoints to route the access.
+RTO 1 second RPO less than 1 minute.
+Modify Network Access Control List with all public address to deny from some IPs.
+Scheduled scaling policy for AutoScaling.
+AWS System Parameter ArnRole.
+Enable IAM DB Authentication.
+AWS Genereated token has 15 minutes. STS. up to 24 hours.
+DynamoDB accelerator
+Memory utilisation of EC2 instance.
+Create KMS and enable encryption helpers. 
+Enable Encryption to leverage HSM.*Hardware security module.
+Client side encryption with master key.
+Cloud watch metrics: Memory, disk space, disk swap, page file, log collection.
+Nitro based EC2 instance with 64000 PIOPS.
+Enable throttling limits. S3 verisioning enabling
+Connect on premise data center and set up lifecycle policy.
+S3 Put opertions and ECS task.
+S3 Event bridge. Simpler to control ECS tasks from CloudWatch.
+Configure S3 bucket to remove public address.
+Pre signed URLs valid for 15 minutes.
+EBS volume can be attached to multiple EC2 instances. Same goes for EFS. S3 does not offer folders but EFS does. Elastic Cache is in memory data store.
+FSx Lustre for forex trading application.
+Hot storage: Keeping frequently accessed data.
+Create Aurora for custom endpoints and reporting.
+Create filesystem at fsx for windows and join to Active Directory domain.
+is-multi-region enable-global-traits.
+Enable Cross Origin Sharing (CORS)
+Target tracking scaling. a target tracking scaling policy also adjusts to changes in the metric due to a changing load pattern.
+Use AWS resource access manager(R.A.M) to easily and securely share. Use AWS organizatoin for consolidated billing.
+AWS Control Tower: Multi account AWS environment.
+AWS IAM cross account access.
+Enable DynamoDB stream create Lambda trigger. Lambda will publish message to SNS. 
+Create 2 SNS topics and SNS queue which gets from these topics.
+API Gateway will automatically control spikes.
+Route 53 weghted routing geolocation routing
+AWS Direct Connect vs Transfer Acceleration
+Health Insurance Portability and Accountability Act (HIIPA)
+Direct connect from private network. Transfer acceleration from public end users.
+20 Ec2 limit per AZ.
+AWS kinesis for data analytics
+Gaming highscore dynamodb
+thruput optimized hdd
+clodwatch and sns
+rds mulitle region read replicas
+data analytics redshift OLAP analytical and transactional processing
+high availability of the webserver can be assured with CloudFront
+Encrypt Data in transit using VPN
+Storing both dynamic and static content: CLoudFront
+Nat gateway higher throughput and performance.
+Submit limit increase limit for vCPU on demand instance limit
+Expedited data retrieval, purchase provisioned retrieval.
+Word document, high resolution images: s3
+Temporary: instance store, highly durable: EFS, S3. Multi instance: EFS
+Data is only available 24 hrs after added to kinesis. (from sensors). possible to increase retention period.
+moving from s3 to glacier after 1 day.
+VPC does not have enough ENI, one subnet in VPC.
+standard messages preserve the order of the messagees.
+lifecycle policies in s3.( glacier days after object creation)
+configure lifecylce for transaction logs.
+standard redundancy->standart IA->Intelligent tiering->One Zone->Glacier->Glacier Deep Archive.
+Request import job to s3 snowball
+Provisioned IOPS: io1. ssd small random transactional, hdd: large sequental, streaming. Dominant performance hdd: throughput, sdd: IOPS.
+Delete on Termination to false.
+ASG: Health checks
+set up small ec2 instance with port 22 allowed
+configure cross account permission in s3
+s3:objectCreated, s3ObjectDeleted event types at SQS and SNS
+restore object event, object removal, new object created, object lost
+Create new direct connect, integrate with the old one, create transit gateway associate direct connect. Transit gateway between vpcs and direct connect.
+Financial reports, data analytics.. redshift(parallel executiong, machine learning,.. )
+Run analytics ELB log files EMR.
+SSE-C encyrpt data 
+inbound http rule in SG
+active active failover with weighted routing
+Kinesis for real time data streaming
+storage gateway to store all the backup data
+modify database scaling RDS
+Before uploading to s3: cleint side encrption with KMS, client side masetr key
+Dedicated instances to ensure each instance is at maximum performance
+multiple Elastic fabric adapters(EFA): increase network bandwidth
+ENI: elastic network interface : virtual network card in vpc. one public one elastic IP.
+AWS Fortify and WAF(define customizable web security) to fortify cloud network.
+S3 gateway endpoint enable connection between instances and Amazon S3.
+Transit gateway to access s3.
+Storage gateway hybrid storage cloud service. simplify storage costs reduce cost. 
+SMB(simple message broker) file share protocol
+DynamoDB accelerator auto scaling enabled. increase max read capacity.
+S3 select operation on the bucket's name.
+Test2:
+simple not serv, cloud watch: monitor db metrics, send email notifications
+monitor ec2 instances is not sns, it is ses. collect, monitor, analyze, act
+set up security rules to block sql injections and cross site scripting attacks in WAF. Associate rules to ALB. (Applicaiton Load Blanacer)
+WAF->CloudFront->API Gateway
+API Gateway: Pay only for the API calls you received or sent out, build RESTful APIs and WebSocket APIs optimized for serverless.
+Amazon SNS topic and configute the SQS queues to subscribe to SNS topic. Set te filter policies in the sns subscriptions to publisch the message to tohe designated sqs ququq based on its quote request type.
+Publisher -> Sns topic ->X2 SQS queue -> Ec2 instance.
+Migrate application to Elastic Kubernetes Service
+Fargate for deployment serverless containers. EKS: most trusted way. Kubernetes is cloud agnostic. Possible to move containers other cloud providers.
+If the primary DB fails, Canonical record name *CNAME) is switched to second instance.
+Assosicate elastic ip address to network load balancer
+NLB is at layer 4. Client->NLB->ALB->VPC
+Increase the write capacity assigned to the shard table
+80TB snowball edge
+100PB snowmobile
+.pem to connect bastion host. enabled 22 port.
+Enable SSencrrr ith aes-256. before sending data locally use own encryption keys.
+SSE-S3 managed keys, SSE-KMS(Key management service), SSE-C(Customer provided)
+
+Client side: AWS-KMS managed keys, customer supplied client-side master keys
+Assign IAM role to the amazon ec2 instance. 
+Enable multi factor authentication.
+set up new IPv4 subnet with larger CIDR range. Associate the new subnet with the VPC and then launch the instance.
+disable is not possible for ipv4.
+move historical data to s3 glacier deep archive. AWS Data Sync.
+AWS Data Sync works with S3, EFS,FSx, Windows File Server (organisation~aws center(bidirectional)
+Use SQS both on premise and ec2 for the decoupled application, SWF(Simple Workflow) to utilize both on prem and ec2 decoupled instances.
+order multiple snowball devices to upload files s3
+cool down(forex) app: default value 300 seconds, ensures ASG does not launch or terminate additional ec2 instances before sclaing takes effect.
+one SQS queue for free members and another queue for premium members. Configure ec2 instances to consume messages from the premium queue first and if it is empty poll from free members' queue.
+Use Route 53 with failover option to a static S3 website bucket.
+s3-flask vs own ssl certificate.
+Loss of availability+storage failure. (RDS performs failover)
+instance fails to send traffic: ec2 instance does not have public IP address associated with it.
+Most high performing big data tool: Amazon EMR cluster and store processed data in Amazon Redshift.
+Install CloudWatch agent on each instance and monitor the SwapUtilization metric.
+Multitier web application music publishing key valu store which will save the document models. Each model has band ID, album ID, song ID, composer ID lyrics.. Web tier will be hosted in an amazon ecs cluster with Fargate launch type. Most suitable DB: Dynamo DB(consisten, single digit latency at any scale).
+Reduce server cost snydicate media files cloud front and s3.
+Fargate(serverless compute engine) works with ECS and EKS.
+Global Acceleretor more suitable for non HTTP use cases gamin(UDP), IOT(MQTT) Voice over IP, as well as static IP addressed HTTP.
+North east 1 sout east -2: Geoproximity routing.
+S3 standard infrequent access dsigned for data that requieres rapid access when needed. data that is less frequently accessed.
+AWS config set up rule in your account. Records changes into a consistent form.
+Trusted advisor provides best practices.
+Generate an endpoint policy for trusted s3 buckets.
+additonal security in s3: aws data sync
+aws secret manager storeand encrypt data api keys and other secrets. enable automatic rotation. Many customers do not choose to rotate as it is critical. Update all aplications keys same time not to break. KMS is only to store keys.
+SAP HANA migratioin: an internet routable IP address(static) of the customer gateway's external interface for the on premises network.
+EBS volume sequential I/O: cold HDD(sc1) (lowest cost)
+Registered domain name and S3 bucket name same as the domain name.
+Configure cloudfront distribution and se application load balancer as the origin. Create rate based web ACL using WAF and associate with CLoudFront.
+VPC1 public, vpc2 private establish hardware VPN. establish aws direct connect.
+Replace Kinesis DS with S3 for cost optimization.
+EBS volumes support live modifications(without any interruption)
+EBS volume is off instance storage(independent from the life of an instance)
+Upload html, css, js and images in single bucket. enable website hosting. create CloudFront distribution and point the domain on the s3 website endpoint.
+Create S3 bucket with object level versioning, after 3 years -> Deep Archive
+STS: create trusted users with temporary sec. Missile track application.
+AAAA(myelb.us-west-2.elb.amazonnaws.com, ) alias or A alias for ELB. CNAME only for subdomains.
+Tiers: 
+Resilient, Secure, performant, cost-optimized, operational excellence
+access less than once a month: glacier cold strg.
+Interface endpoint(ENI) private link. Paid.
+Gateway endpoint(only Dynamo and S3) Free
+NACL is optional instance speficic. SG multiple instances can use one SG.
+Whitelisting, blacklisting by NACL. SG type SSH, port number etc. Multiple SG can be assigned to multiple Subnet.
+NAT instance(just an EC2 with few stereoids)
+NAT Gateway(managed service)
+
+Cognito: managed authentication service facevook, google, SAML
+
+Web identity federation: facebook, google. Cognito User pools: sign up, 
+aws recognition: image and video aalytics. sign in, account recovery, account confirmation. MFA.
+AWS CLI: aws s3api list-buckets, s3 ls --output text, json, table --profil taner, tanerjn, toni
+AWS SDK: control multiple services using multiple languages.
+SoA: start of authority.
+Weighted routing: ALB-1:%80, ALB-3:%20. Health checks.
+Metadata: hostname, pubnet. on-demand, reserved instances, spot instances.
+Multi-tenant(everybody living in the apartment, sharing HW) vs Single--Tenant(single customer with dedicated HW).
+AMIs are region specific.
+Scaling policies: Average CPU, Network In, Network Out. Placement group
+XFF specialized header for load balancing.
+EBS easy encryption. high IO: fast read and writes.
+
+system manager: ssh
+efs: default kms, default encryption
+5 types of EBS:
+General purpose(ssd): gp2
+Provisioned IOPS(ssd): io1
+Throughput Optimized(hdd): st1
+Cold HDD: sc1
+EBS magnetic: standard
+Presigned urls: CloudFront, signed url: S3
+main sql databases: RDS: auto / manuel backup. restore to point in time.
+multi az has synchronous, read replica has asynchronous replication
+Aurora-> MySQL, PostgreSQL.
+RDS-> Warehousing big data analytics. Backups, restore backups.
+Backup data is always going to create new instance.
+CloudFront: CDN. Faster internet by edge locations. Caching is the main mechanism. invalidation means refreshing the cache.
+AMAzon db: Aurora, Postgres, Mysql, Oracle, MariaDB
+RDS Turn on encryption(KMS). Deletion protection.
+OLAP/OTLP redshift redshift redshift
+Data coming from S3, EMR, Dynamo DB.
+CloudFormation(IaC): Json / YAML
+Template anatomy: Resource is mandatory. AWS Quick start: place to learn about templates.
+CloudFormation template upload to S3.
+CloudWatch multiple services: Events, alarms, logs, dashboards log kept indefinitely never expire. basic monitoring detailed monitoring.
+High resolution metric collection 1-5 seconds
+billing alarm at cloud watch
+CloudTrail: monitor logins.
+CloudTrail to CloudWatch/Athena
+Dynamo DB consistent read and write key value document database
+Setting your capacity(provisioned read and write).
+t2.x8 node types instance class.
+Aurora serverless. webserver data API: run sql. Cloud9 console run debug code etc. 
+RDS is managed by AWS, SSH is not possible.
+Multi AZ: sync, read replica async. It is possible to combine two.
+Aurora(self healing and snapshots can be shared.) fully managed can be used with postgre s or sql.
+Database: OTLP, Warehouse: OLAP
+Redshift: Columnar storage
+dc(dense compute), ds(dense storage)
+Cltrail who to blame
+AWS Event Bridge : DataDog, OneLogin.. Lambda is the glue to connect different uses. Fargate is very similar to lambda. Downside is coldstart..
+MEssaging system: SQS: RAbbitMq, 
+Stream: Kafka, Kinesis, NATS
+beanstalk easy way. to deploy app
+API GW does als o caching
+CORS is alway enforced by client (browser)
+ElasticCache supports 2 caching engines: Memcached and REDIS(key value store, extremely fast) leaderboard etc. realtime information.
+Static webhosting with S3 and CloudFront
+Route53:Create hosted zone. create record set.  4 cases (w/o www w/o https)
+
+
+
+
+exam-4:
+100% fault tolerant HA: six instances 2a, six instances 2b, no instances 2c.
+                                        : three instances 2a, three instances 2b, three at 2c.
+
+Store the Glacier audit logs in Vault Lock.
+Store audit logs in EBS volumes in EBS shot.
+S3 Select to retrieve data.
+Enable server logging for S3 buckets.
+EC2 delete protection
+existing cloud watch logs for keywords related to the application error to create custome metric.Then create a Cloud Watch alarm. Create alarms to auto delete, terminate, boot, restart instances.
+ACID: Atomicity, Consistency, Isolation, Durability
+Enable Amazon RDS Read Replicas.
+AWS RESTful API investigate with X-Ray
+FLowLogs about the IP tffic
+Data Sync: copy large amount of data
+AR: DynamoDB
+Use Amazon S3 to store data. Configure SSE-KMS(envelope encryption).
+online trading platform: gloabal accelerator.
+Elastic cache in memory data store.
+intraday financial: cross region replication. cross account access.
+MS SQL Rule: <Source> to security group ID.
+enble dynamodb table ctivity to trigger lambda activity.
+CloudTrail attribute name EventName: ChangePassword(lookup value). Configure AWS Config to check passwords periodically
+By default S3 objects are private.(changeable at manage public policies)
+Attach Elastic Fabric Adapter to each EC2 instnce for High Performance Computing.(HPC)
+Serverless work flows: Step Functions
+CloudFormation: Entire model in YAML file, enables modelling versioning provisioning the entire infrastructure.
+Develop custom identity broker application and use STS for SAML integration.
+Transit Gateway at each region to enable routing through peering connection.
+It basically is to connect on premise and AWS VPC in single gateway. 
+AWS Config EventName: ChangePassword.
+Another way VPC peering within AWS.
+Intentbased networking is a model of reverse engineering. LAG(Lag Aggregation Group) to aggregate multiple connections.
+Spot instances if failures are ok. If not choose reserved instances.
+Sophisticated Data analytics without moving: Redshift Spectrum, S3 Select, Amazon Athena.
+(EFA) HPC: Set IOPS to 500 and maintain low queue length.
+Magnetic volumes provide the lowest cost
+provisioned IOPS volumes offer storage with consistency and low latency designed for high I/O intensive applications. 
+OS processes RDS Child processes.
+Replace Amazon SQS and use Simple Workflow, use SQS FIFO.
+t2.micro to m2.micro: create new instance type and change auto scaling group.
+integrate cloudfront with lamdbda@edge in order to process close proximity data using kinesis and s3 bucket.
+AWS Config to track changes.
+3 instances west 1a, 3 instances west 1b, 3 instances west 1c.
+Store the files in s3 then to glacier one zone IA using lifecycle policy.
+IOPS Storage optimised
+EBS volumes are not encrypted by default.
+short polling: frequent http requests long polling: less frequent http request(xhr)
+5th test.
+Secure, durable, cost-effective: Upload data to s3 and set a lifecyclte policy to transition data to Glacier after 0 days(24 hrs)
+EBS Throughput optimised HDD(St1) large/sequential I/O: HDD. Big data Dominant performance: Throughput. 
+Small random: SSD dominant performance: IOPS, transactional workloads.
+Create an A record aliased to the load balancer. (A name: amazonaws.com ) 
+route 53->cloudfront->ELB->2xEC2
+Step scaling policy and configure an instance warm-up condition.
+Slow start mode application load balancer.
+When HSM keys are lost(more than 2 wrong attempt) they lost forever, everything certificates, keys, data..)
+OTLP 50 TB: ACID compliant relational DB: Aurora.
+Remove the NAT gateway and use gateway VPC endpoint to access the S3 bucket from the instance.
+Running ETL processes from S3 with AWS GLue.
+Push real time kinesis data to Amazon Redshift, S3. 
+Configure VPC endpoint along with a corresponding route entry that directs the data to S3.
+Transit GW connects VPCs at same premise. Direct Connect is doing the same thing?
+EBS volume can be used while the snapshot is in progress.
+Step scaling to monitor EC2 ASG.
+
+
+first : %32
+second: %32 (not reviewed)
+third: %44
+fourth: %36
+fifth: %43
+
+
+
+
+
+
+
+
+
+

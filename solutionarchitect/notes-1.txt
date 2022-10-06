@@ -1,0 +1,254 @@
+Enhanced networking with elastic network adapter(ENA) on windows ec2. Increase bandwitdth increase throughtput: ENA. EFA is ENA with more cap.
+
+EBS snapshots are automatically encrypted, all data moving between the volume and instance are encrypted. EBS volumes can be attached to any running instance.
+
+Amazon managed/own keys KMS to secure HIPAA data.
+
+Encryption: use cloud trail with default settings.
+
+Spot and reserved instances simultaneously to have mission critical ant not essential operations.
+
+AWS Wavelength service 5G.
+
+User Acceptance Testing(UAT): Define tags on the UAT and the production servers and add a condition to the IAM policy which allows access to specific tags.
+
+AWS Systems Manager Run command for (RDP) EC2 instance.
+
+CloudWatch for system metrics. CLoudTrail for resource activity by whom/when.
+
+SQS queue: visibility timeout. For 30 seconds - 12 hours message remains in the SQS queue.
+
+Equal Cost Multipath Routing(ECMR) enabled transit gateway and attach additional VPN tunnels.
+
+Change architecture to allow financial data through Gateway VPC Endpoint.
+
+Volume Gateway in cached mode.
+
+Do nothing Amazon will automatically scale S3.
+
+IAM DB Authentication and create database accounts using the AWS-Provided "AWSAuthenticationPlugin" in mySQL. Enable IAM DB Authentication.
+
+Amazon EFS POSIX compliant Storage Area Networking.
+
+OT changes by operation. OT is mostly used for text. Google Docs is OT. Code runs in the client's browser and server side.
+
+CRDT(conflict free replicated dataset) changes by state. Promises data equality in all clusters. It send s the new data to other nodes. Code is running only on server side. Git is CRDT.
+
+Memcached 11211, Redis 6379, MySQL 3306, HTTP 443
+
+Create virtual interface for direct connect. DX Connect VI
+Direct connect single mode fiber optic cable.
+
+It is not possible to use Elastic Cache within VPC.
+
+ROLLBACK_IN_PROGRESS: Remove of one or more stacks after a failed/cancelled stack creation. TPO and TCO 
+
+...........Working version(TCO)....(data loss)......Disaster...............(downtime)......Recovery(TPO)
+
+Root device volume: Block device mapping 
+
+Dynamo Db reached threshold: CloudWatch
+
+I/O usage in the same region is free dynamo db.
+
+SNS can not provide data every minute. SNS is 5 min period. STS Token 15 minutes to 24 hours. 
+
+CloudFormation compromises: logical ID, resource type and resource properties.
+
+Ultimately consistent means the data might not be shown the latest change after operation.
+
+Check the operation validity: Attempt to create the stack.
+
+Cache control max age is set to zero. 
+
+transform JSON into Apache Parque format lake formatino:get data access IAM permission.
+
+Athena supports JSON, TSV, CSV. and many.
+
+Elastic cache in memory caching.
+
+Download RDS root certificate SSL to encrypt connection to RDS.
+
+RDS force ssl 
+Launch a new network load balancer.
+
+Versioning is cheap and time efficient. 
+
+FSx for lustre.wifndows
+
+0.0.0.0/0 -> to the IGW.
+
+application files are stored in S3. server log files can also be store in s3 cloud watch logs.
+
+setup rds database and enable IAM DB Authentication. RDS generates token 15 minutes usage.
+
+create new Iam role which will be assumed by the IAM user. attach a policy allowing access to modify the ELB and once it's done remove. 
+
+On demand capacity reservations which provide compute capacity that is always available on the specified recurring schedule.
+
+Setup the security group of the database tier to allow database traffic from the security group of the application servers. 
+
+One instance can get 5 security group, security groups work at instance level.
+
+Access control list at subnet level.
+
+Migrate existing db to aurora and create cross region. 5 times faster than MySQL. 3306
+
+S3 multipart upload API for videos, large files.
+
+Create set of access keys for the user and attach the necessary permissions. 
+
+AWS Lambda and API Gateway.
+
+EFA for more consistent latency and throughput.
+
+Ingest data using amazon kinesis and create lambda function to store it in dynamo DB. (click streams application logs).
+
+Creae aws auto scaling that sclaes out the ecs cluster when the cluster's cpu utilization is too high. 
+Creae aws auto scaling that scales out the ecs cluster when the cluster's memory utilization is too high, disk reads, network in/out. status check.
+
+Auto scaling trigger watch to sqs. 
+
+s3 OpenID : Web Identity federation.
+
+Amazon S3 standard kep it only 12 hours.
+
+Increased availability OS patching, db instance scaling. Enhanced DB Durability in the event of a db instance component failiure or an availability zone outage. 
+
+RDS multi AZ deployments(fast, expensive). Read Replicas(cheap)
+
+path conditions o food ordering system URL(signed or unsigned) in the condition. 
+
+Use HOST CONDITIONS TO DEFINE RULES that forward requests to different target groups based on the hostname in the host header. This enables you to support multiple domains using a single load balancer. 
+
+Path based routing: (/img, /js/)
+
+Provision two EC2 instances deployed in different Availability Zones and onfigure them to be part of an origin group.
+
+Enable EBS encryption by default feature for the aws region. 
+
+stop and restart the instances in the placement group and then try launch again.
+
+Storage file gateway to keep data from last 48 hours. Send backups to an SMB share mounted as a local disk.
+
+Horizontal scaling adding more machines. Vertical scaling running the same software in bigger machines.
+
+Lambda timeoute <3 seconds < 900 seconds
+
+Cloud Formation template{
+format version
+description
+metadata
+parameters
+mappings
+conditions
+transform
+resources
+outputs
+}
+
+Take snapshots of the ec2 instances and terminate.
+
+Cross region replication feature can be used after s3 version enabling.
+
+bucket-owner-full-control bucket polucy to set object ACL.
+
+new role in iam afterwards assing the role to ec2.
+
+elastic file system performance mode max I/O.
+
+Performance mode Max I/O 
+Throughput Mode Provisioned
+
+AWs consolidated billing, cross user accouts.
+
+s3 api call returns with HTTP 200 and MD5 code.
+
+consider not using multi az rds deployment for the development and test base.
+
+single point of failure. database redundancy. health checks. target groups.
+
+shuffle sharding at horizontal scaling
+EMR big data hadoop spark.. no need to estimate load. Kinesis connector data streaming MapReduce, Hadoop.
+crawler jobs(discovering data)
+dynamodb lambda pay what you use. Behind the scenes, service works by giving the desired throughput by increasin or decreasing the number of instances. binary classification, cost optimization, BLOB(binary large objects). Dynamo DB uses sdd drives, optimized for sequential data.
+provisioning, configuring monitoring, securing, backing up.
+Olap(optimal): global slaes, historical data, gaming data, impressions, social trends, operational efficiency, financial performance. Lambda 0.20 dollar per 1 million request. multi az redshift self healing. Redshift must have structured data. snapshots are secured in s3. available to reload. adhoc queries one-off queries, happens only when needed.-> Atherna(serverless, managed). QuickSight(analysis)(possible to use csv, tsv) ETL aws glue. server side s3 managed, client side kms managed, server side managed kms encrypted. Glue data catalog and hive is similar. keep track of data use crawlers to collect data. QUick Sight is most widely used BI tool. Collect process and analyze big data in cost-optimized, scalable and resilient way. Aggreate, crawl GLue EMR, Kinesis streams, sensor data, replicat, sometimes 2 tools is better than one. Chef opsworks cloudformation part of IAC. system manager run script. BASh gorup directory, script route. chef recipe install apache 2 httpd. cloudwatch->sns(slack), ses(email)->lambda. Lambda is essential with CloudWatch. 
+AWS config: assess audit evaluate the aws resources. aws config automatically builds and inventory and track resource changes. AWS COnfig compliance check. AwS config in script: evaluate compliance, check if lambda enabled, check flow logs enabled
+
+def check_flow_logs(vpc_id):
+       ec2 = boto3.client('ec2')
+       response = ec2.describe_flow_logs(Filter{name : 'resource_id', vpc: 'vpc_id'}
+       if (response.logs != 0)
+           return LOGS_ENABLED
+
+
+AWS Trusted advisor: scan Aws resources for underutilized, overutilized. idepotent infrastructure that you can redeploy again.make changes auditable and make logging mandatory. define common standards. remove humna element at infrastructure deployment.use code commit tools. embrace end to end automation. incorporate quality control process. SDLC. IAC. CloudFormation. 
+
+Three tier: Client - Server - DB
+creting three tier with API Gateway and Lambda
+serverless logic tier.( highly available, secure, scalable)
+not responsable with servers at lambda. stateless. output session is not kept. 
+
+API GW: Simplified way to deploy, secure and monitor APIs.
+Improved application performance through caching and content delivery.
+
+Lambda needs handler written in code to handle event triggers. Lambda provides way to use keys from KMS - Secrets Manager. Serverless Access Model(SAM CLI). Commands to enable SAM syntax.
+
+Lambda creates Elastic Network Interface(ENI) to access sources in rivate network. Make lambda acessible to reach internet sources. API Gateway can proxy to serverless applications. API GW: Caching content delivery.
+
+CloudFront provides DDOS protection. Each stage at API GW is a snapshot of the API. Canary release production and development is seperated. API GW supports also certificate manager. KMS for keys.
+Lambda: SAML, OAuth.. 2. Protection with WAF(Web application firewall), CloudFront(DDOS) . sG are instance level , acl is subnet level. WAF is to filter cross region access.
+
+EFS : no need to provision, can be unmounted and mounted any time.
+
+data tier: elastic cache, rds, redshift, mongodb, documentdb, data lakes are getting popular. neptune
+presentation tier: cognito, cloudfront with s3
+logic tier: api gw, lambda, single page application s3, mobile backend request with http, dynamo for db and cognito for user management. IAM tokens are included in API gw calls. retrieved by lambda.
+Elastic IP address bootstrap second instance and assign the same IP, fault tolerance. Attach detach elastic block store.
+
+auto scag expiry date or threshold. more fault tolerance Elastic Load Balancing. Application Load Balancing OSI 6, Network Load Balancing OSI 2.
+
+ecurity reliability performance cost optimization
+
+c4 heavy load m4 multirole instance type g2 graphic processor. 
+
+storage EBS, S3, Glacier. 
+EPhemeral is temporary 
+
+tursted advisor unatteched sources etc. tags help identify sources which belongto other projects.
+
+WS budgets cloudwatch cost optimization . IAC :CloudFromation, System manager aws config.
+
+Expenditure Awareness: Ensuring that resources are used efficiently. Benchmarking to use if instance types work queues, timing, databases, billing is optimized.
+
+DX connect from onprem to aws.
+
+
+small reversible changes , pre mortem exercises, game days to test workload at stimulated events. engage seniour management to measure success. contorl tower blueprints aws organizations multiple accounts projects from single place. cloudformation templated sandbox with increasing control. AWS config. system manager.
+
+prepare - operate(cpature metrics) -  evolve(cont learning
+
+
+
+
+
+
+
+
+
+
+
+
+5th: %26
+
+
+
+
+
+
+
+
+
+
+

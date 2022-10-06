@@ -1,0 +1,381 @@
+UDEMY-2 
+Identity, Federation:
+
+IAM policies-tag based, service based, IAM roles, service based policies.
+STS(security token) for temporary 15 minutes to 12 hours.AssumeRoleAPI, Organization 
+boundaries,
+SAML(security associations markup language, get credentials from Identity provider(active directory), Single Sign On with Active directory(AD)
+Service Control Policies. Blocklist Allowlist strategies. Account A, Account B, Account C. Deny evaluation. Restrict resource creation. Launching instance. 
+Request Tag: True. Tag resources. AWS Organizations and SCP policy to limit S3 usage. Account A-> Account B: Create STS Bucket policy to organise access. 
+SSO needs to be integrated with identity store.
+Directory services. connection between on-prem and on-demand cloud. Consolidated billing. dev / test / prod single bill. 
+
+Security
+Cloud trails console is responsible of governance and compliance of user accounts. Events stored 90 days in cloud trail. send S3 and use Athena to analyze. Encrytion: KMS: Customer managed key, AWS Managed keys, owned keys.
+SSM parameter store. Expiration notification. File service: my-dept/my-app/prod my-dept/my-app/dev .. 
+
+Use Lambda to create secret and push it to secret manager which keeps in RDS. Can be used via CloudFormation to. SSL installation. SNI over ALB(SNI enabled). CLB older gen. ALB NLB newer gen. Protect against MiM attack: Use HTTPS and DNSSEC. ACM to store SSL information.
+Cloud HSM(Hardware Security Module) You are entitled to do backup, encryption etc. keys. Redshift supports HSM. HSM clusters are deployed in multi AZ. KSM: Software for encryption.
+S3 access points. Encrypted url. DDoS protection AWS Shield.
+API Gateway. Firwall manager. WAF rules
+Network ACL: Subnet level
+To block a client: Add IP to NACL as deny rule, SG are only allow rules. Install optional firewall into EC2  
+AWS Config per region. SNS notifications per anything.
+AWS Inspector: analyze OS against vulnerabilities at EC2. Analyse containers oushed to ECR(Elastic Container Registry) continuous scanning package vulnerabilities.
+Audit record compliance with AWS Config. Auto remediation, tag control for instances.
+AWS managed logs at S3: VPC FlowLogs, CloudTrail logs, Route 53 logs..
+AWS Guard Duty: Protect accounts using anomaly detection for account. Check CLoudTrails logs. S3 Data events. VPC Flow logs, Kubernetes logs,
+
+Architect:
+DNS Layer, Web Layer, Compute Layer, CDN Layer, Caching, Orchestration, Database, Storage, Database, Static Assets, 
+
+Route 53 -> CloudFront -> EC2 -> Caching -> RDS, Aurora -> Orchestration -> Storage -> Static Assets(S3, Glacier).
+
+EC2 types:
+R: needs RAM, C needs mostly CPU, M medium(webapps), I(local I/O storage), G GPU rendering. T2/T3 burstable instances up to capacity.
+
+Group strategies:
+Cluster. In same AZ for low latency
+Spread. Span acrros multiple AZ(up to 7 instance per AZ)
+Partition. up to 7 partitions per AZ up to 100 instance. Instances in patition do not share racks. (HDFS, HBase, Hadoop, Cassandra, Kafka).
+Reserved instances: Long term reserved dedicated instance(no other customers share HW), dedicated host(get access to server install license etc). EC2 metrics Network In Network Out.
+
+HPC: High Performance Computing. 
+SR-IOV(Higher bandwidth) 
+Elastic Network Adaptar(ENR). 100 Gbit/ps
+Direct Connect: moving data in short time. 
+Intel: Legacy up to 10 Gbit/sec
+Elastic Fabric Adapter(EFA) Distributed Computing: Bypassing Linux OS, lower latency.
+EBS instance attached storage up to 256000 IOPS, ephemeral(temporary)
+Network Storage: S3, EFS, Provisioned IOPS, FSx for Lustre
+
+
+Auto scaling:
+AWS Batch: for HPC. AWS parallel cluster(open source). Spot instances.
+Target group: 2 ALB under them partition EC2. connected to client
+Target groups. Clients connected to application balancer
+Target scaling: Avg. %40 CPU
+Step scaling: CloudWatch alarm
+Scheduled Actions 
+
+ECS: Elastic Container Service
+EKS: Elastic Kuber service
+Fargate: Serverless
+Lambda integrations: Kinesis, IOT, CloudWatch, Dynamo, Simple Storage, SNS, SQS, Cognito.
+X-RAY is great for debugging the general network.
+Dynamo DB has public IP
+Lambda alias
+Lambda destinations: Event bridge bus
+Lambda has also version as S3, immutable. Aliases are pointers to Lambda versions, it is mutable. Lambda usable with CodeDeploy.
+Gateway load balancer: Geneve protocol 6081. L3 IP packets.
+Cross Zone balancing. also does if th EC2 is at another region
+ELB instance1: 5 EC2 ELB instance2: 10 instances
+Sticky session:  using cookies. 
+Round robin: CPU scheduling, without prioritising
+ETL(extract, translate, load), CRUD(create, read update, delete)
+Lambda timeout 15 sec, API getway 29 seconds, 10 MB payload limit.
+4xx client side errors(quota, access denied, bad request
+5xx server side (bad gateway)
+
+Route 53 to define CNAME
+WebSocket API: RealTime applications. Kafka for streaming. AppSync for 
+maps to hostname. CNAME is given after getting "www". 
+AWS hostname. aws.myapp.com
+Routing policy geoproximity.
+Multi routing Route 53. 
+Public hosted zone, private hosted zone.
+DNSSEC(against Man int the middle). Enable DNS routing, enable DNS support. -> In private zone
+Healthchecks are only for public endpoints: Monitor endpoint. with CloudWatch alarm
+RDS multi region failover. RDS1, RDS2, Healthchecks over endpoints->CWatch alarm->SNS Topic->Route 53-> Update DNS-> Promote read replica.
+Hybrid DNS: Inbound endpoints: private hosted zone, outboud endpoints: conditionally forward. 
+System rules do not override some names 
+
+Global Accelerator(TCP, UDP): Anycast IP send traffic directly to Edge locations 3. Can be used with any load balancer. Goodfit for non-HTTP applications, gaming, voice over IP, requiring static IP. Health check: less than 1 minute. CloudFront gives you cached content(videos, images), this makes CloudFront more performant. Both uses global network, DDoS shield. 
+
+Solution architecture comparisons
+ec2 on its own with elastic ip:
+move elastic IP of standby instance(T2) in case of DR
+quick failover. does not scale and cheap.
+
+ec2 with route53
+stateless web app with 3xm5. dns based load balancing.
+  
+alb+asg
+2xm5 in each AZ, 3 AZ. first step for multi AZ. new instances are in service right away. time to scale is slow. crozz zone. target util shoul be %40-%70
+
+alb+ecs on ec2
+same props as the previous one. application is run on docker. ecs allows dynamic port mapping which can be used with multiple tasks 2. auto scaling(ECS+ASG) rules.
+
+alb+ecs on fargate *
+FARGATE: is like DYNAMODB. It is managed. Very easy and common no management requiered.
+
+alb+lambda
+limited lambda runtimes, ttl 1 hour, seamless scaling, simple way to expose lambda functions. can combine with WAF. good for hybrid microserviices. use ecs for some requests and lambda for others.
+api gw+lambda
+fully integrated with xray. pay per request. api gw has 10 mb limit.
+awsvpc mode at ecs->can get different eni's
+increase lambda function name for better vpc.
+lambdadlq->sns
+api gw error 504
+hare r53 between mutiple accounts vpc peering.
+
+Compute&Load Balancing
+Classic Load Balancer, 
+New load balancer has SNI(Server Name indications) to deploy multiple SSL certificates. TCP-TCP traffic. SSL Authentication happens at EC2 level.
+Health check. NLB(TCP, UDP load balancing), 1 static IP for AZ. SAN should be changed when SSL is changed.
+HTTP request is translated into JSON events.
+Dynamic port mapping. Network load balancer has 100ms latency on the other side ALB has 400ms.
+
+Resource based tagging, along with IAM roles.
+Launch EKS Server and worker nodes.
+dedicated host and host affinity for licences
+
+Storage
+EBS: network disk, you attach to one device. specific az. mutable volume.
+Incremental: only backup changed blocks. Do not backup while application running, also detach volume to create snapshot. Can be created cross region. Then create AMI from it(very common) Snapshots will be stored in S3. Fast snapshot feature(FSR). Automating snapshot: Lifecycle manager service.
+
+Local EC2(instance store)
+Physical disk. very high IOPS bec. its physical. block storage like ebs. good for buffer and cache. ephemeral: all data will be lost at restart. 
+
+EFS: managed NFS. can be mounted on many EC2. highly available and scalable. like dynamo and Fargate 3 times expensive (3xgp2). connection with direct connect(DX) or VPN. pay per gb. 3 instances at 3 different AZ. content management. web sharing. data sharing. Wordpress. encryption at rest using KMS. POSIX file system. high latency but the throughput also high. bursting mode. if not touched N days, moved into IA(Intelligent Access).
+NFS Mounted On premise server-Direct connect/site to site VPN-> ENI x3 -> EFS -> VPC Peering-> EC2
+EFS Access points: Easily access to NFS environments. enforce POSIX group. Can restrict access using IAM policies.
+
+S3: object storage. serverless, good for static content, pay as you go. Not POSIX. not good if website has dynamic content. S3 event notifications: Event bridge 18 AWS destinations filering with JSON rules. multiple destinations to Step Functions, Kinesis, Firehose. Archive, replay events. Reliable delivery. S3 baseline performance. 
+3500 PUT request limit. 5000 get request.
+Mulitpart upload. Transfer acceleration(uploading file from USA to Australia over edge location). 
+Byte range request for the header to speed up. s3 lifecycle policy when on multipart abort upload. 
+S3 select Glacier select: use server side filtering to retrieve less data
+
+ARCH OPTIONS:
+m5 instance store data: cheap
+CloudFront->EC2->EBS (Scalable) data is cached global locations 
+Full blown-> CloudFront->ALB->3 x M5 -> EFS(NFS) POSIX compliant(Exp)
+CloudFront in front of S3 for static objects that need to be updated often.
+
+you can not search through S3. Seperating dynamic at DynamoDB(caching, session layer) and static content(HTML files, videos)-> S3 Pre-signed URL would be the option to faster things. Lambda function could index things with DynamoDB.
+
+FSX(for Windows): Fully managed high performance file system. can be mounted on EC2. Like orca remote machine at Fraunhofer. SSD low latency IOPS intensive. 
+ScratchFSX: temporary. High burst. Short term processing. optional s3 bucket.  
+Persistent FSX.
+
+AWS Data sync: 
+secure encyrpted with tls
+move large amount of data from on premise to aws
+can sync to S3, EFS, FSx,
+move data from NAS(via NFS or SMB protocols at on premise)
+scheduled weekly, monthly..
+can setup bandwidth limit
+
+AWS transfer family
+when we want to use FTP, FTPS(over SSL), SFTP(secure FTP)
+Managed infra.
+integrate with existing 
+external authentication(LDAP, Active Directory)
+Public endpoint vs. VPC endpoint with internal access vs. VPC endpoint with external endpoint. 
+
+Caching(CLoudFront)
+300+ edge locations, cloud front is CDN gives you DDoS protection beside.
+Can talk to external internal HTTPS backend. 
+Cloud Front origins: S3 bucket, enhanced security OAI(origin access identity)
+Cache based on headers, session cookies, query string parameters.
+whitelist headers(less header): 
+GET /image/cat.jpg HTTP/1.1
+Host: pics.website.com
+Date: xx.xx.xxxx
+Authorization
+Keep alive: 300
+accept range: byte
+
+whitelisting: 
+Get
+Host
+Authorization
+
+Caching at the edge. CloudFront signed URL. Customisation at the edge. No need to manage any servers. Client A, B, C -> Edge locations x3 -> Regional Edge cache/ Lambda edge functions. Bug mitigation, A/B testing, run close to users to minimize latency. CloudFront does not have any cache, it is to manipulate HTTP request and responses. 
+
+Viewer request+ viewer response light weight functions in JS. Lambda functions in python, nodeJS. Sub ms latency. CF functions are 6 times cheaper(2 MB RAM) than Lambda Edge(10 MB RAM).
+
+CF: cache key normalisation. URL rewrites. Request Auth&Auth
+LAMBDA EDGE: longer execution. File system access. content based user agent. fully global and serverless. forwarding the header.
+www.example.com(CF)=origin.example(ALB)
+CF HTTPS configuration: header forwarding wont match that's why CF will add for origin.
+
+
+
+Databases
+
+ElasticCache
+managed(dynamo, fargate, RDS)  Redis or Memcached. Reduce load on databases. Code has to be refactored to use ElasticCache. Cache hit cache miss. Read from RDS write to elastic cache. 
+cache validation: only the latest data is cached. stateless arch(user session store: different users update same data like google docs, evernote, keep). 
+REDIS: Multi AZ persistent, high availability, read only feature.
+MEMCACHED: multinode partition, sharding(distributing data to multiple points). non persistent.
+
+CACHING, TTL, Network, Computation, Cost, Latency.
+
+USER-> CFront(Cache): 100000 RPS-> ALB+API GW(10000 RPS) - AScaG, EContS(slow), Fargate(faster), Lambda(1000 concurrent),  DB Layer-> RDS,Aurora<ElasticSearch(provisioned), DynamoDB(AutoScale, on-demand), REDIS 200 nodes(replica, sharding), Memcached 20 nodes(sharding), DAX 10 nodes(primary + read replicas), Store data on disk: EBS 16k IOPS(gp2), instance store. ~million IOPS, EFS, general mode, max io mode. SNS SQS unlimited, SQS FIFO 3000 rps(with batching), Kinesis 1 MB/s in 2MB/s out per shard. S3 3500 PUT, 5550 GET, KMS limits. CloudFront edge.
+R53
+
+DynamoDB. Queries over Lambda function. 
+Make sure index is created to query attribute.
+Search by date. Total storage used by costumer. 
+List of attributes. Find objects within range.
+
+Fully managed. no disk space to provision. noSqL. Similar to cassandra
+Supports CRUD. Read is strong consistent. supports ACID. Backup available.
+Made of tables. Each table has a primary key. Partition key(user_id), sort key(game_id). Result: attributes.
+LSI: Local secondary. must be defined at table creation
+GSI: Global secondary
+Object: keys+attribute
+DynamoDB you need to think what queries will look like. Index is necessary at DynamoDB. in RDS you can query anything. 
+Table->Lambda-> Elastic Search or Kinesis
+GlobalTables(cross region replication): Enable dynamoDB streams.
+Kinesis streams with DynamoDB streams. 
+Specified epoch date. Row expire. 24 hourse of retention.
+
+Caching at DynamoDB works over DAX. Micro second latency. 
+Hot key problem: too many reads. multi az(REDIS gibi) 3 nodes minimum.
+Use dax if client need direct connection to dynamoDB
+Use ElasticCache(slower) after heavy computation is handled on data. takes 10 secs at least of aggregation results.
+
+OpenSearch: ElasticSearch.(search and indexing)
+Kibana OpenSearch dashboard. (alternative to CWatch)
+Use case: Log analytics(Logtash)
+Dynamo Table -> Dynamo Stream -> Lambda -> OpenSearch->M5(search from OSearch )
+Cloud Watch -> SnS -> Kinesis -> Osearch
+
+
+RDS:
+Postgres, mysql, mariadb, oracle, microsoft sql. managed db: provisioning, backup, patching. Launched within vpc private sub. io1>gp2. read replicas cross region. kms encrpytion ssl encryption.
+
+backups(RMAN recovery manager or external oracle).
+mysqldump to migrate mysql rds to non rds. rds proxy to clean up many connections. Aurora logs, error, slow query, audit.
+
+Aurora: grow up to 128 TB multi az. 6 copies of data across 3 az(4 is to write). Self healing peer to peer. Aurora serverless: new feature to auo scale.no capacity planning needed. Global Aurora: cross region for disaster recovery. Multi master: HA. Aurora endpoint: cluster endpoint(writer), reader endpoint(host address and port basically). Instance endpoint: specific B instance. 
+
+
+
+Service Communication
+AWS Step Functions( wokrlow, state machine_ : build serverless visual workflows to orchestrate lambda functions. Flow as JSON state machine. max execution 1 year. Added latency. The aim is to chain functions with another. So you will see passed or failed.
+It is possible integrate with Batch, ECS, SNS..
+SQS: minimize cost minimize latency
+Lambda destinations.Full decoupling, fault tolerance
+emr data at rest. Mongo does it too.
+Amazon MQ for queuing.
+Amazon MQ:
+SQS and SNS is cloud native. Amazon MQ is managed. SQS DLQ
+
+SNS: one to many message. Specified SNS topic. CW, AUtsca, DNS, Lambda..
+SNS message filtering. Placed orders cancelled orders.
+code your application to be idempotent to preent double emails.
+Mechanical turk you can not get it working with step functions
+Kinesis data streams to regulate orders. Automatically replicated synchronously. a
+Has replay capacibility.
+IOT->Kinesisx3->Redshift->S3. 
+multiple applications can consume the same data.
+Data at kinesis is immutable. sharding.
+Kinesis data firehouse 60 seconds. near real time. Auto scaling
+firehouse buffer sizing. data replay is not possible.
+
+
+
+Data Engineering Pipeline
+producers->Kinesis streams->Kinesis data analytics->Lambda/Kinesis streams->Ec2
+Kinesis: managed data streaming service. log metrics, IoT clickstreams. great for real time big data. 
+
+AWS Batch compute environments.
+Lambda:
+Time limit
+Limited runtime
+limited disk
+serverless
+
+Batch
+no time limit
+any runtime as long as its docker image
+relies on ec2, rely on ebs
+
+EMR(Elastic MapReduce Hadoop clusters) HDFS hadoop distributed file system. 
+Elasticity purposed. Can be made of hundreds of EC2 instances. Also supports hbase, presto, flink. Auto scaling CloudWatch. Single az
+EMRFS multi AZ.
+master node, core node, task node. Uniform instance groups instance fleet.
+
+running jobs on aws
+CRON jobs at EC2 straigt fwd option
+CW events -> cron schdule -> Lambda
+Reachtie WF: CW, S3, APi gateway, sqs, sns, use aws batch
+cw events-> fargate
+emr(big data oriented batch jobs)
+
+AWS Glue
+Managed ETL service
+prepare data for aalytics AWS glue crawler collects data from s3, rds dynamo db and forwards to EMR, redshift.
+
+Redshift:
+based on postgres. and it's olap(analytics and warehousing)
+massiv parallel qeury execution(mpe)
+possible to integrate quicksight aws tableu.
+load data from S3, kinesis, firehouse, dynamo, dms..
+100+nodes up to 16TB of space per node
+not multi AZ. sql interface
+Snapshots and DR
+point in time backups, stored internally in S3
+snashots are incremental.
+automate every 8 hours, every 5gb or on schedule.
+configure snapshots to another region.
+workload management-concurrency scaling-charged per second.
+
+Athena:
+Serverless sql queries. great for unpredictive(ad-hoc) queries.
+big data ingestion pipeline kinesis. lambda. sqs. redshift. quicksight.
+compare warehouse
+EMR. Need to use big data tools hive, spark.. one long running cluster
+Athen. Simple queries and aggregations data must live in S3
+Serverless simle sql queries
+Redshift; advanced sql queries. 100+ nodes
+EMR integrates with hiveql.
+
+
+
+Monitoring
+cloud watch: 5 minutes monitoring, cpu, network, disk, log watch log streams
+cloud watch unified engine for custom metrics: RAM
+cloud watch event-> kinesis, lambda, step functions
+
+XRay:
+trace request acroos microservices
+EC2, ECS install xray agent.
+Lambda just a thick
+EBS Auto installed 
+API gateway: helpful to dbug
+
+
+ 
+Deployment&Instance Management
+EBS: managed service.
+Support many platforms java go python etc. very easy to deploy application. Using docker is possible too.
+
+Three architecture:
+Single instance deployment: good for dev.
+Elastic IP(EC2)->RDS master
+
+LB + ASG: great for production pre production web applications.
+2 EC2 instances RDS Master RDS standby in the middle Autoscaling and application load balancer. (HA)
+
+ASG only: great for non-web apps in production(workers, etc).
+Worker tier-> SQS Group -> SQS+EC@ auto scaling group
+
+Web tier: ELB + EC2
+Request->ALB->AutoScaling ... ... PUT ... ... -> SQS Queue -> Auto Scaling
+
+Blue / Green deployment
+not a direct feature.
+new environment validate as green, set up route 53 little traffic to enviroenment.
+Beanstalk swap url(DNS swap) feature.
+
+
+
+Cost Control
+VPC
+
+

@@ -1,0 +1,38 @@
+Global Accelerator: to improve performance improve availability
+High Performance Compute - FSx. Lustre open source file sharing.
+Configure CloudFront to deliver S3 content
+Configure AutoScaling for heavy Friday
+Launch all EC2 in cluster strategy
+Inter instance communication Elastic Fabric Adapter(EFA) in the instance
+Number of messages in SQS queue as metric to scale up down.
+Create snapshot of encrypted EC2 images to launch EBS backed EC2 fleet
+Single digit latency: DynamoDB(multi region, multi master DB), built-in sec. mem caching
+AWS Lambda is not an origin for CloudFront. For instance S3 or Elemental origin can be storage.
+Subnet’s IP CIDR block can be same as the VPC CIDR block
+Network ACL can be associated with multiple subnets.
+Source bucket policy deny
+Create a new parameter group and change DB instance and change settings.
+MySql parameter group
+User data for shell scripts and Autoscaling hook.
+AssumeRoleWithSAML: SSO
+5 IGW and 5 VPC per region. Detach IGW from one region and attach another.
+One default route stays.
+Elastic Beanstalk and Cloud Formation are not backup tools.
+Create AMI snapshot and store it in S3.
+DB migration service: Oracle to oracle, Redshift, Dynamo, S3.
+SES is in sandbox mode which can only send to verified addresses.
+Visibility timeout 10 minutes, if you can not delete an image.
+VPC endpoint might have restrictive policy.
+Copy snapshot from latest snapshot of RDS instance, launch one from there.
+NAT Gateway consumes resources from your VPC.
+Routes not configured for peered connection.
+VPC CIDR blocks should not ovelap to create peering.
+Inbound outbound for HTTPS. Type IP range in security group.
+Security groups are statfeul, ACL stateless.
+
+
+
+
+
+
+
