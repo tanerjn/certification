@@ -205,7 +205,7 @@ Kinesis Firehose and Kinesis streams to write logs in ES. Enable CloudWatch subs
 
 
 
-
+EBS Volumes are transferrable
 
 
 
