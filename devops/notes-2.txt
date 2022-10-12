@@ -1,0 +1,39 @@
+AWS DevOps Pro(Dumpsgate)
+- Publish application artefacts to S3 bucket and create VPC endpoint, asking IAM to EC2 so roles can read from S3.
+- Zero downtime deployments: CloudFormation:UpdatePolicy, new application LoadBalancer and AutoScaling group.
+- S3 bucket sprawl alerts: New pipeline in different region for each project to bypass the service limits for S3 buckets in single region.
+- Create hotfix branch from the master branch. Trigger the development pipeline from the hot fix branch. Use AWS CodeBuild to do a content scan and run unit tests. Add manual approval stage that merges the hot fix branch into master.
+- Install an Amazon CloudWatch agent on the EC2 instance, and configure the agent to send the application logs and operating system metrics to CloudWatch. Enable RDS Enhanced Monitoring and modify the RDS instance to publish database logs to CloudWatch logs.
+- EC2 vulnerability check: Amazon Inspector to detect vulnerabilities on the EC2 instances. Install CloudWatch Agent to capture system logs and record them via Amazon CloudWatch Logs.
+- Create and use CodeDeploy to code update EC2 fleer. Select Application Load Balancer. Modify Lambda function to build a single application package to be shared by all instances. Use AWS CodeDeploy instead of AWS System Manager to update the code on the EC2 fleet.
+- Use DynamoDB Accelerator to cache repeated read requests to DynamoDB and Amazon CloudFront to cache images stored in S3. (Because 90 percent are duplicate read requests)
+- 9 EC2 instances on third party API: Install the CloudWatch Logs agent on all instances to push application logs to CloudWatch logs using metric filter, and number of failures and triggers if metric reaches 10 errors per 1 minute period.
+- Create and use an AWS CodeDeploy application and deployment group to deploy code updates to the EC2 fleet. Select the Application Load Balancer for the deployment group. Modify the Lambda function to build single application package to be shared by all instances. Use AWS CodeDeploy instead of AWS Systems Manager to update the code on the E2 fleet.
+- Use DynamoDB Accelerator to cache repeated read requests to DynamoDB and Amazon CloudFront to cache images stored in S3.
+- Install the Amazon CloudWatch logs agent on all instances to push the application logs to CloudWatch logs use a metric filter to generate a custom CloudWatch metric that records the number of failures and triggers a CloudWatch alarm if the custom metric reaches 10 errors in a 1 minute period.
+- In the CloudFormation template modify the AWS::AutoScaling::AutoScalingGroup resource and add an UpdatePolicy attribute to define the required elements for a deployment with zero downtime. Add a new ApplicationLoadBalancer and Auto Scaling group to the CloudFormation template. Deploy new changes to the inactive Auto Scaling group.
+- Add a test action after the last deploy action of the pipeline. Configure the action to use CodeBuild to perform required tests. If test are successful mark as successful, add manual approval action that uses Amazon SNS to notify team add deploy action to deploy to the next stage.
+- Launch a replica stack of everything except RDS in a different region. Create an RDS read only replica in a new region and configure the new stack to point to the local RDS instance. Add the new stack to the Amazon Route 53 record set with a failover routing policy.
+- RTOO: 4 hours, RPO 15 minutes. Launch a replica stack of everything except RDS in a different region. Create an RDS read only replica in a new region and configure the new stack to point to the local RDS instance. Add the new stack to the Amazon Route 53 record set with a failover routing policy.
+- Store metadata from .csv: Filter the data through AWS QuickSight, Query data with Amazon Athena, Use AWS Glue.
+- CodePipeline to trigger AWS CodeBuild to test the application, use bash scripts invoked by AWS CodeDeploy deployment group with the ALB. Update the AppSpec.yml file to update file permissions without a custom script.
+- Refactor the health check endpoint the Elastic Load Balancer is checking to return a text based status result and configure the load balancer to check for a valid response. Add a dependency checking step to the existing testing framework to ensure compatibility.
+- Blue/Green deployment: Configure Route 53 with AWS Lambda@Edge to set cookie when CloudFront receives a request. Assign the user to a version A or B, then return the corresponding version to the viewer. 
+- Create a new ELB(load balancer) with new EC2 instances, carry out the deployment, switch DNS over to the new load balancer using Route 53 after testing. Weight routed policy 80-20. Blue Green deployment 2 environments running side by side.
+- Serverless computing deployment strategy: S3 as code repo, CodeCommit as code repo, CloudFormation for Serverless Application Model(SAM).
+- Enable CloudTrail file integrity feature on the trail. Use the digest file created by CloudTrail
+- Testing new instances before sending traffic: AddToLoadBalancer.
+- Login issue at the S3 bucket: Error in bucket policy, error in the VPC endpoint, error in the IAM role configuration.
+- Create resource group display resources with tags and without tags. Use AWS Management console to view compliant and non-compliant resources.
+- Canary testing for an application: different Classic Load Balancer and AutoScaling use Route 53 and weighted A records on Classic Load Balancer. 
+- One team: Operating level updates, other team: Application level updates. Operating System team uses CloudFormation to create an AWS CodePipeline which builds the AMI, then places the latest AMI ARNs in encrypted S3 object as part of the pipeline output. Application team uses cross-stack reference within their own CloudFormation template to get S3 object location and obtain the most recent AMI ARNs to use when deploying their application.
+- If the application is not capable of responding request: 1. Increase number of max servers at AutoScaling group. 2. Push custom metrics to CloudWatch for the application include more detail about the web application, how many requests how many waiting. When the max servers is low application struggles to response.
+- Generate SQL query, in .csv format: SQL developers want to query and generate graphs: Efficient, automated way to store the metadata from the .csv file: QuickSight, Athena, Metadata store.
+- New load balancer new EC2 carry out deployment, switch to DNS to the new load balancer using Route 53.
+- CloudTrail file integrity feature on the trail. Use the digest file created by CloudTrail to verify integrity of the delivered CloudTrail files.
+- Testing new instances with AutoScalingGroup:AddToLoadBalancer
+- Access to the object is denied. Possible causes S3 bucket policy, VPC Endpoint, IAM role configuration
+- Create a resource group that displays resources with the specified tags and those without tags. Use the AWS management Console to view compliant and non-compliant resources.
+- Increase number of max servers. Push custom metrics to CLoudWatch for more detailed information.
+- Install Amazon Inspector agent in each AMI. Configure StepFunctions to trigger each day. 
+- 
