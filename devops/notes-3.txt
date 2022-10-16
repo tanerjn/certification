@@ -70,4 +70,31 @@ AWS DevOps Pro(Dumpsgate-2)
 - Security code analysis: CodePipeline to create a pipeline then create a custom action type. Create job worker for the on premises server that polls CodePipeline for job requests initiates the tests and returns the results. Configure the pipeline to invoke the custom action after the source stage.
 - Apache app to CodeDeploy env var DEPLOYMENT_GROUP_NAME configure log level settings reference script BeforeInstall lifecycle. 
 - Chef recipes stored in private git: Configure OpsWorks stacks and use custom Chef cookbooks. Add layer in OpsWorks for the Node.js application. Configure time based instances and attach an EC2 IAM role to access DynamoDB. 
+- CloudWatch logs+access logging  agent on the ECS, change logging to awslogs, kinesis firehose with a destination of the S# logging bucket, CloudWatch subscription for Kinesis.
+53:
+- Rollbakc: : CloudWatch event rules or CodeDeploy operations. Configure rule to send out SNS messagewhen the deployment fails. Configure CodeDeploy to auto rollback.
+54:
+- Obtain pass: from Oracle, DynamoDB : Launch EC2 instaces with an EC2 IAM role access AWS services. Retrieve the DB from Secrets Manager.
 
+55: 
+- Minimize startup time: Allow AMI to work at multiple places. Store secrets for multiple environments securely. Preconfigure the AMI by installing all the software using Systems Manager automation and configure AutoScaling to tag the instances at launch with their specific environment. Use bootstap scrip in user data to read the tags and configure settings for the environment. Use System Manager Parameter Score to store the secrets using KMS.
+
+56: EC2 servers: ASG and ELB. Some instances are failing ELB HTTP checks.Root cause analysis on the issue: Terminating: Wait state. Amazon CloudWatch events rule for EC2 Instance-terminate Lifecycle Action and trigger AWS Lambda function that executes SSM Run Command script to collect logs push them to S3.
+
+
+57: Use DynamoDB Accelerator for duplicate info, CloudFrnt send to s3
+
+200 server nodes concurrently run: Licences + Dashboard: Update licences at Dynamo table, create AWS CLI script to launch the servers by using the parameter count with min:max instances to launch. In the data script, acquire an available license from Dynamo table. Monitor instance, in case of failure replace and manually update DynamoDB table.
+
+Static website hosted on S3 bucket. CloudFormation to choose s3 bucket custom resource that copies content from source into the bucket. Deletion has failed bec. S3 bucket is not empty. Modify Lambda function to recursively empty the bucket.
+
+58: Mobile game: Deploy application backend to multiple regions. 2 stage build: Successful deploy in one region invokes Lambda to copy the build artifacts to S3 bucket. After the artifact is copied it triggers a deployment pipeline in other region.
+
+59: Alias for the Lambda function current and new versions. Configure alias to route %10 of the traffic to the new version. When the new version becomes stable, route all traffic to the new app.
+ In API GW create canary deployment. Configure API GW to route %10 of the incoming traffic to Canary release. When the canary is stable promoto it to a production.
+
+60: Use AWS CodePipeline to create a pipeline. Add a step after the source stage to make an HTTPS request to the on-premises hosted web service send the results back y putting the results in an S3 output location.
+
+61: Use AWS CodePipeline to create a pipeline, then create a custom action type. Create a job worker for the on-premises server that polls CodePipeline for job results. Configure the pipeline to invoke the custom action after the source stage.
+
+62: CodeDeploy custom environment variable  DEPLOYMENT_GROUP_NAME to identify which deployment group the instances is partof. Use the information to configure the log settings. Refereance the script as part of BeforeInstall lifecycle hook in the appspec.yml.
