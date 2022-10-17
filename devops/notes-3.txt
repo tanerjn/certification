@@ -98,3 +98,30 @@ Static website hosted on S3 bucket. CloudFormation to choose s3 bucket custom re
 61: Use AWS CodePipeline to create a pipeline, then create a custom action type. Create a job worker for the on-premises server that polls CodePipeline for job results. Configure the pipeline to invoke the custom action after the source stage.
 
 62: CodeDeploy custom environment variable  DEPLOYMENT_GROUP_NAME to identify which deployment group the instances is partof. Use the information to configure the log settings. Refereance the script as part of BeforeInstall lifecycle hook in the appspec.yml.
+
+63: Predictable peak traffic times. Instances to scale up only peak times. Standort Node.js application. Configure OpsWorks stacks and custom Chef cookbooks. Git repo info. Custom recipe to deploy application in steps. Configure time based instances and attach an EC2 IAM role that provides permission to access DynamoDB.
+
+64: Health dashboard: AWS Health API to automate remediation actions for issues with the health of AWS. Delete IAM access key and send notification to the security team: Step functions to delete the IAM key then use SNS to send notificcation to the security team. Create CloudWatch Events rule with an aws.health event source and the AWS_RISK_CREDENTIALS_EXPOSED event; set the target to CloudWatch events.
+
+65: Security team depends on CloudTrail to detect sensitive isses in the copany's account. Auto-remediate CloudTrail turned off: CloudWatch Events rule fo the CloudTrail StopLogging event. Lambda function that uses the SDK to call StartLoggin on the resource in which StopLogging was called. Add the Lambda function ARN as a target to the CloudWatch Events rule.
+
+66: CloudTrail files are not tampered with after being created. IAM to restric access to specific trails. Security team wants to ensure they can trace the integrity of each file and make sure there is no tampering. Enable CloudTrail file integrity feature. Use the digest file created by CloudTrail to verify the integrity.
+
+67: Serverless architecture for mobile and web apps with API gateway. Fully automate the deployment based on the CodeCommit. 
+
+1. Seperate environment pipelines for testing and production.
+2. Automatic deployment that occurs for test environments only.
+
+Two CodePipeline for test and production environments. Configureproduction pipeline to have manual approval step. Create CodeCommit with a branch for each environment. Set up each CodePipeline to retrivethe source code from the appropriate branch in the repository. Set up the deployment step to deploy the Lambda functions with CloudFormation.
+
+68: Test action after the last deploy action of the pipeline. configure the action to use CodeBuild to perform the reqired tests. if tests are succesfil, mark the acion as successfil. Add manual approval action uses SNS to notify the team over slack SNS.
+
+69: Data must be encrypted in transit: 
+	Data must be replicated in at least two locations that are 500 miles apart.
+
+	Primary and secondary S3 buckets in seperate regions 500 miles apart. Use IAM role to enforce access to the buckets only through HTTPS. Use bucket policy to enforce S3 managed keys(SSE-S3) on all objects uploaded to the bucket. Configure cross region replication between the two buckets.
+
+70: 
+
+
+
