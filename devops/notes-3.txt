@@ -256,7 +256,7 @@ Create ASG using the AMI image with a scaling action based on the ASG CPU utilis
 198. Instance to EC2->ASG group with the minimum, maximum and desired capacity set to 1.
 199. CloudFormation to create EC2 includes the user-data property for the EC2 resource. Add a command in user-data to retrieve the application metadata from S3.
 
-
+200. Migrate legacy app to AWS and develop pipeline that uses AWS only. CodeCommit using AWS CLI. Clone the Git repo directly to CodeCommit using the CLI. Validate that files were migrated publish the CodeCommit repository. 
 
 
 
