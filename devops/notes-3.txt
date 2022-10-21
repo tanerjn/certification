@@ -257,7 +257,11 @@ Create ASG using the AMI image with a scaling action based on the ASG CPU utilis
 199. CloudFormation to create EC2 includes the user-data property for the EC2 resource. Add a command in user-data to retrieve the application metadata from S3.
 
 200. Migrate legacy app to AWS and develop pipeline that uses AWS only. CodeCommit using AWS CLI. Clone the Git repo directly to CodeCommit using the CLI. Validate that files were migrated publish the CodeCommit repository. 
-
+201. Run CloudWatch Events rule every 5 minutes to invoke Lambda function that checks to see if the compromised tag for any kaccess key is set to true. If so, notify the security team and disable the access keys.
+202. Minimal effort data at rest. S3-bucket-server-side-encryption-enabled managed rule that checks for that does not explicitly deny put-object requests without server-side encryption. Add the AWS-EnabledS3BucketEncryption remediation action to the AWS Config rule to enable default encryption on any S2 buckets that are non compliant. 
+203. Multi region disaster recovery  solution for new application. App consists of EC2 instances running in Auto Scaling group and Aurora MySQL DB cluster. Application must be available with an RTO 120 minutes and RPO of 60 minutes. Launch Aurora DB cluster as Aurora Replica in different Region. Create CloudFormation template for all compute resources and create stack in two regions. Write script that promotes the Aurora Replica to the primary instance in the event of a failure.
+204. EBS spend has increased over time. Unattached EBS volumes: Use EC2 and Data Lifecycle Manager to configure a volume lifecycle policy. Set the interval period for unattached EBS volumes to 14 days and set the retention rule to delete. Set the policy target volumes as *.
+205. 60 second grace period after 200 response code: Increase the grace period from 60 seconds to 180 seconds, consecutive health check requirement from 2 to 3.
 
 
 
