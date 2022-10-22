@@ -263,23 +263,31 @@ Create ASG using the AMI image with a scaling action based on the ASG CPU utilis
 204. EBS spend has increased over time. Unattached EBS volumes: Use EC2 and Data Lifecycle Manager to configure a volume lifecycle policy. Set the interval period for unattached EBS volumes to 14 days and set the retention rule to delete. Set the policy target volumes as *.
 205. 60 second grace period after 200 response code: Increase the grace period from 60 seconds to 180 seconds, consecutive health check requirement from 2 to 3.
 
+206. Launch Aurora DB cluster as an Replica in a different Region. Create CloudFormation template for all compute resources and create a stack in two regions. Write a script that promotes the Aurora Replica to the primary instance in the event of a failure.
 
+207. EC2 and DataLifeCycle manager to configure a volume lifecycle policy. Set the interval period for unattached EBS volumesto 14 daysand set the retention rule to delete. Set the policy target volumes as *.
 
+208. Increase instance grade period from 60 seconds to 180 seconds, and theconsecutive health check requierement from 2 to 3.
 
+209. SecretsManager::Secret resource type. Referencethesecret resource return attributes that need password, such as RDS DB. Sensitive static data in the Systems Manager Parameter Store as strings. Reference the stored value using types of Systems Managerparameters. Use KM to encrpt the CloudFormation template.
 
+210. Install System Manager Agent to capture logs and view login activity in the CloudTrail console.
 
+211. CloudWatch Events rlefor themaster branch to trigger the pipeline.
+212. Scheduled CloudWatch Events to targeta custom Lambda function runs Trusted Advisor checks. Creatsecond CloudWatch Events rule tofilter eventsfrom Trusted Advisor to trigger Lambda function to stop idle non-production instances and send notifications. 
 
-
-
-
-
-
-
-
-
-
-
-
+213. Upload application as Docker image that contains all the necessary software to Amazon ECR. Create an ECS cluster using Fargate launch type and an Auto Scaling group. Create AWS CodePipeline that uses ECR as a source and ECS as a deployment provider.
+214. CloudFormation StackSets with approved CloudFormation templates.
+215. CloudWatch logs from EC2 to S3. CloudTrail to deliver theAPI  and S3 use Reshift to query.
+216. Create multiple AZ add LoadBalancer to split. Replace the NAT  withNAT gateway in each AZ. Update route tables.
+217. ContinueUpdateRollback from CloudFormation console
+218. Manually adjust theresources to match theexpectations of the stack.
+219. Enable available memory consumption with CloudWatch ii
+220. Cognito identity pool using Facebook as the identity provider.Obtain tepmorary AWS credentials so a user can access S3.
+221. Amazon Cognito pool using facebook as id provider.
+222. SQS queue and server side encryption.
+223. ElasticCache deliver mapping content
+224. CLoudTrail to detech when CLoudFormation has changed.
 
 
 
