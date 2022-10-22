@@ -288,9 +288,25 @@ Create ASG using the AMI image with a scaling action based on the ASG CPU utilis
 222. SQS queue and server side encryption.
 223. ElasticCache deliver mapping content
 224. CLoudTrail to detech when CLoudFormation has changed.
-
-
-
-
-
-
+225. Ensure Lambda function code returns a response to the pre-signed URL.
+226. Refresh cache for storage gw. CloudWatch events(Eventbridge)
+227. Organisation SCP with explicit deny CreateAccessKey actions with a condition that excludes StringNotEquals for aws:username with a vale of the exception list.
+228. Cross region endpoint CloudTrail run Lambda to promote the replica and modify the endpoint to point to new instance.
+229. buildspec.yml to the source code with build instructions, GitHub webhook to trigger a build, CodeBuild project with GitHub.
+230.IAM user does not have the permission to interact with the CodeDeploy endpoint.
+231. Create application to test health and execue the script during BeforeIntstall lifecycle hook in the CodeDeploy appspec.yml. Update the CodeDeploy group to roll back based on custome CloudWatch alarm. 
+232. CodeDeploy to push new versions.
+233. JSON YAML CodeDeploy AppSpecfor new versions.
+234. AWS RunShellScript to copy files from Git to S3. Use awsdownloaContent plugin with sourceTYpe of S3.
+235.CloudFormation:DriftDetection
+236.2 region Aurora and multiple regions alb.
+237.Restore DB for every 2 hours.
+238.Latency based routing and health checks.Configure api to fwd request to lambda in the region. configure lambda to retrieve and update the data in a dynamo global table.
+239.CAnary testing with few users
+240.S3 cross region replication RDS to a secondary region.
+241.CloudWatch metric filter alarm for KMS with error message. re-enable key if necessary.
+242.Update attached IAM to allow access to KMS key from the CodeDeploy role where the application will be deployed.
+243.RPO: recovery point objective, RTO: recovery time objective.
+244.RDS automated backups, failover change DNS recording.
+245.CodeCommit, SAM, CodeDeploy
+246.
