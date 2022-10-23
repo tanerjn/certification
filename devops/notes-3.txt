@@ -310,3 +310,27 @@ Create ASG using the AMI image with a scaling action based on the ASG CPU utilis
 244.RDS automated backups, failover change DNS recording.
 245.CodeCommit, SAM, CodeDeploy
 246.
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
+update
