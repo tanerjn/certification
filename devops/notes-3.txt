@@ -309,28 +309,44 @@ Create ASG using the AMI image with a scaling action based on the ASG CPU utilis
 243.RPO: recovery point objective, RTO: recovery time objective.
 244.RDS automated backups, failover change DNS recording.
 245.CodeCommit, SAM, CodeDeploy
-246.
-update
-update
-update
-update
-update
-update
-update
-update
-update
-update
-update
-update
-update
-update
-update
-update
-update
-update
-update
-update
-update
-update
-update
-update
+246.SDK handles rotating API keyse with EC2 MetaData service.
+247.10 minute window scale up and down to load within 10 minute window. after peaks begin to see problems in config.
+248.Cleanup EC2 resources within config. Script run daily a cron job on EC2 and executes API describe calls of the AutoScaling group and removes terminated instances from the configuration management system. Small script that run is during  EC2 instance shutdown to de-register the resource from the configuration management system.
+249.Health check in place is not sufficient evaluation the applicaiton function.
+250.CloudWatch Logs Agent, CloudWatch logs group. Cloudwatch logs group and define metric filters that capture 500 Internal Server Errors. Set CloudWatch alarm on that metric. Use Simple Notification Service to notify an on-call engineer when CloudWatch alarm is triggered.
+251.Redploy application behind load balancer uses AutoScaling groups, new identical ASG, associate it to load balancer. Deploy desired number of instances on the old Auto Scaling group to zero, when all instances are terminated delete the old AutoScaling group.
+252. Place each developers private key to S3 bucket use instance profiles and configuration management to create user account for each developer on all instances, place the user's public keys into the appropriate account. 
+253. EBS volumes have been pre-warned by reading all the blocks berore the test.
+254. Use SNS to create notification on S# objects automatically updates new Dynamo table to store all metadata about the new object. SUbscribe the applicatin to SNS topic to update its internal S3 object metadata cache from Dynamo table.
+255. Post the log data to Kinesis and subscribe log-processing application oso it is configured to process logging.
+256. Configure ASG to increase size of EMR.
+257. Container command within Banstalk configuration file to eceute the script, ensuring "leader only" is set.
+258. Syntax and build tests on the continuous integratoin system before launching the new EC2 and integration tests.
+259. Add read replicas have direct read queries. Use ElasticCache in front of RDS to cache, Shard dataset among multiple DB instances.
+260.Authenticate users at application level, use Securty token (STS) to grant token-based authorization to S3 objects.
+261. Key based naming scheme comprised from the user IDs for all user objects in a single S3. 
+262. SQS: complaining number of failed calls. Enable termination protection while it processes atask  and disable it when the processing is complete.
+263. CloudFormation create CloudWatch LogsGroup and send the operating system and application logs of interest using the CLoudWatch Logs Agent. using configuration management, set up remote logging to send event to Kisesis and instert these into CloudSearch or Redshift, depending on available analytic tools. Using CloudFormation create CloudWatch LogGroup because CloudWatch Log agent automatically sends all operating system logs, only have to configure the application logs for sending off-machine.
+264. Seperate CloudFormation template into a nested tructure that has individual templates for the security stacks for the application template that you control.
+265.CloudWatch logs  agent on AMI, set up SNS for CloudWatch metrics triggers the CLoudWatch monitoring agent to backup all logs on the ephemeral drive.
+266.Increase in the monthly bill from AWS increased cost. Determine exact cause of this increase. Review billing report, notice increase in the data transfer cost. Provide management with a better insight into data transfer use. Custom metrics to CloudWatch per application that breaks down application data transfer into multiple, more specific data points.
+277.Mora data points to show management by CloudWatch.
+278.Increasae AutoScaling groups' number of max servers. Push custome metrics to CloudWatch for your application that include more detailed information about your web application such as how many requests it is handling how many are waiting to be processed.
+279.Upward trend for slow customer page load time.Ensure customer is not effected by too many requests. Redeploy infrastructure using CloudFormation, Beanstalk, Auto Scaling. Set up AutoScaling group policies to scale based on the number of requests per second as well as the current customer load time.
+280.SNS topic to integrate customer emails. Another SNS topic to configure CloudWatch alarms. HTTP subscriber to this topic that notifies application via HTTP POST when alarm is triggered. SDK tools to integrate application with SNS and send messages to the correct team topic when on shift.
+281.Ship the logs to Kinesis stream and have consumers analyze logs in live manner.
+282.S3 bucket policy with condition statement requieres MFA. Amazon Identity and Access Management role with authorization to access the 53 bucket and launch all of application's EC2 instances with this role.
+282.AutoScaling policy CPU Utilization CloudWatch metric. RDS Multi-AZ deployment.
+283.Blue/Green deployment with new C2 instances carry out the deployment seitch DNS over to the new load balancer using route 53 after testing.
+284. High availability and zero downtime. Redeploy app to Beanstalk. Create new version of appliation, create new environment running the version in Beanstalk. Take advantage of Beanstalk SWAP CNAME operation to setich to the new environment.
+285. CloudSearch domain for API call logs. Configure search domein so it can be used to index API cll logs for thesearch tool. CloudTrail logs in S2. SNS "log notificaiton" topics. Subscribe SQS queue to the topics. Beanstalk application in worker role uses SQS queue to facilitate batch processing new API call log files retrieved from S3 bucket into a search index.
+286."BlockDeviceMapping" option at EC2, snapshot to use for the block device in AutoScaling launch configuration.
+303.Describe AutoScalingInstances API call on the AutoScaling group, iterate over the members using describe instances API call, remotely connect to each EC2 instance then run integration tests. Set up custom CloudWatch metric with the output of your integration tests run by a scheduled process on each instance enters the InService state.
+304.Store IAM credentials in EC2 user data for each instance, then simply get the object from S3, because default is teh current version.
+305.AMI with the application configured. New auto scaling conig using the new AMI, configure Auto Scaling group to launch this AMI. Use the history of past scaling events for similar event sales to predict future scaling requierements. use AutoScaling scheduled scaling feature to vary the size of the fleet.
+306.new cloudwatch alarm basedon a custom metric streaming from the RDS MySQL instance that triggers an AutoScaling action to scale the application tier. EC2 user data script that installs logs agent on new launched instances. Agent will be configured to stream the file transfer log tile.
+307.multi tier windows based web app. rds instances, load balancer behind route53. cost effective rolling deployment solution for the web application. Redeploy application using CloudFormation template. CloudFormation rolling deployment policies, create new policy for CloudFormation stack. Initiate an update stack operation to deploy new code.
+308. redeploy using cloudformation template. use cloud formation rolling deployment policies, create new policy for cloud formation stack and initiate update stack operation to deploy new code.
+309.Redeploy using OpsWorks stack use OpsWorks auto rollback feature to initiate rollback during failures.
+310. High traffic application running behind load baclancer wih clientes very sensitive to latency. Elastic Compute Cloud applicatoin causing increased latency to replace. By using load balancer access logs.
+311. Define AWS:CloudFormation:CustomResource in the template with the application version as one of its properties. Modify the CMDB to subscribe to the resource's creation and update notifications.
