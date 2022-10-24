@@ -438,4 +438,58 @@ Place slave nodes in scaling group. configure cloud watch alarm triggers an auto
 337. add cloudformation wait condition that depends on the web server resource. When the UserData script finishes on the web servers, use curl to signal to the WaitCondition pre-signed URL that they are ready. Add an Cloudformation wait condition that depends on the web server resource. when the user data script finishes on the web server, use the command "cfn-signal" that they are ready.
 338. update cloud formation configuration to take advantage of auto scaling groups. configure an auto scaling group policy to trigger off you custom cloud watch metrics. create custom cloudwatch metric that you push your jvm memory usage to. create cloud watch alarm that triggers an SNS notification to page your team when the application memory usage becomes too large.
 
-339.
+339. 2 servers in each AZ's a through e, inclusive.
+340. code Parameter code for environment and add condition on the route 53 code.
+340. Identity provider like google or facebook to exchange for temporary security credentials.
+341. D. DynamoDBtablewithroughlyequalreadandwritethroughput,withElastiCachecaching.
+342.Model the stack in 3 CloudFormation templates: Data layer, compute layer and networking layer. Write stack deployment and integration testing automation following Blue-Green methodologies.
+343.BlueGreen for zero downtime deploys. Use DynamoDB and neither OpsWorks nor Beanstalk directly supports DynamoDB, option selecting CloudFormation and Bluereen is correct. Scope of an EBS shot is Region.
+344. System did not include repair logic and request replay buffering logic for post-failure, to resynchronize data to the Region that was unavailable for a number of hours.
+345. Multi-region multi-master, active-active RDS configuration using application control-level BASE design principles with change-stream wrtie queue buffers for replication.
+346.LocalSecondaryKey properties: Only sort key can be different from the table.
+347.Pre-baking AMI with all code and cofiguraion on deploys
+348.fastest possible rollback times in the event of a failed eployment.
+349.Which of the following are not valid resource for OpsWorks custom cookbook repositories.
+350.EBS is not valid for cookbook repo.
+351.If NAT fails private subnet fails, deployment fail.
+352.BYO license Oracle.
+352.Max speed 320 MiB/s
+353.Unmount the volume first.
+354.Create EBS volume from existing snapshot. Size10GB. Create a volume of 30G from the snapshot. Yes.
+355.resize2fs:
+356. SQS keeps messages 4 days.
+357. df -f empty volume is not mounted.
+358. Amazon SQS: 8 kb.
+359. Maximum time messages can be stored in SQS.
+360. DynamoDB secondary index is data structure contains a subset of attributes from a table, alons with an alternate key to support query operations. No step is required the user can directly mount the device.
+361. bid on spot instances just above the asking price as soon as new commits come in, perform all instance confiuration and setup then create AMI based on the spot instance.
+362. Global Secondary Key properties: Partition ke and sort key can be different from the table.
+371. use SQS queue and set the visibility tieout to long enough for jobs to process.
+372.use a long poll instead of short polls.
+373.CloudWatch + Billing Alarm + Lambda, when the threshold is exceeded email the manager.
+374.Vendor access to AWS account. Read protected messages in a private S3 bucket at leisure. Create cross-account IAM with permission to access the bucket, grant permission to use the role to the vendor account.
+375.request for limit increase on lambda function executions.
+376. more frequent snapshots or EBS faster becuase only the blocks on the device have changed after last snapshots are saved in the new snapshot.
+377. Blocks in EBS volumes are allocated lazily, while logically seperated from other EBS volumes, often share the same physical hardware. Snapshotiting the first time forces full block range allocation so the second snapshot does not need to perform the allocation phase and is faster.
+378. Snapshots are incremental so only blocks on the device that have changed after last snapshot are save in the new snapshot.
+379. UPDATE_ROLLBACK_FAILED: UpdateStack calls.
+380. 5556 : DynamoDB partition key.
+381. Use CloudTrail LogFile Integrity validation.
+382. is not pseudoparameter: StackARN.
+383. scope of the EBS : Availability Zone.
+384. GameID or equivalent identifier as the primary partition key for the table.
+385. Game ID or equivalent identifier as the primary partition key for the table.
+386. GameID or equivalent as the primary key for the table.
+
+387. Review CloudWatch metrics graph to determine hich components slowed the system down.
+388. Fn::split . custom resources using Lambda and Code.ZipFile allow inline nodejs resource.
+389. Create Route53 Latency Based Routing Record with Failover and point it to two identical deployments of your stateless API in two different regions. Make sure both regions use AutoScaling groups behind ELB.
+390. Create Route53 Latency based routing record with failover and point it two identical deployments of your stateless API in two different regions. Make sure both regions use AutoScaling groups behind ELBs.
+391. Mountable disks and filesystem, so you can not use the S3. Need persistance so use EBS. Lowcost storage as possible and access is not frequent or high throughput, mostly sequential reads. Most appropriate EBS: standard.
+392. Custom resource type by implementin create update delet functionality subscribe custom resource provider to SNS topic, implement logic in AWS Lambda.
+393. Large AWS Directory Service AD Connector.
+394. Spot instances you can allocate in stack layer.
+395. cfn-request cloud formation helper script.
+396. Kinesis as a buffer and transport mechanism for API call events.
+397. Ruby on Rails application for internal non production use MySQL as a database. Developers with severe experience to be able to deploy: Beanstalk.
+398.
