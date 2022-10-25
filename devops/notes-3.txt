@@ -493,3 +493,7 @@ Place slave nodes in scaling group. configure cloud watch alarm triggers an auto
 396. Kinesis as a buffer and transport mechanism for API call events.
 397. Ruby on Rails application for internal non production use MySQL as a database. Developers with severe experience to be able to deploy: Beanstalk.
 398.
+update
+update
+update
+update
