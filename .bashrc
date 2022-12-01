@@ -16,6 +16,8 @@ export PKG_CONFIG_PATH="/usr/local/opt/openssl@3/lib/pkgconfig"
 alias pluginvim="vim +PluginInstall +qall"
 alias greps="grep -rnw . -e"
 alias pet='pygmentize -g -O full,style=friendly,linenos=1'
+alias vimp="vim -p"
+
 alias maven=/usr/local/apache-maven-3.8.4/bin/mvn
 alias awscon="cd /opt/prj/awscourse &&  ssh -i aws_re.pem ec2-user@ec2-3-127-203-31.eu-central-1.compute.amazonaws.com"
 alias gst="git status"
