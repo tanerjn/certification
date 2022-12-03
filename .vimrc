@@ -21,6 +21,10 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+
 nnoremap <C-j> :bprev<CR>                                                                            
 nnoremap <C-k> :bnext<CR>
 filetype plugin indent on   
