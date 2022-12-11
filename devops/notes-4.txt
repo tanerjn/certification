@@ -8,5 +8,21 @@ BUM traffic: Unknown destination of MAC address is received Layer 2 floods packe
 Correct subnet mask for /30 subnet: 255.255.255.252.
 Private range of IPv4 addresses Class A: 10.0.0.0 to 10.255.255.255. Class B: 172.16.0.0 - 172.31.255.255. Class C 192.168.0.0 - 192.168.255.255
 Class B can communicate without the need to access to the internet.
+unique-local: does provide connection between subnets and can not route to internet.
+Ipv6 FF00::/8 Send packets to group addresses multicast. FF00::10 link-local addresses. Link local addresses only used for communication within the local network (automatic address configuration, neighbor discovery, router discovery, and other routing protocols.
+Late collisions: one side of the connection is configured half duplex, cable length exceeded.
+Cisco Wireless LAN Controller: Eliminates the need to configure each access point individually.
+If a monitored port exceeds the syslog message is issued, maximum administrative value for power, the port is shutdown and err-disabled.
+Frame flooding: Frames are sent to every port on the switch in the same VLAN except from the originating port.
+Private IP addresses ensures companies to use same IPs without conflict. Class C
+Enable SLAAC on the interface: Global Unicat IPv6
+2.4 ghz has 11 channels, 5ghz has 45 channels. Overlapping cells are configured to use nonoverlapping channels. For maximum throguhput, the WLC is configured to dynamically set adjacent access points to the channel.
+Differences optical-fiber and copper: Glass core component is encased in a cladding, Light is transmitted through the core of the fiber.
+WLC(Wireless Lan Controller): Access point has the ability to connect any switch.
+Multicast FF00::/12
+Global Unicast: 2000::/3, 2001::3/3, 2002::4, 2001:db8::/32
+Link Local Unicast: FE80::/10 -- FE80:: FEBF::
+Unique Local Unicast: FC00/7 -- FC00:: FDFF::
+Loopback::1/128
 
 
