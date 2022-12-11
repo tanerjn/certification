@@ -1,0 +1,12 @@
+CCNA Prep
+
+IPv6 autoconfig
+FF01::1 and FF02:2 are joined.
+802.11 MGMT Frame
+1.193 Gateway 1.200/26 Network Id 1.255 Broadcast ID 00:0C:22:83:79:A3 MAC 00:0C:22 NIC Vendor
+BUM traffic: Unknown destination of MAC address is received Layer 2 floods packets to all ports except the receiveing port in the given VLAN.
+Correct subnet mask for /30 subnet: 255.255.255.252.
+Private range of IPv4 addresses Class A: 10.0.0.0 to 10.255.255.255. Class B: 172.16.0.0 - 172.31.255.255. Class C 192.168.0.0 - 192.168.255.255
+Class B can communicate without the need to access to the internet.
+
+
