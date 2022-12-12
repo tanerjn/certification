@@ -24,5 +24,14 @@ Global Unicast: 2000::/3, 2001::3/3, 2002::4, 2001:db8::/32
 Link Local Unicast: FE80::/10 -- FE80:: FEBF::
 Unique Local Unicast: FC00/7 -- FC00:: FDFF::
 Loopback::1/128
-
-
+Two descriptions of three tier network: Distribution layer 2 and Layer 3 technologies, network core is designed to maintain continuous connectivity.
+Global unicast is publicly routable.
+When EUI-64 is generated: Seventh bit of the original MAC address of the interface is inverted. Which is the last 4 character of IPv6. fe80::8013:1fff:fe68:b040::8013:1FFF:FE68:B040
+/25 for summary and /27 for each floor.
+UDP transmits in stream, TCP transmits in sequence.
+2 stations transmits messages in the same time: Late collision.
+Collision: in the first 64 bytes, after 64 bits late collison.
+Source and destination MAC addresses remain same. 
+1, 6, 11 are used to limit collisions on 2.4 GHz channel.
+Collision happens at wired network congestion happens at wireless network.
+TCP uses checksum, acknowledgement and reransmission. UDP uses acknowledgement only.
