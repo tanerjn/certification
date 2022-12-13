@@ -96,4 +96,44 @@ Each AP operate in their channel. Neighbouring APs should not use same channel, 
 Layer 2 switch: moves packets within VLAN, makes forwarding based on the MAC of a packet.
 Layer 3 switch: all packet forwarding between intermediate routers.
 
+TCP: Telnet, HTTP, SNTP UDP: SNMP(Simple Network Monitoring Protocol), RTP, DNS
+
+High usage on 2.4 Ghz and lower usage on 5GHz channels: Client Band Select(Band steering). Suppress 2.4 GHz frames to station probe requests by responding with 5G frames first.
+
+Data plane: Forwarding client/server traffic. 
+
+Interface errors are incrementing after siteA was connected to SiteB over a new single-mode fiber path. Users at site A reporting intermittent connectivity issues with applications. Input output errors increase they affect the raliability counter. Indicates how likely it is taht a packet can be delivered or received successfully. Reliability = number of packets / number of total frames.
+
+Compress ip address: remove 0s. 
+
+Check the packet is legitimate: Firewall
+
+Access points in enterprises: Connect wireless devices to network.
+
+Cisco Unified Wirelss Network responds to Wi-Fi channel overlap: Analyze client load and background noise and dynamically assign channel. Dynamic Channel Assignment
+
+Collapsed Core: Distributed Layer are combined with Core layer. It is more cost effective than 3 tier.
+
+3 Tier Architecture:
+      : Access: L2 switch(no routing) in the wall. Star topology
+	  : Distribution: Multilayer switch(routing) . Mesh
+	  : Between buildings(gateway to internet) Firewall enabled routers  Ether channel: aggregating multiple connections(2 x 10 gig will look like 1 20 gig)
+
+T1 connection used Point to point (P2P) between two or more networks. Maximum data transmission rate is 1.544 megabits. T1 connections used to be attached internet router,  connections are obsolete today.
+
+UTP Cat5e and Cat6a cabling both support 1Gigabit both runs up to 100 meters.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
