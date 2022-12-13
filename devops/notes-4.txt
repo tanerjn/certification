@@ -1,4 +1,4 @@
-CCNA Prep
+CCNA Prep / 800 questions
 
 IPv6 autoconfig
 FF01::1 and FF02:2 are joined.
@@ -34,4 +34,66 @@ Collision: in the first 64 bytes, after 64 bits late collison.
 Source and destination MAC addresses remain same. 
 1, 6, 11 are used to limit collisions on 2.4 GHz channel.
 Collision happens at wired network congestion happens at wireless network.
-TCP uses checksum, acknowledgement and reransmission. UDP uses acknowledgement only.
+TCP uses checksum, acknowledgement and reransmission. UDP uses acknowledgement only
+Enable Band Select t oincrease throughtput 5Ghz network reduce collision.
+
+Ports: FTP TCP 20, 21 TFTP UDP 69
+       SSH - TCP 22   SNMP UDP 161
+	   SMTP TCP25   DHCP UDP 67
+       Telnet TCP 23 RIP UDP 520
+
+MAC addres of broadcast frame ff:ff:ff:ff:ff:ff
+
+Physical addresses are mac addresses allow communication between different devices on the same network, uniquely identify devices at layer 2.
+
+Connection Oriented: SMTP, SSH, FTP. Connectionless: TFTP, VoIP, SNMP
+
+Preamble: notify that traffic is coming. 
+
+Router acts as DHCP client. FastEthernet command IP address dhcp.
+
+OSI layer: Defines network functions at each layer. Facilitates how information travels throughout a network. 
+
+Example MAC: first part defines the manufacturer second defines the hardware
+
+6 to 4 tunneling you can use to route IPv6 traffic over an IPv4 infrastructure.
+
+Each interface on a network must be in a different network. Routers are meant to route different networks.
+
+Etablishes a static route to the 172.16.3.9 network.
+
+Ipv4 benefits: can be sassigned to devices without internet, less costly than public IP.
+
+UDP has lower overhead, UDP has checksums to verify the integrity of application data.
+
+Implement privte IPv4: Conserve IPv4 address, Reduce the risk of a network securyty breach.
+
+Broadband cable access is prefferred for small office home office arch. DSL, cable, satellite: Internet, VPN dat fransfer through internet.
+
+Dual-home branches, dynamic routing are to help a business scalability and reliability for the network.
+
+Binary pattern: 11111101: Unique ipv6 local address according to RFC. 
+
+Ipv4 privte space enable intra-enterprise communication, conserve global address space.
+
+IP don't but MAC may change during transmisson.
+
+Copper and fiber both provide minimal interruption to services being hot swappable. 
+
+SRV: Handles requests from multiple workstations at the same time. Runs applications to send and retrieve data that make requests
+
+Collision: wired congestion: wireless. 
+Enforcing route policies are enforced in a collapsed two tier architecture.
+
+Primary function of layer 3 device: P, D, [N], T, S, P, A :: N = Pass traffic between different networks. 
+
+Core: Provide uninterrupted fwd service, ensure timely data between layers.
+
+Avoid co-channel congestion at 2.4 GHz. differnet nonoverlapping channels
+
+Each AP operate in their channel. Neighbouring APs should not use same channel, need to use multiple non-overlapping channel or co-channel interfrence which slows down.
+
+Layer 2 switch: moves packets within VLAN, makes forwarding based on the MAC of a packet.
+Layer 3 switch: all packet forwarding between intermediate routers.
+
+
