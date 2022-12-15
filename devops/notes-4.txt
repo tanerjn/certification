@@ -123,6 +123,126 @@ T1 connection used Point to point (P2P) between two or more networks. Maximum da
 
 UTP Cat5e and Cat6a cabling both support 1Gigabit both runs up to 100 meters.
 
+Data Plane: De-encapsulating and re-encapsulating packet in data-link frame(routes and layer 3 switches)
+            Adding removing 802.1Q (Mgmt) trunk header(routes and switches)
+            Matching ethernet frame's destination MAC address to the MAC address table(layer 2 switches)
+			Matching IP packet's destination IP address to the IP routing table(routers and layer 3 switches)
+           Encrypting the data and adding a new IP header(VPN processing)
+		   Changing the source or destination IP address(NAT processing)
+		   Discarding a message due to a filter(ACLs and port security)
+All these items make up the data plane data plane includes all actions done per message.
+
+Answer: Add or remove 802.1Q trunking header. Match the destination MAC address to the MAC address table.
+ICMP: Part of the control plane. Internet control message protocol. (Ping=signalling)
+
+Lowest Administrative Distance(AD) value will be valid at routing. AD: Number of arbitrary unit assigned to dynamic routes, static routes and directly connected routes.
+
+Network endpoint: threat to the network f they are compromised.
+
+Duplex mismatch on the interface. Root cause of poor performing.
+
+RFC 1918: Conserve public IPv4 addressing. It is a standard which networking equipment assigns IP adresses in private network.
+
+TCP: Reliable data transmission, requires client and server establishes connection before sending the packet. UDP: Provides best effort service, transmitted on data contained in the packet without the need for a data channel.
+
+Unique local address will start with FC,  FD, FE
+Global unicast: 2001, 3f
+Unique local: fc, fd
+
+link-local-unicast:fe80
+global unicast:3ffe, 2001
+multicast ff05::1:3
+
+Small organisations should use collapsed core architecture to reduce costs.
+
+ipv6 address 2001:Eb8:C1:2200:1::331/54 (without zeroes)
+
+Router configuration of IP IPS given+MAC of prevous router+ some more stuff.
+
+1000BASE-LX 1000BASE-T similarity Both of them use the same data-link and header formats.
+
+DHCP sends address to DNS server (192.168.1.253)
+
+Frame switching: forward frames to ports that have matching destination.
+
+Anycastaddress is assigned to multiple devices on the same network at the same time.
+
+Private IPv4 used without tracking or registration.
+
+Endpoint allows users to record data and transmit to a file server.
+
+Controller based networking: Serves as the centralized management point of an SDN architechture.
+
+Query responsible model: TCP establishes connection, UDP sends immediately.
+
+Router will get the broadcast IP which is minus 2. i.e 10.23.98.128/27 is the netw, 10.23.98.158 is brdcst.
+
+Wirelass LAN controller: Centralized control of authentication and roaming.
+2.4 GHz nonoverlapping wireless channels standard in United states: Channels: 1, 6, 11
+IPv6 only capable device
+Unique local: has no route to the internet
+link-local: internal network is subnet.
+
+Nonoverlapping WiFi channels discontinuous frequency ranges
+
+Interface VLAN. 2000 ipv6 address fd00::1234:2343/64. :: is only used to abbreviate multiple quartets of 0s.
+
+SSID: at most 32 characters long, It can be hidden or broadcast in a WLAN. 
+
+The main difference between a packet and a frame is the association with the OSI layers. While a packet is the unit of data used in the network layer, a frame is the unit of data used in the OSI model's data link layer. A frame contains more information about the transmitted message than a packet.
+
+FRAME vs PACKET
+When switch receives a frame for a know destination MAC address frame is send to the port identified for the known MAC address.
+
+ANYCAST 
+assigned to more than once interface
+used exclusively by a non host device
+MULTICAST
+provides one to many communications 
+derived from the FF00::/8 address range
+UNICAST
+includes link local and loopback addresses
+identifies an interface on an IPv6 device
+
+Class A: 1.0.0.1 - 126.255.255.254
+Class B: 128.1.0.1 - 191.255.255.254
+Class C: 192.0.1.1 - 223.255.254.254
+
+Ipv6 networks: 
+Global unicast 200::/3
+Link local fe80::/10
+Loopback::1/128
+unspecifid fc00::/7 
+embedded ipv4 ::/80
+
+FTP, HTTP, Telnet, SMTP emplys unicast.
+ARP protocol: Broadcast addressing FFFF
+SOHO network: small wired and wireless comp. network. 
+
+255.255.254.0 : 2^9 addresses
+
+Global Unicast:Routable via Internt
+               Equivalent to public IPv4
+
+Link local address: Attached to single subnet
+                    Configured only once per interface
+
+
+
+g0 209.165.292.130 255.255.255.252 groups of 4 
+g1 192.168.4.9  255.255.255.248  groups of 8
+g2 192.168.3.14 255.255.255.240 groups of 16
+g3 192.168.3.14 255.255.255.248
+
+RFC 1918: used with NAT to preserve public IPv4 addresses.
+
+2001: multicast address used only local
+FD00= automatically created on a link when ipv6 is enabled
+FE80 = prohibited from routing to the internet
+FF05= unique and reserved for documentations
+
+
+
 
 
 
