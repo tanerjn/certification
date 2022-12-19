@@ -422,8 +422,45 @@ access point use to draw power from a connected switch: Cisco Discovery Protocol
 
 Secure Wirelass LAN Controller(WLC) spoofing: Enable Protected managemnt Frame service set Comeback timer to 10. 
 
+switchport trunk native vlan 10: untagged by the switch.
+port fast enabled interfaces moveto fwd state immediately. never generate topology change notifications
+
+after the cable is connected the interface is available faster to send and receive user data.
 
 
+RADIUS: uses UDP, encrypts only password, combines authentication and authorization
+
+TACACS+: uses TCP, seperates AAA, encrypts all body
+
+switch frame flood destination mac of the frame is unknown.
+
+enabel lldp globally to use third party network
+
+access point mode relies on a centralized controller for mng roaming and SSID: ligthweight mode
+
+stp bpdu : bridge port goes  into error disable state
+
+802.1x Authentication
+802.1q defines VLANs. 
+802.1p defines priority of a vlan frame header.
+
+trunk forms but mismatched native vlans aremerged into a single broadcast domain.
+interface fastethernet 0/1 - interface fastethernet 0/1
+trunk encapsulation dot1q - trunk encapsulation dot1q
+switch trunk native vlan 999 - switch trunk nativve vlan 99
+swithport mode trunk - switchport mode trunk
+
+
+10.70.128.0/19 create a subnet to host 24 host, second sub 472 host. both hosts must use the longest subnet mask possible from the address block. vlan ranges 1 - 1004, 1005 - 4094 
+
+VLAN1 default VLAN switch is connected to the router through this VLAN. Cant be deleted/edited.
+VLAN10 virtual network for admin department 192.168.10.1
+VLAN20 virtual network for finance 192.168.20.1
+VLAN30 virtual network for the operations 192.168.30.1
+
+fa: fastethernet
+gi:gigabit port
+te interfaces:Tengigabit
 
 
 
