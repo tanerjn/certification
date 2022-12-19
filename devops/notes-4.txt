@@ -402,8 +402,25 @@ One functional physical port is needed to pass client traffic.
 Switch must be running k9 crypto, ip domain name command must be configured on the switch. 
 
 
+Configure 802.1q IEEE interswitch VLAN. Switchport mode dynamic desirable.
 
+Spanning tree enhancement avoid learning and listening states: PortFast(immediately places ports in the forwarding state)
 
+Dynamically learned MAC: CAM table is empty until ingress traffic arrives at each port.
+
+always root for root bridge: sppaning-tree vlan 200 priority 0
+
+switchport dynamic auto: switch configured in desitable or trunk mode 
+
+insert source address and port into the fwd table and fwd the frame to sales-1.
+switchport mode access switchport access vlan 300 access voice vlan 400.
+Lower revision number to prevent switch from db corruption.
+
+802.1x network authentication protocol that opens ports for network access when organisation authenticates user's identity.
+
+access point use to draw power from a connected switch: Cisco Discovery Protocol.
+
+Secure Wirelass LAN Controller(WLC) spoofing: Enable Protected managemnt Frame service set Comeback timer to 10. 
 
 
 
