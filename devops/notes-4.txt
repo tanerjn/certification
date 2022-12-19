@@ -242,7 +242,7 @@ FE80= prohibited from routing to the internet(link local) single subnet, configu
 FF05= unique and reserved for documentations(multicast)
 FCBA=(unique local) addressing with prefix FC00:7, addressing for exclusive use
 
-CRC errors(poor performance): related to cabling
+CRC errors(poor performance): related to cabling.
 
 Highest degree of reliability: full mesh
 
@@ -282,6 +282,126 @@ IPv4: converse global ipv4 addresses, enable internal applications to threat ipv
 concerns : lack of available publicly routable unique ipv4 address 
 
 Unicast is assigned is to single interface. Anycast is assigned to group of interfaces on multiple nodes.
+
+
+2.4 ghz and 5 ghz analyze client and load background noise and assigns a channel.
+
+Frame switching: forward frames to destination mac. 
+
+Anycast is assigned to multiple devices at the same time. (IPv6)
+
+distribution system - independent basic service - infrastructure mode - SSID - extended service
+
+Each leaf switch is connected to each spine switch.
+
+Spanning tree fails to detect a switching loop increasing the likelihood of broadcast storms.
+
+Spanning tree portfast command: minimize spanning tree convergence time.
+
+QoS profile: Platinium
+
+Root bridge will be the one with smallest ipv6 value. 
+
+send TLV(type length value) with LLDP port discription.
+
+Lowest value of priority plus MAC: root bridge.
+
+Switch config: ALways root for VLAN 750: priority 0
+
+lan controller, access point, service point, virtual interface, dynamic interface
+
+FlexConnect will look to conenct wireless clients after losing connectivity.
+
+Negotiation protocol EtherChannel: on
+
+Ligthweight mode enables LAN controllers to be maaged by Cisco.
+
+SSID and Profile Name on configuring LAN controller
+
+lldp reinit: specify delay time n seconds
+
+Forwards only the VTP(VLAN trunk protocol) advertisements that it receives on its trunk ports. 
+
+trunk: communication line to carry multiple signals simultaneously. 
+
+in which mode sw1 configured: active
+
+the link becomes trunk port
+
+Cisco phone allow the phone unchanged.
+
+best infra for 802.11b wireless: allocate nonoverlapping channels to access points that are in close proximity.
+
+Natvie VLAN: untagged traffic will be put into here.
+
+establish Layer 3 Ether channel open standard protocol: interfacce port-channel 10 no switchport ip address 172.16.0.1 255.255.255.0
+ 									interface gigabitEthernet0/1 channel-grpup 10 mode active
+
+
+
+
+A. int range g0/0-1 channel-group 10 mode active
+A. int range g0/0-1 channel-group 10 mode passive
+
+By default all ports are VLAN before thy were move to seperate VLAN.
+
+Phone sends and receives data in VLAN 50: `interface gigabit ethernet3/1/4 switchport voice vlan 50 !
+
+LLDP(link layer discovery protocol) RUN : Enable LLDP globally LLDP reinit 5: 5 seconds delay
+CDP will uses IP address of another interface.
+
+LACP(Link aggregation control protocol)
+
+
+
+Cisco Discovery can learn: IOS version, hardware platform, ip addresses of interfaces on devices, hostname, duplex setting, vlan domain, native VLAN(VLAN 1), VTP(VLAN Trunking protocol) domain
+
+Configure actively negotiate EtherChannel commands:
+channel group 10 mode desirable
+channel group 10 mode active
+
+STP Port blocking at Layer 2
+
+All switches must be configured same VTP domain. 
+All switches must use the same VTP version.
+
+Root port receives the best BPDU.
+
+Cisco discovery protocol is a Cisco proprietrary protocol
+
+CDP: Cisco Discovery Protocol: Obtain IP address, verify L2
+
+VTP: maintains VLAN consistency, propagate VLAN information automatically.
+
+Connectivity between VLANs reuier layer 3 device, each vlan uses seperate address space, switch maintains a seperate bridging table for each VLAN
+
+A router with subinterfaces configured on the physical interface that is connected to the switch
+
+LLDP It is configured in global configuration mode.
+
+Wireless LA controller:  LWAPP packets to access points.
+
+WSA: Web Security Alliance. 
+
+Root port selection process: lowest path cost to the root bridge. 
+
+Switch must be in VTP server or transparent mode before configuring VLAN.
+
+spanning tree mode is rapid, root port fast ethernet
+
+lldp run multi device network topolgy.
+
+AAA: Authentication identifies users, accounting tracks user services.
+
+Local AP mode creates two CAPWAP tunnels per AP to the WLC.
+
+Speed mismatch interface is error disabled: Possible reasonsinterface is down.
+
+One functional physical port is needed to pass client traffic.
+
+Switch must be running k9 crypto, ip domain name command must be configured on the switch. 
+
+
 
 
 
