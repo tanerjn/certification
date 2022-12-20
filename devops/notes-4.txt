@@ -41,7 +41,6 @@ Ports: FTP TCP 20, 21 TFTP UDP 69
        SSH - TCP 22   SNMP UDP 161
 	   SMTP TCP25   DHCP UDP 67
        Telnet TCP 23 RIP UDP 520
-
 MAC addres of broadcast frame ff:ff:ff:ff:ff:ff
 
 Physical addresses are mac addresses allow communication between different devices on the same network, uniquely identify devices at layer 2.
@@ -441,7 +440,7 @@ access point mode relies on a centralized controller for mng roaming and SSID: l
 stp bpdu : bridge port goes  into error disable state
 
 802.1x Authentication
-802.1q defines VLANs. 
+802.1q defines VLANs.  
 802.1p defines priority of a vlan frame header.
 
 trunk forms but mismatched native vlans aremerged into a single broadcast domain.
@@ -460,7 +459,132 @@ VLAN30 virtual network for the operations 192.168.30.1
 
 fa: fastethernet
 gi:gigabit port
-te interfaces:Tengigabit
+te interfaces:Tengigabit(trunking expansion)
+
+interface gigabit ethernet 1/1 switchport mode access switchport access vlan8 ! interfac gigabit ethernet1/3 switchport mode access switchport vlan8 switchport voice vlan9
+
+Fast transition and select PSK option 
+
+new VLAN 104: switchport trunk allowed vlan add 104
+RSTP: 802.1w: Learning, forwarding.
+
+Wireless access points:
+Autonomous access points: accessible via Telnet, ssh. configured and managed by a WLC.
+Cloud based access points: managed from a web based dashboard, supports automatic deployment.
+
+Access interface must be configured to connect ligthweigt APs in a centralised architecture.
+Trunk port: port enables communication with other switch ports. 
+
+Sw4 interface gi0/2 switchport mode trunk switchport trunk allowed vlan 14, 108 
+Sw11 interface gi0/2 switchport mode trunk switchport trunk allowed vlan 14,108, interface gi0/1 
+switchport mode trunk switchport mode runk switchport trunk allowed vlan 14, 108 
+Sw9 interface gi0/2 switchport mode trunk switchport trunk allowed vlan 14
+
+
+SW1 and SW2 is connected via G1/1 G1/2 G1/3 ports:
+Interface range G1/1 1/3 switch mode trunk mode trunk channel-group 1 mode actie no shutdown
+
+CDP timer 10 command on switch Cat9300 to discover rapidly.
+
+Mng interface must be reassigned if LAG is disabled
+
+configure the BPDU guard feature: 802.1q: Configure vlan access control list
+configurethe dynamic arp inspection feature: configure the dynamic arp inspection feature
+configrure the root guard feature: configure the root guard feature
+configure a vlan access control list: configure the bpdu guard feature 
+
+Connect VLANs to WLAN : Trunk port
+
+Aggregrate 4 ports into single logical link: negotiate L2 connectivity to ports on another switch. LACP.
+
+Gi0/1 no cdp enable, no lldp run, cdp run, cdp neighbour detail, sh lldp neighbour
+
+Listening, learning is bypassed on n interface running PortFast. 
+
+Switch port priority extend trust. 
+
+Establish EtherChannel: LCAP active
+
+sw1: switchport mode access sw1 switchport-security switchport security mac address 0050.7966.6800
+
+Seperate authorization and authentication solutions for wireless APs. : TACACS+
+
+Spanning tree portfast command without additional configuration: Access ports. 
+(Only access port should portfast)
+
+show spanning-tree vlan 30: 
+spanning tree enabled protocol rstp
+priority: 32798
+address: 0025.63e9.c800
+cost: 19
+Port: 1(FastEthernet 2/1)
+Hello Time: 2 sec
+Max Age: 30 sec
+Forward Delay: 20 sec
+
+
+spanning tree mode is rapid PVST+
+Root port is FastEthernet 2/1
+
+switchport mode access switchport access vlan20 switchport voice vlan30:  
+accept untagged frames and place them in vlan 20, accept tagged frames in vlan 30 when cdp detects a cisco ip phone.
+
+
+ingress traffic use to build MAC address table.
+
+interface port-channel 1 channel-group 1 mode passive
+
+lcap active: automatically activates negotiating. LACP passive: interface is not in an active negotiating state.
+
+PVST+: Spanning tree vlan 1 forward-time 20. (listen and learns_)
+
+Autonomoud mode APs are less dependent on an underlay but more complex to maintain than APs in cloud based mode.
+
+receive fames for an unknown destination MAC address: frame is flooded to all ports except the origination port. 
+
+Rapid PVST+ PortFast is enabled on a port: learning
+
+store and forward swithcing: produce an effective level of error-free network traffic using CRCs.
+
+Interface Gigabit Ethernet 1/1 switchport mode access switchport mode access switchport access vlan 11 !
+interface GigabitEthernet 1/24 switch mode trunk
+
+lldp timer 60(60 seconds) lldp holdtime 180 (180 seconds)
+
+L2 access, L3 trunk. old switched wont support trunking.
+cisco service support provides out of band management in service port.
+WPA and WPA2 can not b enabled same time. 
+
+wireless lann controller using CAPWAP protocol mode: Lightweight
+
+Portfast established network connectivity when it is plugged in. switch(config) spanning tree portfast default.
+
+Inserts the source MAC address ad port into the forwarding table and forwards the frame to Br-2. 
+
+Link Aggregation: One functional physical port is needed to pass client traffic.
+
+Channel 1 group mode active 
+Channel 1 group mode passive
+
+pc1 - pc2 -pc 4 - pc4 all connecte to sw1. sw inserts the source mac addr and port into the table and fwds the frame to pc-1. 
+
+multiple distribution interfaces channel-group mode: on.
+
+vlan tagging: encapsulates packets for different vlans so that packets transverse the same port and maintain traffic seperation.
+
+enable lldp globally for neighbour discovery
+
+MAC learning on a switch: Mac address table is used to populate ARP table.
+
+300 seconds swithc continue to know a workstation MAC address after the workstation stops sending traffic.
+
+802.11v Disasssociation Imminent. 
+
+Authentication and administration RADIUS, TACACS. 
+
+
+
+
 
 
 
