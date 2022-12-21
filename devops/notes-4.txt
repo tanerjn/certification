@@ -582,16 +582,55 @@ MAC learning on a switch: Mac address table is used to populate ARP table.
 
 Authentication and administration RADIUS, TACACS. 
 
+Monitor:
+
+Enables RFIS-tag location hacking
+supports software that analyzes wireless frames on a remote device.
+
+Sensor: 
+
+supports real time wifi client troubleshooting when network engineers are offsite.
+supports analytics for performance testing. 
+
+Sniffer:
+Captures and forwards packets on a specific wireless chanenel.
+provides air quality data and interfrence detection.
+
+Set the AP Class Type to Friendly. to stop alarms.
+
+Immplement LAG on a cisco WLC: provide link: provide link redundancy and load balancing. Port agregation standard.
 
 
+When AP is seeking to join wireless controller, which msg is sent to the AP Manager interface: Discovery request.
+
+Network users is for authentication users, Management is for people who try to login.
+
+Aable the allow AAA override.
+EIGRP: uses bandwidth and delayvalues of the path to calculate he route metric.
 
 
+Network: 10.10.1.20/30
+20: network 
+21: host
+22: host
+23: broadcast
+
+selects the RIP route because it has the longest prefix inclusive of the destination address.
+
+floating static route: enable fallback static routing when dynamic routing fails. automatically route traffic on a secondary pah when the primary path goes down. 
+
+selects the RIP route becuase it has the longest prefix inclusive of the destination address.
+
+OSPF route 10.0.0.0/30
+EIGRP route 10.0.0.1.32
 
 
+OSPF process ID
+PSPF area
 
 
+Route with the lowest administrative distance.
 
-
-
+router on a stick: create sub-interface, encapsulate dot1q with the VLAN ID, Assign IP addres.
 
 
