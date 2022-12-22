@@ -633,4 +633,81 @@ Route with the lowest administrative distance.
 
 router on a stick: create sub-interface, encapsulate dot1q with the VLAN ID, Assign IP addres.
 
+default route to reach to internet.
+
+
+OSPF learns multiple paths to a network, divides a reference bandwidth of 100Mbps by the actual bandwidth of the existing interface to clculate the route with the lowest cost.
+
+Floating static route must have a higher administrative distance than the primary route so it is used as a backup.
+
+default Hello and Dead timers are in use.
+
+User configured OSPF and advertised the gigabit ethernet interfce in OSPF. by default Broadcast.
+
+Router use to select the best path when two or more different routes to the same destination exist from two different routing protocols: administrative distance.
+
+OSPF(Open Shortest Path)  neighbour EIGRP(Enhanced Interior Gateway Routing Protocol) administrative distance: 90 degrees.
+
+EIGRP: Route selection process: Calculates the feasible distance of all paths to the destination route.
+       							Calculates the best backup path to the destination route and assigns it as the feasible successor.
+
+
+
+Routers negotiate one router as the active router and the other router as the standby router.
+Two routers share a virtual IP address that is used as the default gw for devices on the LAN.
+
+ipv6 route 2000::/128 2012::1 
+ipv6 route 2000::/1/128 2023::3 5
+
+HSRP first hop redundancy: shared virtual MAC and a virtual IP address to a group of routers that serve as the default gateway for hosts on a LAN.
+
+Modify hello interval
+
+Standby 10 preempt
+
+Show standby: Verify priority in a HSRP group.
+
+ip route 192.168.292.0 255.255.255.0 192.168.2.5
+
+Distance Vector routing protocols: EIGRP, RIP
+
+COnfigured a router with an OSPF router ID, but its IP address still reflects the physical interface: Take action: Reload the OSPF process 
+
+
+EIGRP error log IPv6: show ipv6 eigrp events
+
+ip route 10.0.3.0 255.255.255.255.0 10.0.4.3
+
+Ten routes equally load balanced beteen TE0/1/0.100 and Te0/2/0.100.
+Twenty different network masks within the 10.0.0.0/8 network.
+
+Exterior routing(connect different autonomous systems): Optimal path between autonomous systems. 
+                 										BGP is the current standard exterior routing protocol.
+
+
+10.10.10.0 network feasible disance of 3072 and the other 6144. Change the configuration so they both have the same feasible disance. Variance for the path that has a feasible distance of 3072 to 2. Every routing prootocol supportys equal cost pth load balancing.
+
+Lowest to highest administrative distance: connected, static, EBGP, EIGRP, OSPF, RIP
+To circumtances can prevent two routers from establishing an OSPF neighbor adjacency: mismatched hello timers and dead timers. use of the same router ID on both devices. 
+
+OSPF(Shortet path): Unique: OSPF process ID, router ID, IP address. Must match: Netmask, area ID, timers.
+
+OSPF networks(seperate larger networks into smaller networks): speed up convergence, reduce routing overhead, confine network instability to single areass of the network.
+
+172.16.1.32 mask 255.255.255.254
+
+Administrative distance shorter is better, 1. answer is 90.
+HSRP default configuration: Router IP address(priorities of both router are same) 390.
+
+
+
+
+
+
+AT THIS TIME, IT IS TOO EARLY IN THE PROCESS TO GIVE YOU AN ACTUAL NUMBER. HOWEVER DO YOU HAPPEN TO HAVA SCALE HANDY, ABOUT WHAT THIS ROLE MAY PROVIDE.
+
+
+
+
+
 
