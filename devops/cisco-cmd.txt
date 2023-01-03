@@ -1,0 +1,144 @@
+show vlan 
+show vlan brief
+vlan 2 
+show vlan brief
+en
+sh vlan brief
+sh vtp status (VTP operating mode: Server, VTP Domain Name: ccna, VTP Version runnning:1 should be same on all swithces)
+show vtp password(should be same for all swtches)
+show int switch port
+
+show int trunk
+
+sh run int g0/0 (on switch 1 and switch 2)
+ 
+-DTP: Negotiation on Trunking: on
+
+switchport mode dynamic desirable
+(administrative mode)(dynamic trunk protocol: DTP: allows automatically enabling between switches)
+
+(s1 Gi0/0) show interfaces switchport      (s2 Gi0/2) show interfaces swithcport 
+Administrative mode: Dynamic desirable   Adminisrative mode: Dynamic auto
+
+show vlan brief
+show int trunk 
+
+show vlan brief
+show vtp status
+(Sw1, sw2) vlan domain ccna
+vlan mode3 ( vlan can not be configure in client mode)
+en
+conf t 
+vlan 6( create vlan)
+show vtp status(each sw should have same vtp version compare passwords -md5-)
+(sw2) vtp version 2 
+(sw2) vtp status
+(sw2) show vlan status
+
+(s1) sh int trunk  (all vlans are allowed and not pruned )
+(r1) sh ip inr sw1
+
+(r1) en -> conf t -> hostname routerA -> end -> reload
+
+(r1) sh ip int brief
+(r1) sh run int g0/0 (check gigabit interface)
+(r1) sh ip route (check default gateway: in this case 10.132.254.2)
+(r1) sh run | i rout (check ip routing)
+(s1) sh ip int brief
+(s1) debug ip icmp (careful on real world enabling debug)
+(r1) traceroute 10.1.3.2
+(r2) sh run int g0/0 (ip 10.1.3.2 mask: 255.255.255.0)
+(r2) sh ip route 
+(s4) sh ip int brief ( see all interfaces are up)
+(s4) sh int g0/1 switchport (probelm access mode vlan:1)
+(s4) sh run in g0/1
+(s4) conf t
+(s4) int g0/1
+(s4) switchport access vlan 3
+(s4) sh int g0/1 swithcport (port is now access mode 3)(it may take some time spanning tree to be updated
+(s4) sh cdp nei ( check neighbour interfaces)
+
+(s4) conf t
+(s4) no ip domain lookup
+(s4) (dot1q encapsulation shouwlbe same in both send s of sw1 and sw2)
+(s4) swtichport trunk encapsulation dot1q
+(s4) shut 
+(s4) no shut
+(r2) ip default-gateway 10.1.3.254
+(r1) sh ip ospf nei
+(r1) un all (disable debugging)
+(s1) ip default-gatewayi 10.1.2.254(ip s1 g0/1)
+
+(r1) (arp : from ip to) host r1
+(r1) sh int g0/0 
+(r1) int g0/0
+(r1) conf t
+(r1) mac-address 0000.0000.0001 (user edited macc address, burnet one still stays)
+(r1) sh arp
+(r1) ping 10.1.1.2 repeat 2 )two times ping first failed second succeed.
+(r2) enable password cisco
+(r2) line vty 0 4 
+(r2) login 
+(r2) mac-address 0000.0000.0022
+(c1) sh ip int brief
+(c1) sh ip int f0/3
+(r2) duplex mismatch speed mismatch( speed auto ) 
+(r2) sh ip eigrp int
+(r2) clockrate 64000 (on cable )
+(r2) sh controllers serial0
+(r2) sh nei ( now r1 is visible from r2 side) 
+(r2) show spanning-tree
+(r1) sh arp
+
+(s1) int vlan 1 
+(s1) ip address 10.1.1.2 255.255.255.0 
+(s1) no shut
+(s2) int vlan 1 
+(s2) ip address 10.1.1.1 255.255.255.0
+(s2) no shut
+(s2) show vlan brief
+(s2) show spanning-tree
+(s2) do sh run int g0/0 (ip address is configurable on switch but not on router)
+(s1) show vlan brief
+(s1) show int g0/0 switchport (interface should be enabled switchport dynamic auto)
+(s1) show int trunk 
+(s2) show vlan brief
+(s1) show int brief (switchport ip cant be configured  )
+(s1) no switchport ***** 
+(s1) do ping 10.1.1.1 (should ping)
+(s2) int g0/0
+(s2) switchport (switchport enabled, ip configuration dropped)
+(s2) no switchport (ip is enabled back, port is routed, makes port L3 so the switch is internally forwarding g0/1 L2 interface to g0/0 L3 interface)
+(s2) sho int ip brief (shows  interfaces at layer 2)
+(s2) switch virtual interface(l3 interface acts as router port - no switchport )
+(s2) with swittchport command ip address is removed and spanning tree runs on switchport or layer port.()
+(s2) router eigrp 1 (enable routing)
+(s2) show eigrp nei
+(s1) router eigrp 1
+(s1) network
+(r1) eigrp 1 (enable routing)
+(r1) network 0.0.0.0 255.255.255.255
+(s2) sh eigrp nei
+video 12
+(s1) sh vlan brief 
+(switch) sh ip int brief
+(switch) host s1
+(s1) show vlan brief
+(s1) int g0/1 
+(s1) swithport access vlan 3
+(s1) int g0/0
+(s1) swithcport access vlan 1
+(s1) show spanning-tree
+(s1) sh cd
+(s2) sh int g0/0
+(s2) conf t
+(s2) no switchport(port is turned to routed interface so port acts as a router)
+(s2) ip address 10.1.3.1 255.255.255.0
+(s2) show spanning-tree ( should not list g0/0 )
+(s2) sh eigrp neighbours
+()
+(s2) route eigrp
+(s2) network 0.0.0.0 255.255.255.255
+
+
+Configure L3 switch
