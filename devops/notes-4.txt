@@ -821,11 +821,11 @@ Data plane: Add or remove 802.1Q header.
 Duplex mismatch on PC1 and the switch causing performing slowly.
 
 Unique local: fcba:..
-             fd6d:...
-			 fe80:...
-Global unicast: 2001:..
+             fd6d:... address that is prohibited from internet
+			 fe80:... address that is automatically created on a link when ipv6 is enabled on an interface.
+Global unicast: 2001:.. Unique and reserved for documentation 
                3ffe:..
-Multicast: ff05:1:3
+Multicast: ff05:1:3 used only locally within the site.
 
 Frame switching::Function forar frames to ports taht have a mathing destination MAC address.
 
@@ -840,7 +840,7 @@ IP address that is reachable only from internal network: link-local.
 Requieremen for nonoverlapping: frequency range
 
 Anycast: assigned to more than one, used exc. by non-host
-Multicast: provides on to many, derived from ff00:8 address range
+Multicast: provides on to many, derived from ff00:8
 Unicast: identifies an interface on an ipv6 device, includes link-local and loopback addresses.
 
 
@@ -852,33 +852,87 @@ Router config to have VLAN2(10.10.10.1/24) and VLAN3(10.10.2.1/23) communicating
 interface GigabitEthernet0/0.10 encapsulation dot1Q 3 ip address 10.10.2.10 255.255.254.0
 
 
+Nonoverlapping WiFi channels : discontinous frequenc settings.
+
+Locally unicast: interface vlan 2000 ipv6 address fe80:0000:aaaa::1234:2343/64
+
+
+Link local: reachable only from internal network.
+
+Unique 64 bit:  ipv6 address 2001:DB8:0:1:FE80:C601:420F:7/64
+
+To DNS address its sent. A. 192.168.1.253
+
+Frame switching: Forward frames to ports tht have a matching destination MAC.
+
+Ipv4 is used without tracking.
+
+Gw is the first , broadcast is the last, last usable is minus 2.
+Wireless LAN controller for authentication and roaming.
+channels 1.6.11 for 2.4 ghz non overlapping chaennels.
+available only from internal link local
+D. interface vlan 2000 ipv6 address fc00:0000:aaaa::a15d:1234:2343:8aca/64
+create routable locally unique unicast
+when swithc receives  frames knows addres sit sends that address when not all except receviced
+
+
+anycast: assigned to more than one interface, used exclusively by non host
+multicast:         derived from ff00/8, provides one to mnay
+unicast: identifies an interface on an ipv6 device, includes link local and loopback address
+
+380+30% growth: D. Subnet: 10.7.54.0 Subnet mask: 255.255.254.0 Broadcast address: 10.7.55.255 Usable IP address range: 10.7.54.1 ג€" 10.7.55.254 
+
+vlan2 so to communicate with vlan 3: B. interface GigabitEthernet0/0.10 encapsulation dot1Q 3 ip address 10.10.2.10 255.255.254.0
+
+global unicast: routable, eq to public v4
+link local : configured once perint, attach single
+
+DC-1 gi1/0 must be the last usable address on /30: ip address 209.165.202.130 255.255.255.252
+     gi1/1 must be the last usable address on /29: ip address 192.168.4.9 255.255.255.248
+	 g1/2 must be the last usable address on /28: ip address 192.168.4.13 255.255.255.240
+	 gi1/3 must be the last usable on /29: ip address 192.168.3.14 255.255.255.248
+
+
+RFC 1918: NAT to preserve public IPV4 addresses.
+Check cabling 100BaseTX make sure to use Cat5. 
+
+Unique local  private ipv6, begin with fd, may be used by multiple org at the same time
+Link local: unable to serve as desstination add, servers as next hop
 
 
 
+Global Unicast: 2000: (globally routable ipv6) 
+Link local: fe80
+Multicast: ff05:1:3
+Unique local: fcba:................(longest)
+
+Err-disabled state: reason Link flapping
+
+11111111.11111111.11111111.11111000 = /29 subnet
+
+Speed settings on switches are mismatched.Ip addressing schemes proovide internet acess to uses on the network while preserving the public ipv4 address space : Pat with private internal adddressing, IPv5 addressing. 
+
+C. no switchport ip address 192.168.32.30 255.255.255.224
+
+AAA:corr hostname with ip address
+CNAME: alias 
+NS: corraltes name servers
+PTR: reverse name lookups
+soa: domain serial number
+
+10gbseSR and 10gbaseLR both use fiber cable media for transmission
+
+GU: 3f
+LL: fe80
+MC: ff05
+UL:fd
 
 
-
-
-
-
-5 Assumptions: 
-System is anarchik, no higher group than states.
-Every state has capabilities, such as offensive power.
-No state can know the intentions of other state.
-
-Principal goals: Survial is the main purpose of every state.
-	 	         States are rational actors
-
-Radical Evalution
-Gratitude Flow
-Loss Acceptance
-
-
-
-
-
-
-
+192.168.1.255 Broadcast
+192.168.1.1 default gateway
+192.168.1.20 host address 
+192.168.1.254 last assignable 
+B8-76-3F-7C-57-DF MAC address
 
 
 
