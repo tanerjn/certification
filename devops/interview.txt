@@ -2,23 +2,31 @@
 
 
 
+---------------------------------
+what was your responsibilities?
+SME in 4g 5g field applying agile principles to develop tools and platforms to enclose projects with great success. Providing technical guidance for team members and creating collaborations to publish results in a scientific way.
 
-5 Assumptions:
-System is anarchik, no higher group than states.
-Every state has capabilities, such as offensive power.
-No state can know the intentions of other state.
+Building and maintaining  reliable scalable solutions for seamless Platform as a Service experience using RedHat solutions such as OpenStack, RHEL, Ansible and other virtualization technologies.
 
-Principal goals: Survial is the main purpose of every state.
-                 States are rational actors
+why we should hire you?
+Great ability to deliver one-to-one assignments, inspire technical and non-technical backgrounds with design and forward thinking.
 
-Radical Evalution
-Gratitude Flow
-Loss Acceptance
+Proven success of customer facing consulting critical business relations and delivering on-time.
 
 
 
 
+Why Redhat?
+Strategic advisors who see the big picture. Bring together  cross functional teams Production Engineering, Support, Professional Services and Sales teams to meet the needs of customers. Being the key player to help customers quickly and strategically achieve value while building enterprise-wide capabilities.
+
+RedHat: Transparency, Collaboration and Inclusion.
+
+
+Questions?
 How would you define the responsibilities of this role? How do you measure success?
+
+
+
 
 At this time it's too early in the process. However do you happen to have the scale handy about this role specific?
 

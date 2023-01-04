@@ -936,5 +936,26 @@ B8-76-3F-7C-57-DF MAC address
 
 
 
+service maps hostname to IP: DNS
+local db of add mappongs: cache
+in response to client requests: name resolver
+url component: domain
+dsable dns service on a cisco device: no ip lookup
+
+
+r7-923 hosts 255.255.
+r8-225 hosts
+r9-3641 hosts
+
+
+should a monitored port exceds PoE threshold it goe to err disabeled state
+
+Control table exchanges routing table informaiton.
+
+2.5gb & 5gb: 10GBASE - T  & Cat5e
+
+Physical cable fault: slow throughput
+
+LX supported up to 10 km, ZX supported up to 70 km.
 
 
