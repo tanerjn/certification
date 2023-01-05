@@ -4,7 +4,7 @@
 
 ---------------------------------
 what was your responsibilities?
-SME in 4g 5g field applying agile principles to develop tools and platforms to enclose projects with great success. Providing technical guidance for team members and creating collaborations to publish results in a scientific way.
+SME in 4g 5g field applying agile principles to develop tools and platforms to enclose projects. Providing technical guidance for team members and creating collaborations to publish results in a scientific way to achieve great success.
 
 Building and maintaining  reliable scalable solutions for seamless Platform as a Service experience using RedHat solutions such as OpenStack, RHEL, Ansible and other virtualization technologies.
 

@@ -958,4 +958,118 @@ Physical cable fault: slow throughput
 
 LX supported up to 10 km, ZX supported up to 70 km.
 
+Unicast is assigned to single interface, but anycast is assigned to groupd of interfaces on multiple nodes.
+
+Between zones 3 and 4 intermittent connectvity.
+
+Simplicity quality and availability: full mesh.
+
+L2 Tunnel: encapsulates lwapp, requiere ip on the access point 
+L3 Tunnel: supports lwapp , uses udp or udp lite 
+
+
+
+wifi option in which cells from different access points are linked together: distributed systems.
+wifi option that enables two or more clients to communicate directly without a central access point: independent basic service set
+wifi option based around one or more access points: infrastructure mode
+alphanumeric text string that identifies a wireless network: SSID
+entire wireless cell of an access point and the linkage to the wired network: extended service set.
+
+spanning tree portfast: minimie spanning tree convergence time.
+
+if portfast is enabled on an interface that iss connected to another switch: spanning tree fails to detecht switching loop increasing the likelihood of broadcast storms.
+
+QoS profile gui platinium.
+
+
+The root bridge serves as a reference point for all spanning-tree calculations to determine which redundant paths to block
+
+C. Switch(config)#spanning-tree vlan 750 root primary
+
+Devicemnapint: wireless lan cotroller
+provide connection to wired: access point
+band management of WLC: service port
+support mobility wlc: virtual interface
+for wless client comm: dynamic interfc
+
+FLexCOnnect
+
+
+swithport priority extend trust
+Change the LACP mode to archive.
+
+RADIUS : Wireless Authorization and authentication.
+
+C. SW1(config-if)#switchport mode access SW1(config-if)#switchport port-security SW1(config-if)#switchport port-security mac-address 0050.7966.6800 ACCESS MODE.
+
+D. switchport mode trunk switchport access vlan 20 switchport voice vlan 30
+
+Ingress traffic is used to build its MAC address table.
+
+to respond but not initiate LCAP  passive mode
+
+PVST listen and lean for specific time: D. switch(config)#spanning-tree vlan 1 forward-time 20
+
+A. Autonomous mode APs are less dependent on an underlay but more complex to maintain than APs in cloud-based mode.
+
+
+Learning is bypassed  when PortfAst is enabled.
+
+CAPWAP lightweigth.
+
+Portfast establishes connection immediately.
+
+spanning tree portfast default
+
+
+D. One functional physical port is needed to pass client traffic
+
+
+
+
+The root bridge is the bridge with the lowest Bridge ID. All the decisions like which ports are the root ports (the port with the best path to the root bridge) are made from the perspective of the root bridge. In case of a tie (not the case in this example) then the root bridge will be the switch with the lowest MAC address.
+
+
+
+multiple distribution interfaces connected to a WLC B. Channel-group mode on.
+
+
+encapsulates packets for different VLANs so that the packets transverse the same port and maintain traffic separation between the
+VLANs: tagging.
+
+
+
+A. Enable LLDP globally.
+What is the next step to complete the configuration if the ISP uses a third-party router?
+
+D. A static MAC address is manually added to the MAC table.
+D. It floods the frame unchanged across all remaining ports in the incoming VLAN.
+ switch continue to know a workstation MAC address after the workstation stops sending traffic?B. 300 seconds
+B. 802.11v Disassociation Imminent
+B. Place the AP into manual containment.
+C. to provide link redundancy and load balancingLAG
+C. DHCP discover
+C. Select Enable next to Network User
+C. Enable the Allow AAA Override.
+C. configure a static route with 10.10.10.2 as the next hop to reach the 20.20.20.0/24 network
+A. longest prefix
+A. It uses the bandwidth and delay values of the path to calculate the route metric.EIGRP
+C. R1#config t R1(config)#ip routing R1(config)#ip route 0.0.0.0 0.0.0.0 192.168.1.1
+D. It selects the RIP route because it has the longest prefix inclusive of the destination address.
+A. OSPF process ID, OSPF area must be configured on an active interface.
+C. ipv6 route 2000::1/128 2012::1, E. ipv6 route 2000::3/128 2023::3
+ New York Atlanta
+
+ C. Router2 is using the default hello timer
+C. It divides a reference bandwidth of 100 Mbps by the actual bandwidth of the exiting interface to calculate the route with the lowest cost.
+B. It uses a shared virtual MAC and a virtual IP address to a group of routers that serve as the default gateway for hosts on a LAN.
+Establish OSPF neighbor relationship without forming adjacency. A. modify hello interval
+HSRP router: standby 10 preempt
+
+AD static route: administrative distance ip route 192.168.202.0 255.255.255.0 192.168.201.2 5
+Dynamic routing protocols Distance Vetor protocols: EIGRP, RIP
+OSPF router ID: Reload OSPF process.
+
+D. ip route 10.0.3.0 255.255.255.0 10.0.4.3
+
 
