@@ -1072,4 +1072,116 @@ OSPF router ID: Reload OSPF process.
 
 D. ip route 10.0.3.0 255.255.255.0 10.0.4.3
 
+EIGRP has learned route from two differnt paths. router use COST to select the best path.
+
+Full state:
+verifies the designated router is in the proper mode?
+
+This is called the
+ג€longest prefix matchג€ rule
+
+
+
+OSPF Area:  ---R1---R2---R3--- helloa and dead interval timers should set same, ARea ID should be same 
+D. The highest up/up physical interface IP address is selected as the router ID.
+longest prefix - longest prefix longest prefix 
+
+C. The router replaces the original source and destination MAC addresses with the sending router MAC address as the source and neighbor MAC address as the destination.
+
+
+
+192.168.1.0/26 is directly connected: two prefixes are included 192.168.1.17 192.168.1.61
+
+VRRP if fails continue from backup
+virtual mac used by vrrp: 0000.5e00.0101
+
+first hop redundancy protocol;sends default route to te hoston  a network
+
+C. R1 interface Gi1/0 has a larger MTU size.
+
+
+vrrr A. It provides the default gateway redundancy on a LAN using two or more routers.
+The router R2 priority is set to 99.D. R3(config)#interface Gig0/1 R3(config-if)#ip ospf priority 100
+C. R1(config)#ip route 10.0.0.0 255.255.255.0 192.168.0.2 R1(config)#ip route 10.0.0.5 255.255.255.255 172.16.0.2
+
+
+A. Configure router A to use the same MTU size as router B.
+make r1 the DR designated router: router with the highest OSPF priority will become DR. all routers have priority of 1
+
+configure ospf point to point 	link between r1 and r2 network 10.0.0.0 .0.0.0.255 area 0
+
+D. R1 ip route 0.0.0.0 0.0.0.0 209.165.200.226 R2 ip route 0.0.0.0 0.0.0.0 209.165.200.225
+
+[120/5] beats [110/30] when it comes to BGP route selection.
+
+ ip route 10.1.1.10 255.255.255.255 gi0/0 125
+
+ This is an example of a floating static route when the Administrative Distance must be greater than the primary route. Currently the OSPF AD for the route is 110, so if that route was to go away then this route with an AD of 125 would be used.
+
+D. R1(config)#ipv6 route 2019:C15C:0CAF:E001::/64 2019:C15C:0CAF:E002::1
+
+B. R17# ! no ip domain lookup ip cef ipv6 unicast-routing ! interface FastEthernet0/0 no ip address duplex auto speed auto ipv6 address 2001:DB8:2::201/64 ! Interface FastEthernet1/0 no ip address duplex auto speed auto ipv6 address 2001:DB8:3::201/64 ! no cdp log mismatch duplex ipv6 route 2001:DB8:4::/64 2001:DB8:3::301
+
+ ip route 0.0.0.0 0.0.0.0 192.168.0.2. AD for static routes is 1
+ D. router ospf 1 network 192.168.1.1 0.0.0.0 area 0 interface e1/1 ip address 192.168.1.1 255.255.255.252 ip ospf network point-to-point
+
+R1(config)#ip route 172.16.2.2 255.255.255.255 gi0/0
+By specifying the outgoing interface and not the next hop IP address, the Management devices will be able to ping the new server, but not the default gateway of the server.
+
+
+ip route 0.0.0.0 0.0.0.0 g0/1 6 R1 forwards to R2 if R3 goes down.
+
+Router A is elected as the DR for OSPF area 0. Configure the router A interfaces with the highest OSPF priority value within the area.
+
+BGP interfae 209.165.201.10 which interface is used to forward traffic 10.10.10.24
+F0/11 10.10.10.0/24 EIGRP 90/144.
+ 
+show ip route:                                      AD
+R RIP derived                                       : 120
+O Open Shortest Path First(OSPF)                    : 110
+C Connected                           
+S Static                                            : 1
+B Border Gateway protocol(BGP) derived 
+D Enhanced Interior Gateway Routing Protocol(EIGRP) : 90
+EX EIGRP external                                   : 170
+i IS IS derived                      
+ia IS IS 
+M Mobile
+P Periodic downloaded satic route
+U per-user static route
+o on-demand routing
+
+Enable floating static default route on router A: Ip route 0.0.0.0 0.0.0 192.168.1.2 10
+
+
+D. R1(config)#ip route 0.0.0.0 0.0.0.0 10.10.10.6 2 R2(config)#ip route 0.0.0.0 0.0.0.0 10.10.10.5 2
+
+#ip route 192.168.20.0 255.255.255.0 192.168.30.2 111
+
+D. R1(config)#interface FastEthernet 0/0 R1(config-if)#ip ospf priority 200 R1#clear ip ospf process
+
+ ip address 10.10.10.1 255.255.254.0
+
+ 192.168.0.55 --> 192.168.0.0/24 [100/0] via 10.0.12.2 --> 10.0.12.0/24 is connected GigabitEthernet0/1
+
+ Customer Premise Equipment(CPE).
+
+ A. ipv6 route ::/0 2001:db8:1234:2::1 3
+
+
+ D. OldR(config)#router ospf 1 OldR(config-router)#no router-id 192.168.1.1
+
+
+A. R2(config)#intergface gi0/0 R2(config-if)#ip ospf priority 100
+
+D. R1(config)#ip route 10.10.13.10 255.255.255.255 10.10.10.2 R2(config)#ip route 192.168.0.100 255.255.255.255 10.10.10.1
+D. Router(config)#interface GigabitEthernet 0/0 Router(config-if)#ip ospf network point-to-point
+
+255.255.255.255 is machine is routing only to its localhost.
+0.0.0.255 just inverse of network mask 255.255.255.0. "network 10.0.1.0 0.0.0.255 are 0" use inverse in OSPF
+
+
+FHRP: first hop redundancy: Enable automatic failover of the defualt gateway.
+                            Allow multiple devices to serve as a single virtual gateway for clients in the network.
+
 
