@@ -1184,4 +1184,100 @@ D. Router(config)#interface GigabitEthernet 0/0 Router(config-if)#ip ospf networ
 FHRP: first hop redundancy: Enable automatic failover of the defualt gateway.
                             Allow multiple devices to serve as a single virtual gateway for clients in the network.
 
+B. MAC VRRP: 00-00-5E-00-01-0a (key is the 00-5E)
+
+Virtual Router Redundancy Protocol(VRRP)
+
+B. to interoperate normally with all vendors and provide additional security features for Cisco devices. VRRP is the industry standards based FHRP similar to Ciscoג€™s HSRP but is supported by multiple vendors.
+
+(IEEE standard)why impelemen vrrp : B. To provide end users with a virtual gateway in a multivendor network
+
+
+(Cisco standard)HSRP: Hot standby router 
+
+
+D. 00:00:0c:07:ac:0e HSRP (0c:07)
+
+VRRP: (CCIA)
+HSRP: (IEEE)
+
+We need to specify the destination netwrok 10.0.15.0/24 and the ext hop IP of the router to get to that network (10.0.20.3)
+
+R1 -> R3 ip route 10.0.15.0 255.255.255.0 10.0.20.3
+
+
+Four entries is the default in Cisco IOS Software for IP routing protocols except for BGP. BGP has a default of one entry. D. The router load-balances traffic over all routes to the destination.
+
+What does the implementation of a first-hop redundancy protocol protect against on a network?
+A. default gateway failure
+
+
+
+
+Group of NAT addresses available NAT pool.
+NTP: Which feature or protocol is required for an IP SLA to measure UDP jitter?
+
+IP address conflict. A. The address is removed from the pool until the conflict is resolved. DHCP checks for conflicts using ping and gratuitous ARP. If a conflict is detected, the address is removed from the pool. The address will not be assigned until the administrator resolves the conflict.
+
+
+
+determine the addresses that have been assigned on a DHCP Server?
+C. Show ip DHCP binding.
+DHCP relay agent addressD. show ip interface
+
+
+D. show ip interface GigabitEthernet 0/0 indicate that interfae is configured via DHCP
+
+Logging trap debug: C. It causes the router to send all messages to the syslog server
+
+
+Logging trap 3: Emergency, Warning, Critical [Error, Warning, Debug, Informational]
+
+
+Connection Oriented: FTP, SSH, SMTP
+COnnectionless: VoIP, TFTP, SNMP
+
+
+Backup network router configurations. Cisco IOS MIB: SNMP. Application layer protocol provides a message format for communication between SNMP managers and agents. 
+
+Enable DHCP: ip address dhcp
+
+SNMP agent: MIB variables in response to request from the NMS.
+
+DHCP server leases client IP addresses dynamically
+DHCP server offers the ability to exclude specific IP addresses from a pool of IP addresses.
+
+
+NTP master should be issued at NTP server.
+
+interface has changed status
+
+Weighted Random Early: mitigate congestino , drops lower prior befor high prio
+
+
+show ip nat translations outside local outside global
+
+notification syslog no action needed routing instance has flapped.
+
+DHCP: assign default gw 
+      holds tcp ip to be distributed tocloit
+	  assing ip to lcin
+DNS:  resolve web url to ip
+      store list of ip mappd to names
+
+
+
+Enable Ntp authentication, specify the ip of ntp server
+
+First Hop Redundancy Prot: D. It reduces routing failures by allowing more than one router to represent itself as the default gateway of a network
+
+D. enable configure terminal ip nat pool mypool 192.168.3.1 192.168.3.3 prefix-length 30 access-list 1 permit 10.10.0.0 0.0.0.255 ip nat inside source list 1 pool mypool interface g1/1 ip nat inside interface g1/2 ip nat outside
+
+
+Allow engineer to backup 20 network router configuration. SMTP
+
+Pubic IP of NAT device : nside global.
+
+
+
 
