@@ -1278,6 +1278,67 @@ Allow engineer to backup 20 network router configuration. SMTP
 
 Pubic IP of NAT device : nside global.
 
+Enable overload:  NAT use of one outside IP address.
+
+IP SLA: collect info about network performance. (see whether qoos is sufgood)
+
+qoos: interactive voice and video: low latency queuing
+
+SNMP manager: respnd to status request for information abt device
+SNMP agent:nsolicited mesage 
+SNMP trap: rsiden on nms port 162
+MIB: describe devices being monitored 1
+
+traffic shapg : limit bandwidth a flow can use 
+
+Trivial File Transfer protocol: transfer IOS images from a server to a router for firmware upgrades.
+
+So route roly accepts encrypted : crypto key generate rsa 1024
+                                 ip ssh version 2
+
+D. ntp authenticate ntp authentication-key 2 md5 CISCO123 ntp source Loopback0 ntp access-group server-only 10 ntp stratum 2 ! access-list 10 permit udp host 209.165.200.225 any eq 123
+
+
+FTP uses seperate control and data connections to move files between serer and client. 
+
+Before generating RSA key: ip domain-name domain
+
+Traffic shaping for qos traffic handling.
+
+Configure dhcp relay:p helper address
+
+configure Ip dhcp snooping trust command on the interdace that is connected to the dhcp server.
+
+Set date and time : Clock Set. 
+
+A. R1(config)#ip nat inside source static 10.1.1.1 209.165.200.225
+
+
+
+C. 802.1Q prevents WS to receive addres
+TFTP:D. marking
+A. offers anonymous user login ability Marking will change packet
+Purpose of IP address DHCP command: COnfigure an interface as a DHCP client.
+
+
+
+B. hostname R1 ip domain name cisco crypto key generate rsa general-keys modulus 1024 username cisco privilege 15 password 0 cisco123 ip ssh version 2 line vty 0 15 transport input ssh login local
+Policing per hop traffic control feature: Committed bandwidth
+
+SNMP host : recipient
+SNMP device: Engine ID
+SNMPsecurity model: Group
+SNMP access string: Community
+SNMP serial number: Chasis
+
+Categorizes packets: Classification
+Guarantees minimum bandwidth: Policing
+Reducing flow: Shaping
+Outcome of overutilization: Congestion
+Limit transmission of one or more classes of traffic: Weighted routing
+
+
+
 
 
 
