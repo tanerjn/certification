@@ -1338,6 +1338,86 @@ Outcome of overutilization: Congestion
 Limit transmission of one or more classes of traffic: Weighted routing
 
 
+Intervene at the source of the fault: problem resolution
+launch preconfigured script to restore: restoration of service
+group alarms from related issues: event correlation and aggregation
+Identifies performance degradation: fault detection
+System reports on the source of the issue: fault diagnosis
+
+
+Reconfigure static NAT entries that overlap the NAT pool.
+
+Syslog facility: set of values that represent the processes can generate a log message
+
+DNS server 8.8.8.8
+
+Discard or mark packets that exceed desired bit rate. Control maximum rate.
+QoS per hop behaviour: Change ToS(type of service) in TCP header: Marking.
+
+
+FTP uses two seperate connections for control and data traffic.
+
+Qos marking trust IP phone markings on sw1 and mark traffic enterings sw2 at sw2.
+
+QoS optimize voice traffic: differentiate vocie and video traffic
+
+PQ can be used to optimise voice traffic. 
+
+configure nat translations for vlan200
+
+update NAT INSIDE RANGES ACL
+
+stateful inspection: firewall
+
+allow portto learn mac: sticky MAC addressing
+
+allw admn to auth enable privilg mode via telnet B. R1(config)#username admin privilege 15 secret p@ss1234 R1(config-if)#line vty 0 4 R1(config-line)#login local
+
+aaa new model enable aaa on device
+
+
+learned MAC is deleted after five minutes of inactivity, dynamically learned two secure MAC addresses.
+
+Secure MAC address manually configure on the interface.
+
+Switch port interface trust state.
+
+Authenticate: who you are
+Authorize: what you can do
+Accounting: what you do
+
+
+ASCI + HExadecimal : WPA2 PSK available formats
+
+unused port protection:  port type + administratively shut down ports
+
+Layer 2 Mechanism: WPA2, 802.1x
+Layer 3 Mechanism: Web policy, pass thorugh
+
+Cisco Wireless lan restricts managemnet access : CPU ACL
+
+Rsa ssh is needed to assign dns domain name
+
+AES strongest encryption
+Mac flloding: configure DHCP snooping(wheter sources are trusted)
+802.1q double tagging VLAN hopping attack: configure the native vlan with a nondefault vlan id
+configure 802.1x authenticate man in the middle spoofing attack
+disable dtp: switch spoofing vlan hopping attack
+
+WPA3 : SAE encryption
+Dynamic arp inspection is ingress security feature.
+
+WPA2: AES256
+
+Cofigure VACL: 801.1q tagging
+ARF sppofing: ARP inspection
+Root guard: unwanted superior BPDUs
+unwanted BPDUs on PortFast enabled interfaces: Configure BPDU(Bridge protocol data unit)
+
+BPDU contains information about the spanning tree
+
+
+
 
 
 
