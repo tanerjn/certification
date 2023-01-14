@@ -1489,10 +1489,31 @@ WPA2 is using AES (Advanced Encryption System)
 WPA3 is using SAE -GCMP-256-
 
 
-
-
-
-
 Accounting: records the amount of time for which a user access the network on a remote server. uses TACACS to log the configuration commands entered by a network administrator.
+
+IPsec: Unicast messages from a host at a remote site to a server at headquarters
+
+
+cryo key generate rsa to complete configuration after domain name user name and password.
+SYN flood: Multiple attacks to a port until the half open TCP resources of the target exhausted.
+
+PKI: CA that grants certificates, RSA token.
+
+Authentication: validate user credentials, secures access to routers
+Authorization: allow user to change to enable mode, limits users access permission
+Accounting: log session statistics, records user commands
+
+aaa new-model line con 0 password plaintextpassword privilige level 15.
+
+Perfect Forward Secrecy: WEP
+
+multi factor auth: passwords that expire, software tokens.
+
+advanced malware protection for a next generation IPS: inspecting specific files and file types for malware
+
+WPA: TKI(Temporal Key Integrity), AES, Built in authentication, four way handshake, Message Integrity Check.
+
+Network security posture: Disable unused or unnecessary ports interfaces and services.
+                          Maintain network equipment in a secure location.
 
 
