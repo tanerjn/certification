@@ -1382,10 +1382,6 @@ Secure MAC address manually configure on the interface.
 
 Switch port interface trust state.
 
-Authenticate: who you are
-Authorize: what you can do
-Accounting: what you do
-
 
 ASCI + HExadecimal : WPA2 PSK available formats
 
@@ -1417,8 +1413,86 @@ unwanted BPDUs on PortFast enabled interfaces: Configure BPDU(Bridge protocol da
 BPDU contains information about the spanning tree
 
 
+dynaic arp inspection to prevent man in the middle
+
+implement port based authentication , shut down unused ports.
+
+no access list 2699 deny ip any 10.20.1.0 0.0.0.255 allow SSH for router from outside network
+switchport security violation restrict. 
+Protect network from hopping attacks: change vlan to an unused vlan ID
+physcial access control : badges
+enable-configure terminal-enable secret 1jkn1-exit
+SSH is secure Telnet is not secure.
+strongest encryption: wpa2+aes
+
+
+for unused ports: configure ports in a black hole VLAN
+Minimum number of characters in ASCII: 8
+A. ip access-list standard 99 permit 10.100.100.0 0.0.0.255 deny 192.168.0.0 0.0.255.255
+
+
+ACLs fall into several ranges: 1 – 99: Standard IP. 100 – 199: Extended IP. 1300 - 1999: Standard IP (expanded range)
+for remote access: B. username cisco password 0 cisco
+C. crypto key generate rsa
+
+secure remote access connections: username cisco password 0 cisco
+                                  crypto key generate rsa
+
+RADIUS Authentication Dial In User Service: provides AAA
+
+enable secret privilege 15 priv4t3p4ss ! (priviliged access mode)
+line con 0 password p4ssw0rd1 login ! ( Exec mode) 
+line vty 0 15 password s3cr3t2 login (Telnet access)
+
+
+hostname RTR-1
+!
+interace GigabitEthernet0/0
+ip address 10.1501.254 255.255.255.0
+duplex auto
+speed auto
+!
+access-list 10 deny host 10.150.1.1
+!
+line vty 0 4
+access-class 10 in
+password 7 0822455D0A16
+login
+!
+end
+
+
+(Above access list is created to deny Telnet access from host PC-1 to RTR-1 and allow access from all other hosts. Without allowing Telnet access from PC-1 which action must be taken to permit the traffic.
+
+Add the access-lisst 10 permit any command to the configuration.
+
+Only two random MAC addresses to forward at a time at router
+
+switchport port-security
+switchport port-security mac-address sticky
+switchport port-security maximum 2
+switchport port-security violation shutdown
+
+
+OWE is an encryption to IEEE802.11. Opportunuistic Wireless Encryption in an environmnet : Communication between each pair of enpoints is protected from other endpoints.
+Provide traffic on open networks.
+
+Authentication: user verification password before getting access to the device, enables the device to allow user or group based access. 
+
+Authorization: leverages RADIUS server to grant user access to a reverse Telnet session. Restricts the CLI commands that user can perform.
+
+
+802.11r(read): Fast Transiiton option to enable and enable FT 802.1X.
+802.11w(write): Enable WPA policy
+
+WPA2 is using AES (Advanced Encryption System)
+WPA3 is using SAE -GCMP-256-
 
 
 
+
+
+
+Accounting: records the amount of time for which a user access the network on a remote server. uses TACACS to log the configuration commands entered by a network administrator.
 
 
