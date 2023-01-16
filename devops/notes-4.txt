@@ -1516,4 +1516,150 @@ WPA: TKI(Temporal Key Integrity), AES, Built in authentication, four way handsha
 Network security posture: Disable unused or unnecessary ports interfaces and services.
                           Maintain network equipment in a secure location.
 
+WPA3: SAE(Simultaneous Authentication Of Equals)
+IPS: Intrusion Prevention System correlates user activity with network activities.
+
+
+Core Distribution Access
+
+Authentication: Permits and denies login attempts, supports local PPP, RADIUS, and TACACS+
+Accounting: records the amoung of network resources consumed by the user, tracks the services that a user is using.
+
+awareness: learning beyond what is requierd for
+education: practices all employees must understand and enforce
+security policy: learning roles and responsibilities of the organisation
+security standard: sets out specific tasks and methods to maintain security
+training: how to perform tasks requiered by their job
+
+IPsec transport mode header and payload encryption: TUNNEL
+
+
+default port security behaviour on a trunk link: puts port in errdisabled if morethan one MAC address.
+
+seperate network by security domain: firewall
+
+How are vlan hopping mitigated: manually implement trunk ports and disable DTP(dynamic trunking)
+
+WPA3: forward secrecy and SAE for secure initial key exchange. 
+
+site to site VPN with IPSec providing encapsulation and encryption: Tunnel mode with ESP
+
+Configureremote access to a router: 10.139.58.0/28 domain name crypto keys and SSH have been configured enable traffic on the destination: line vty 0 15 access-class 120 in ! ip access-list extended 120 permit tcp 10.139.58.0 0.0.0.15 any eq 22
+
+In SDN function of a network node centralized on  a controller: Making routing decision
+
+Control plane: routing decision, replacing devices, distributed control plane.
+
+Management security process invoking user logs in to a network device: authentication
+
+Two steps to take highest encryption and authentication using domain credentials from LDAP: Select WPA on layer 2 security, select 802.1x for key management.
+
+
+WPA3 provides implementation against bruto force attacks. 
+
+Intrusion Protection System known as IPS.
+Mitigation features - Attack
+Storm Control: flood attacks
+Dynamic ARP Inspection: rogue clients on the network (MAC to IP)
+DHCP Snooping: Cache poisoning (insertfake information into DNS cache)
+IP Source Guard: rogue server that spoofs IP configuration (creation of IP packets with a false source IP)
+
+interfce gi1/0/15 switchport-security switchport port-security maximum 2
+
+show run 
+show crypto key mypubkey rsa
+
+allow sw1 secured ancrypted remote configuration: 
+line vty 0 15
+transport input ssh
+crypto key generate rsa
+
+Port security violation mode to allow valid MAC address to pass but blocks traffic from invalid MAC addresses: PROTECT
+
+
+Provde wireless access to contractors using guest portal. Employees can access to the portal but contractors can not. Install trusted third party certificate on the CISCO ISE.
+
+Wireless security standard to use counter mode cipher block chaining Message Authentication Code Protocol for encryption and data integrity. WPA3 and WEP.
+
+Network engineer is implementing corporate SSID for WPA3 personal security with a PSK: CCMP128
+
+Protect network from VLAN hoping: Assign access ports to VLANs other than the native VLAN.
+
+Password complexity to not add manufacturer name: pass complexity enable
+own os on a virt machine: IAAS. 
+
+Northbound API: communication between the controller and the applications.
+
+Controller based networking vs traditional networking: allows configuration and monitoring ot he network from one centralized point.
+
+Cisco DNA vs traditional: supports extensibility including cross domain adapters and third paty SDKs.
+
+Controller based: focuses on network, user input is a policy, uses allow list security model
+Traitional: focuses on devices, user input is a configuration, uses block list security model
+
+Automation and Programability:
+Two fundamentals of virtualization: allow logical network devices to move traffic between virtual machines and the rest of the network. allow multiple operating systems and applications to run independently on one physical server.
+
+Cisco DNA Center gather data from the network: Network devices use different services like SNMP, syslog, streaming telemetry to send data to the controller.
+
+
+Difference of controller based and traditional: Controller based networks decouple the control plane and the data plane.
+
+
+Benefits of network automation: reduced operational costs, faster changes with more ralieable results.
+Supported encodings JSON and XML for REST APIs.
+
+Controller based network characteristics: Northbound and southbound APIs to communicate between architectural layers. Moves the control plane to a central point.
+
+Ansible: Uses SSH for remote device communication. YAML for fundamental configuration elements.
+Chef: TCP port 10002 for configuration push jobs. Ruby for fundamental configuration elements.
+Puppet: TCP  8140 for communication, fundamental configuration elements are stored in a manifest.
+
+Cisco DNA: REST APIs that allow for external application to interact natively
+          SDKs that support interaction with third party network equipment.
+
+Cisco DNA: Monitors the cloud for software updates. Uses NetFlow to analyze potential security threats. Uses CLI to apply a consistent configuration to multiple devices at an individual location.
+
+Traditiional Device Management: manages device configuration on per device basis. Implement changes via SSH. Security is managed near the perimeter of the network with firewalls. VPNs and IPS.
+
+Packet forwarding decisions by providing Layer 2 and Layer 3 routing information: Control Plane.
+
+Benefits of controller based: reduce network configuration while traditional increases the potential for errors. Controller based provides centralization of key IT functions, while traditional requieres distribued management functions. 
+
+API allows SDN controllers to dynamically make changes to the network: southbound API
+
+Packet forwarding -> Southbound API -> Controller -> Northbound API -> APP
+
+Accounting: Track activity
+Authentication: Verifies identity
+Authorization: Vrifies access rights 
+CoA: Updates session attributes.
+
+
+JSON: is used to describe structured data that includes arrays.
+
+Multitenancy: multiple clients same physical or virtual interface
+Scalability: Resources can be added and removed as needed to support current workload and tasks
+Resiliency: Tasks and data residing on a failed node can be sealessly migrated to other physical resources.
+Workload movement: Tasks can be migrated to different physical locations to increase efficiency or reduce cost.
+On demand: Resources are dedicated only when necessary.
+
+
+JSON encoding of a dictionary
+
+Hypervisor role for each virtual machine in server virtualization. Control and Distribution of physical resources.
+Control and Distribution of physical resource: Hypervisor provide for each virtual machine.
+Server provides shared applications to end users.
+
+CRUD: Update: modifies an existing table or view. Traffic forwarding data plane. 
+cisco_ospf_vrf { "R1 default": ensure => 'present', auto_cost => '100'}
+
+Ansible : TCP port 22.
+
+SDN controller uses Openflow as a communication protocol.
+HTTP messages to transfer data to application residing on different hosts: REST
+VXLAN to create SDA(software defined access to provide tunnel between two edge nodes in different fabrics.
+Control and infrastructure layer: Control and data plane
+
+
 
