@@ -1669,5 +1669,70 @@ Routing decision: Data plane.
 Southbound APIs: Netconf, OpenFlow.
 Controller based architecture network config over southbound.
 
-Controller based: 
-Traditional:
+Controller based: resource provision from a central point, better control over network, enables control over APIs
+Traditional: new devices are configured using the physical infrastructure, distributed control plane
+
+
+Controller: Distributed management plane, Southbound APIs to apply configurations(using OSPF, BGP), Consistent configuration across multiple devices.
+Traditional: Distributed control plane is needed. Northbound APIs to interact devices.
+
+
+HTTP error codes 4xx, 5xx.
+software switch on a hypervisor that is physically connected to the network.
+function of a controller in a SDN: making routing decisions.
+
+
+GET: Retrieves list of a resource's URIs.
+POST: Creates resource and returns its URI in the response header.
+PUT: Updates a resource using instructions included in the request body.
+PATCH: Creates or replaces previously modified resource using information in the request.
+DELETE: Removes a source.
+
+
+
+
+Southbound API functions in controller: Manage flow control between an SDN contreoller and a switching fabric.
+
+Puppets use manifest and modules.
+
+SDN controller and end applications: OpenFlow
+
+Cisco DNA: provides flexibility for custom and non standard configuration, support centralized management. support openAPI.
+Traditional: centralized software management, individual software management, per device management
+
+JSON token is used for security exchange information.
+Configration Management: Puppetis used for this type of technology, enables configuration of infrastructure resources.
+Orchestartion: Ansible is used for this type of technology, provied automation across multiple tec.
+
+Southbound API: SDN controller between switches and applications on the network.
+
+Ansible-used yaml, used ssh
+Chef-uses ruby, tcp 10002
+Puppet- stored in manifest, tcp 8140
+
+
+Cacheable: Divides the architecture into hierearchy of levels.
+Client server: Simplifies the comunication between components regardsless of the architecture supporting them.
+Layered system: Divides architecture components into consumers and producers of a service.
+Stateless: Operates without nay stored session information on the server
+Uniform interface: Enables the client to reuse a previous response for subsequent equivalent requests.
+
+
+Playbook: collection of actions o perform on target devices expressed in yaml format
+Managed node: device ansible installed upon which commands can be executed
+Control node: network device, without ansible installed upon which commands can be executed
+Task: specific action to be performed on one or more target devices
+Module: unit of python code to be executed
+Inventory:ansible file that defines the target devices upon which commands and tasks can be executed
+
+
+Policy driven provisioning, single entry point.
+Traditonal: Maintenance costs are high, cahngs individuallyat each device
+Controller:provides centralized, leverage controller to handle
+
+
+200 http success
+
+
+
+
