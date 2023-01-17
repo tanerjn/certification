@@ -1661,5 +1661,13 @@ HTTP messages to transfer data to application residing on different hosts: REST
 VXLAN to create SDA(software defined access to provide tunnel between two edge nodes in different fabrics.
 Control and infrastructure layer: Control and data plane
 
+When a deice is installed in cisco DNA center: device is placed into Managed State, is assigned to Global site.
 
+ANsible playbook cookbook to configure vlan on a switch.
 
+Routing decision: Data plane.
+Southbound APIs: Netconf, OpenFlow.
+Controller based architecture network config over southbound.
+
+Controller based: 
+Traditional:
