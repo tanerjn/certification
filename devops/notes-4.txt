@@ -1734,5 +1734,9 @@ Controller:provides centralized, leverage controller to handle
 200 http success
 
 
-
+accept application json
+A. to securely manage and deploy network devices cisco dna
+controller:A. to securely manage and deploy network devices
+B. Device(config)# netconf max-message 1000
+B. The hypervisor can virtualize physical components including CPU, memory, and storage
 
