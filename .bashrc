@@ -49,3 +49,5 @@ alias pip="pip3"
 alias find="sudo find"
 alias rmf="sudo rm -rf"
 alias ls="ls --color=auto"
+export PATH="$PATH:/opt/prj/etcd/etcd/bin"
+
