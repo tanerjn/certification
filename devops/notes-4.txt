@@ -1663,7 +1663,7 @@ Control and infrastructure layer: Control and data plane
 
 When a deice is installed in cisco DNA center: device is placed into Managed State, is assigned to Global site.
 
-ANsible playbook cookbook to configure vlan on a switch.
+Ansible playbook cookbook to configure vlan on a switch.
 
 Routing decision: Data plane.
 Southbound APIs: Netconf, OpenFlow.
@@ -1739,4 +1739,142 @@ A. to securely manage and deploy network devices cisco dna
 controller:A. to securely manage and deploy network devices
 B. Device(config)# netconf max-message 1000
 B. The hypervisor can virtualize physical components including CPU, memory, and storage
+
+
+--------------------------------------------------------------
+REAL CCNA
+----------------------------------------------------
+
+Router can become dhcp client: ip dhcp client
+802.11b wireless infrastructure: best practice: setting max data rate to 54 Mbps ?
+IP multicast start with FF
+STP(Spanning Tree Protocol)
+Public IP of NAT: Outside global
+HSRP: Hot standby Router protocol: Cisco redundancy protocol: exchange of multicast messages that advertise prirtiy among the HSRP group. If active router fails to send hello message within configurabl period of time, standby router with the highet priority becomes the active router. Hot standby 2 router 1 switch 1 pc.
+Weighted Random Early Detection: Mitigate congestion by preventing the queue from filling up. Drops lower priority before it drops higher priority packets.
+DNS service on, A records correct.
+if fa0/1 fa0/0 speed 100, duplex full (match)
+
+on switch: interface gigabitethnernet0/0 5/30
+int vlan10 
+ip address 10.10.10.10 255.0.0.0
+no shutdown
+end
+conf
+ip default-gateway 10.10.10.2
+speed 100
+duplex full
+show version
+ip route at switch
+send CDP packets to router
+interface Fa0/1
+no cdp enable (on switch)
+no cdp run(on r)
+cdp run(on r)
+int Gi0/0
+show cdp nei
+show ip interface brief(on sw)
+
+Factory reset: 
+r1:
+sh run 
+conf 
+hostname r1
+int gig0/0
+duplex auto 
+speed auto
+write erase 
+show start (startup config is not avaiable)
+line con 0(connect console port)
+exec-timeout 30 0
+copy run start
+enable secret cisco
+conf 
+config-register 0x2120 ( boot register 0x2120)
+end
+copy run start 
+copy run flash (copy run config to flash. BE CAREFUL WITH THIS COMMAND)
+Quick fix (If your router gets stuck in ROMmon mode during the boot process, examine the value of the configuration register by entering the confreg command.)
+copy start tftp
+reload
+ROMmon mode : Router mode( cisco)
+
+detect accedental changes: CRC
+router eigrp 100
+passive-interface loopback0
+passive-interface fastethernet1/1
+show ip eigrp neighbours
+tracert 10.1.2.10
+router eigrp 100
+designated router
+OSPF cost: Reference bandwidth / interface bandwith.
+Default route injection: service provider configured as a passive interface to avoid sending out internal network information.
+
+OSPF:
+Create IPs in R1 R2, one loopback in both routers configure IP,  enable OSPF and advertise network. check routing table adjacency status and LSDB.
+router-id 1.1.1.1
+router ospf 1 ( 1: router id)
+network 172.16.0.0 0.0.0.255 area 0 (inverse mask)
+
+optional way other: int lo0
+ip ospf 1 area 0
+
+r2:
+router ospf 1
+network 172.16.0.0 0.0.0.255 area 0
+show ip ospf nei (show adjacency)
+show ip ospf data (link state advertisements(LSA) link state database Dijkstra Shortest Path First(SPF))
+show ip ospf br
+debug ip ospf hello
+Neighbours are routers on the same network, exhange hello.
+Adjancencies are neighours and share information. (OSPD broadcas)
+Designated routers Backup designated routers.
+Cost: Reference BW/ Interface BW Decision is made based on cost.
+
+can configure links for ospf cost
+
+Runts: too small
+Giants: too big
+CRC: Frame error counter
+(LSU packet carries LSAs.
+Area Border Router:
+Cost: Reference BW/ Interface bandwidth 100Mbps/10Mbps=10
+Area contain multiple networks. Adjacencies are neighbourhoods.
+
+
+Routing Protocol:
+RIP: Distance Vector(RIP: 120)
+OSPF: Link State (AD: 110)
+IS-IS: Link State
+EIGRP: Distance Vector(advanced) (AD: 90)
+BGP:Path Vector(different autonomous systems)
+
+
+ip route 0.0.0.0 0.0.0.0 203.0.113.2
+
+router ospf1 
+passive-interface f1/1
+network 203.x.x.x 0.0.0.255 (to check if router has connection to 203 network)
+
+(Advertise with RIP)
+router rip
+default-information originate
+sh ip route
+
+(ADVERTISE 10.0.0.0 network with EIGRP)
+router eigrp 100
+network 10.0.0.0
+show ip eigrp neighbours
+show ip route brief
+
+
+Spanning Tree(SPT): Port discovery, root port,  root bridge.
+STP
+PVST
+RSTP
+Rapid PVST
+show spanning-tree
+
+Down-Init-TwoWay-Exstart-Exchange-Loading-Full
+
 
