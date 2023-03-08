@@ -1926,3 +1926,22 @@ multicast 224 - 239..., FF02
 	ip dhcp excluded-address 10.10.1.1 10.10.1.19, ip dhcp excluded-address 10.10.1.201 10.10.1.254, ip dhcp pool POOL, default-router 10.10.1.1 dns-server 10.10.10.10 10.10.10.11, option 150 ip 192.168.10.10, network 10.10.1.0 255.255.255.0
 	pull deployment model client server architecture: Puppet.
 
+
+
+Blog.earthtechbd.com
+Between switches RJ-45 crossover.
+Modem or CSU/DSU for clocking.
+RSTP: Designated, Backup, Alternate.
+show standby brief
+ICMP is documented in RCC792, echo-request message, can identify network problems.
+Router to switch: straight through.
+
+
+
+
+
+
+
+
+
+
