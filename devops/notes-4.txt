@@ -1943,5 +1943,53 @@ Router to switch: straight through.
 
 
 
+(Notes.networklessons.com)
+Physical:
+Powerover Ethernet
+Fiber
 
+Switching and L2:
+VLANs
+VTP
+EtherChannel
+SpanningTree
+SPAN
+ARP
+
+L3:
+IPv4
+IPv6
+
+L4:
+TCP
+UDP
+
+Routing:
+OSPF
+EIGRP
+BGP
+IS-IS
+RIP
+
+Network Services:
+FHRP
+Multicast
+NAT
+LISP
+MPLS(MultiProtocolLabelSwitching)
+
+Security:
+ASA
+IPSec
+VPN
+GRE
+ACL
+
+Management:
+Netflow
+SNMP
+
+QoS:
+Traffic shaping
+Traffic policing
 
