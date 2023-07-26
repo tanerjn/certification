@@ -18,6 +18,9 @@ alias greps="grep -rnw . -e"
 alias pet='pygmentize -g -O full,style=friendly,linenos=1'
 alias vimp="vim -p"
 
+alias chssh="sudo chmod 700 ~/.ssh"
+
+
 alias maven=/usr/local/apache-maven-3.8.4/bin/mvn
 alias awscon="cd /opt/prj/awscourse &&  ssh -i aws_re.pem ec2-user@ec2-3-127-203-31.eu-central-1.compute.amazonaws.com"
 alias gst="git status"
@@ -50,4 +53,3 @@ alias find="sudo find"
 alias rmf="sudo rm -rf"
 alias ls="ls --color=auto"
 export PATH="$PATH:/opt/prj/etcd/etcd/bin"
-
