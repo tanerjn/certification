@@ -51,5 +51,51 @@ alias git2="git config --global credential.helper cache"
 alias pip="pip3"
 alias find="sudo find"
 alias rmf="sudo rm -rf"
-alias ls="ls --color=auto"
+alias ls="ls --color=auto" 
 export PATH="$PATH:/opt/prj/etcd/etcd/bin"
+
+
+### bash prf
+export BASH_CONF="bash_profile"
+export PATH="/opt/mongosh-1.0.7-darwin-arm64/bin::$PATH"
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home
+alias abel="/Users/tanermetin/Library/Preferences/Ableton/"
+alias python='python3'
+alias now="cmatrix"
+alias rmf="sudo rm -rf"
+alias diff="colordiff"
+alias diffdir="diff --brief -x '.*' -r"
+alias free="top -l 1 -s 0 | grep PhysMem && vm_stat"
+alias cdp="cd /opt/phoenix"
+export LSCOLORS=exfxgxdxcxexexcxcxdxdd
+LS_COLORS=$LS_COLORS:'di=0;34:' ; export LS_COLORS
+alias rm="rm -i"
+alias trash="cd /Users/tanermetin/.Trash"
+alias dog="highlight -O ansi --force"
+alias net="netstat -pltn"
+alias liddisable="sudo pmset -a disablesleep 1"
+alias lidenable="sudo pmset -a disablesleep 0"
+C_INCLUDE_PATH="/usr/local/include"
+export PATH=~/bin:$PATH
+export PATH="$PATH:/opt/metasploit-framework/bin"
+export NVM_DIR=~/.nvm 
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi 
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+source $(brew --prefix nvm)/nvm.sh
+export RVM_HOME="$HOME/.rvm/bin"
+export GEM_PATH="$HOME/.gem/ruby/2.6.0/bin"
+export RUBY_PATH="/usr/bin/ruby"
+export PATH="$PATH:$RVM_HOME"
+export PATH="$GEM_PATH:$PATH"
+export PATH="$RUBY_PATH:$PATH"
+
+export GOPATH="$HOME/go/bin/"
+export GOROOT=/usr/local/go/bin
+
+export PATH=$PATH:$GOROOT
+export PATH=$PATH:$GOPATH
+
+
