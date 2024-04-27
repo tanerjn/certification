@@ -20,6 +20,18 @@ alias vimp="vim -p"
 
 alias chssh="sudo chmod 700 ~/.ssh"
 
+#SECOPS
+alias a44="sudo lsof -Pn -i4" # to check all the active connections, '->' means outgoing connection. 
+alias a45="nettop" # to check the usage of each conncetion, use d to see speed, c to see programs and e to re-expand. 
+alias a46="top" #to visualise memory usage, sort by CPU.
+alias a47="codesign -dvv" #to check signatures of app and dmg files, use path/to/dmg , for the full signature, -vv to verify the file.                            
+alias a48="shasumi -a" #to check hash value, <type> path/to/file , check the hash of the file, <type>: 1 or 256. 1 is less secure but more common.         
+alias a49="pkgutil --check-signature" # to verify the signature path/to/pkg, use pkgutil --expand /path/to/pkg : to extract the pkg into file.          
+alias a50="ps axo %cpu,comm | sort" #quick way to get top cpu.  
+alias a51="for i in `ps axo pid` ; do codesign -dvv $i 2>> codesign.log ; printf . ; done ; grep Authority codesign.log | sort -u" #checks the signature of every running program on the system.
+alias a52="for i in `ps axo pid` ; do codesign -v $i ; done" #Verifies the signature of running programms, if gives an error check with 'ps <PID>' to see what's going wrong. 
+alias a53="spctl --status" #assessments should be enabled. 
+alias a54="ls -la /Library/LaunchAgents && ls -la /Library/LaunchDaemons" #to check all files if an attacker added startup item but not visible on finder.
 
 alias maven=/usr/local/apache-maven-3.8.4/bin/mvn
 alias awscon="cd /opt/prj/awscourse &&  ssh -i aws_re.pem ec2-user@ec2-3-127-203-31.eu-central-1.compute.amazonaws.com"
