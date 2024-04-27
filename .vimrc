@@ -1,17 +1,3 @@
-syntax on
-filetype off                 
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'preservim/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ervandew/supertab'
-call vundle#end()    
-
 let c_no_curly_error=1
 let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
 let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
@@ -23,13 +9,13 @@ let g:airline#extensions#tabline#formatter = 'default'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-
-nnoremap <C-j> :bprev<CR>                                                                            
+syntax on
+filetype off
+nnoremap <C-j> :bprev<CR>                                                                       
 nnoremap <C-k> :bnext<CR>
 filetype plugin indent on   
 
 set termguicolors
-:colorscheme delek
 set tabstop=4
 set autoindent
 set hlsearch
@@ -64,6 +50,7 @@ set statusline+=%5*\ %{&spelllang}\%{HighlightSearch()}\  "Spellanguage & Highli
 set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
 set statusline+=%9*\ col:%03c\                            "Colnr
 set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
+set shell=/bin/bash
 hi User1 guifg=#ffdad8  guibg=#880c0e
 hi User2 guifg=#000000  guibg=#F4905C
 
